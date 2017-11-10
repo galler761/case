@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>多选项卡循环滚动播放</title><br />
+		<style type="text/css">
+			*{ margin: 0px; padding: 0px;}
+			#outside{ width: 1200px; overflow: hidden; margin: 0 auto; height: 300px;}
+			#outside #inside{ width: 3100px;}
+			#outside #inside div{ width: 300px; height: 300px; margin: 0px 5px; background-color: red; float: left;}
+
+		</style>
+	</head>
+
+	<body>
+		<p> 效果重现：某栏目由多个选项卡组成，可以实现多个选项卡不简单的循环滚动。</p>
+
+		<div id="outside">
+			<div id="inside">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var num = 0;
+
+			window.onload = function() {
+
+				var inside = document.getElementById("inside");
+
+				setInterval(function() {
+
+					num -= 1;
+
+					inside.style.marginLeft = num + "px";
+
+					console.log(inside.style.marginLeft);
+
+					if(num <= -1860) {
+
+						num = 0;
+
+					}
+
+				}, 1);
+
+			}
+		</script>
+	</body>
+
+</html>
