@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页-光合创投</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css  ">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/glide.core.css">
+    <link rel="stylesheet" href="css/glide.theme.css">
+</head>
+<body>
+<nav>
+    <div>
+        <div class="nav-div">
+            <a href="首页.html">
+                <img src="p4/logo.png">
+            </a>
+        </div>
+        <div class="nav-hander">
+            <ul>
+                <a href="#">
+                    <li class="nav-li">首页</li>
+                </a>
+                <a href="#">
+                    <li class="li">团队</li>
+                </a>
+                <a href="#">
+                    <li class="li">合作</li>
+                </a>
+                <a href="#">
+                    <li class="li">支持</li>
+                </a>
+                <a href="#">
+                    <li class="li">联系</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="Glide" class="glide">
+    <div class="glide__wrapper">
+        <ul class="glide__track">
+            <li class="glide__slide"><img src="p4/3.png"></li>
+            <li class="glide__slide"><img src="p4/1.png"></li>
+            <li class="glide__slide"><img src="p4/2.png"></li>
+            <li class="glide__slide"><img src="p4/slide.jpg"></li>
+        </ul>
+    </div>
+    <div class="glide__arrows">
+        <button class="glide__arrow prev" data-glide-dir="<">prev</button>
+        <button class="glide__arrow next" data-glide-dir=">">next</button>
+    </div>
+    <div class="glide__bullets"></div>
+</div>
+</body>
+<script src="js/jquery-latest.min.js"></script>
+<script src="js/glide.js"></script>
+<script>
+    $("#Glide").glide({
+        type: "carousel",
+        autoplay:4000
+    });
+</script>
+</html>

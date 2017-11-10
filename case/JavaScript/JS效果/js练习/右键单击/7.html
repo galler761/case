@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS</title>
+	<style>
+		ul,li{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		#nav {
+			width:200px;
+			border:1px solid #999;
+			box-shadow:3px 3px 3px #ccc;
+			position:absolute;
+			top:10px;
+			left:10px;
+			background-color:#fff;
+			display:none;
+		}
+		#nav li{
+			height:38px;
+			line-height:38px;
+			padding:0 20px;
+			cursor:pointer;
+			
+		}
+	</style>
+</head>
+<body>
+	<h1>onmouseover  onmosueout</h1>
+	<hr>
+	
+	<ul id="nav">
+		<li>复制</li>
+		<li>粘贴</li>
+		<li>剪切</li>
+		<li>刷新</li>
+		<li>用快播打开</li>
+		<li>用迅雷下载</li>
+	</ul>
+	
+	<script>
+		//获取菜单对象
+		var nav = document.getElementById('nav');
+		//绑定右击事件
+		document.oncontextmenu = function(en){
+			var e = en || window.event;
+			
+			var x = e.clientX;
+			var y = e.clientY;
+			
+			nav.style.top = y + 'px';
+			nav.style.left = x + 'px';
+			
+			nav.style.display = "block";
+			return false;
+		}
+		//单击事件
+		document.onclick = function(){
+			nav.style.display = "none";
+		}
+		
+		//获取li的集合  
+		var lis = nav.getElementsByTagName('li');
+		//循环
+		for (var i = 0 ; i < lis.length; i ++) {
+			//悬浮
+			lis[i].onmouseover = function(){
+				this.style.backgroundColor = "#ccc";
+			}
+			//鼠标 移走
+			lis[i].onmouseout = function(){
+				this.style.backgroundColor = "#fff";
+			}
+		}
+	</script>
+</body>
+</html>

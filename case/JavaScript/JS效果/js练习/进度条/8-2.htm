@@ -1,0 +1,32 @@
+<form name=loading>
+
+	<p align=center>
+		<font color="#800080" size="2">载入中，请稍等</font>
+		<font color="#FFFF00" size="2" face="Arial">...</font>
+
+		<input type=text name=chart size=46 style="font-family:Arial; font-weight:bolder; color:#800080; background-color:#C0FFFF; padding:0px; border-style:none;">
+
+		<input type=text name=percent size=47 style="color:#800080; text-align:center; border-width:medium; border-style:none;">
+		<script language="JavaScript">
+			var bar = 0　 <!--声明变量-->
+			var line = "||"　 <!--loading条的样式-->
+			var amount = "||"　 <!--loading条的样式-->
+			count() <!--直接调用count()函数-->
+			　
+			function count() {　
+				bar = bar + 2　 <!--每次增加两个bar-->
+				amount = amount + line　 <!--loading条每次增加两条竖线-->
+				document.loading.chart.value = amount　 <!--刷新进展条-->
+				document.loading.percent.value = bar + "%"　 <!--计算出百分比-->
+				if(bar < 99)　 {
+					setTimeout("count()", 100);
+				} else　 {
+					window.location = "http://www.JavaScript.com/";/*进展条满后，显示另一个网页*/
+				}　
+			}
+		</script>
+</form>
+<!--本例程实现了进展条的功能-->
+<!--进展条的具体实现过程-->
+<!--相应的进展百分比的实现过程-->
+<!--根据不同的情况给出不同输出网页的方法-->

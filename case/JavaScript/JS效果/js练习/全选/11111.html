@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>index</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+            <input type="checkbox"id="ok">哈哈<br>
+   
+    <input onclick="pp();" type="checkbox"id="ok">全选
+    <button  onclick="kk();">全不选</button>
+     <button  onclick="gg();">反选</button>
+
+</body>
+<script>
+    var input=document.getElementsByTagName('input');
+
+function pp(){
+    for( var i=0;i<input.length;i++){
+        input[i].checked=true;
+    }
+}
+function kk(){
+    for(var i=0;i<input.length;i++){
+    
+        input[i].checked=false;
+    }
+}
+function gg(){
+    for(var i=0;i<input.length;i++){
+        input[i].checked=!input[i].checked;
+    }
+
+}
+</script>
+</html>

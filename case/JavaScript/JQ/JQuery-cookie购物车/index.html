@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/shopcart.css" />
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+		<script type="text/javascript" src="js/shopcart.js" ></script>
+		<script type="text/javascript">
+			$(function () {
+				
+				// 创建购物车
+				$(window).on("load", function () {
+					loadCart();
+				});
+				
+				// 加载购物车中的商品
+				function loadCart() {
+					var carts = new CartHelper().Read();// 读取购物车中的数据
+					$(".cartItems").children().remove();
+					// 加载到页面上
+					/******************* 加载购买商品信息 BEGIN***********************/
+					$.each(carts.Items, function(index,cartItem) {
+						// console.log(index + "---" + cartItem);
+						// console.log(value);
+						
+						updateCartPage(cartItem.Id, cartItem.Name, cartItem.Count, cartItem.Price, cartItem.imgPath);
+					});
+					/******************* 加载购买商品信息 END***********************/
+					// 加载购物结算信息
+					$(".totalCount").text(carts.Count);
+					$(".totalPrice").text(carts.Total);
+				}
+				
+				$(".scBox a").on("click", function() {
+					// 获取商品id
+					var id = $(this).parent().prev().prev().prev().prev().prev().text();
+					// 获取图片路径
+					var imgPath = $(this).parent().prev().prev().prev().prev().children("img").attr("src");
+					// 获取名称
+					var goodsName = $(this).parent().prev().prev().prev().text();
+					// 获取单价
+					var price = $(this).parent().prev().prev().text();
+					// 获取购买数量
+					var count = $(this).parent().prev().text();
+					
+					// 写购物车到cookie中
+					new CartHelper().Add(id, goodsName, count, price, imgPath);
+					
+					// 加载购物车中的数据
+					loadCart();
+				});
+				
+				/********************** 更新页面 ************************/
+				function updateCartPage(id, goodsName, count, price, imgPath) {
+					var $tdId = $("<td>");// 商品编号列
+					var $tdImg = $("<td>");// 商品图片列
+					var $tdName = $("<td>");//商品名称列
+					var $tdPrice = $("<td>");// 商品单价列
+					var $tdCount = $("<td>");// 购买数量列
+					var $tdSubtotal = $("<td>");// 小计价格列
+					
+					var $trItem = $("<tr>");
+					// 更新数据
+					$tdId.text(id);
+					$tdImg.append($("<img>").attr("src", imgPath));
+					$tdName.text(goodsName);
+					$tdPrice.text(price);
+					$tdCount.text(count);
+					$tdSubtotal.text(count * price);
+					
+					$trItem.append($tdId);
+					$trItem.append($tdImg);
+					$trItem.append($tdName);
+					$trItem.append($tdPrice);
+					$trItem.append($tdCount);
+					$trItem.append($tdSubtotal);
+					
+					$(".cartItems").append($trItem);
+				}
+				/********************** 更新页面 ************************/
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="scTitle">购物车案例操作</div>
+			<div class="scBox">
+				<table>
+					<thead>
+						<tr>
+							<td>商品ID</td>
+							<td>图片</td>
+							<td>名称</td>
+							<td>单价</td>
+							<td>购买数量</td>
+							<td>操作</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><img src="img/test.jpg_.webp"/></td>
+							<td>商品1</td>
+							<td>10</td>
+							<td>1</td>
+							<td><a href="javascript:void(0);">添加到购物车</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><img src="img/test.jpg_.webp"/></td>
+							<td>商品2</td>
+							<td>12</td>
+							<td>1</td>
+							<td><a href="javascript:void(0);">添加到购物车</a></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><img src="img/test.jpg_.webp"/></td>
+							<td>商品3</td>
+							<td>13</td>
+							<td>1</td>
+							<td><a href="javascript:void(0);">添加到购物车</a></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><img src="img/test.jpg_.webp"/></td>
+							<td>商品4</td>
+							<td>14</td>
+							<td>1</td>
+							<td><a href="javascript:void(0);">添加到购物车</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="scTitle">
+				购物车中的数据
+			</div>
+			<div class="shopcart">
+				<table>
+					<thead>
+						<tr>
+							<td>编号</td>
+							<td>图片</td>
+							<td>名称</td>
+							<td>单价</td>
+							<td>购买数量</td>
+							<td>小计价格</td>
+							<td>操作</td>
+						</tr>
+					</thead>
+					<tbody class="cartItems">
+						<!--<tr>
+							<td><img src="img/test.jpg_.webp"/></td>
+							<td>商品1</td>
+							<td>10</td>
+							<td>18</td>
+							<td>1800</td>
+							<td><a href="javascript:void(0);">删除</a></td>
+						</tr>-->
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3">购买商品数量：<span class="totalCount">0</span></td>
+							<td colspan="3">总价格：<span class="totalPrice">0</span></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

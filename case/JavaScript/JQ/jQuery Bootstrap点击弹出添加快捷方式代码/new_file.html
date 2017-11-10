@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+ <title>Jquery遮罩层</title>
+ 
+ <style type="text/css">   
+   #BgDiv{background-color:#e3e3e3; position:absolute; z-index:99; left:0; top:0; display:none; width:100%; height:1000px;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}
+   
+   #DialogDiv{position:absolute;width:400px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+   #DialogDiv h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+   #DialogDiv h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+   #DialogDiv .form{padding:10px;}
+   
+   #DialogDiv2{position:absolute;width:400px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+   #DialogDiv2 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+   #DialogDiv2 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+   #DialogDiv2 .form{padding:10px;}
+   
+   #DialogDiv3{position:absolute;width:400px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+   #DialogDiv3 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+   #DialogDiv3 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+   #DialogDiv3 .form{padding:10px;}
+ </style>
+ 
+ <script language="javascript" type="text/javascript" src="jquery-1.4.2.min.js"></script>
+ <script language="javascript" type="text/javascript">
+  function ShowDIV(thisObjID) {
+     $("#BgDiv").css({ display: "block", height: $(document).height() });
+     var yscroll = document.documentElement.scrollTop;
+     $("#" + thisObjID ).css("top", "100px");
+     $("#" + thisObjID ).css("display", "block");
+  document.documentElement.scrollTop = 0;
+   }
+
+   function closeDiv(thisObjID) {
+     $("#BgDiv").css("display", "none");
+     $("#" + thisObjID).css("display", "none");
+   }
+ </script>
+ 
+ </head>
+ 
+ <body>
+ <div id="BgDiv"></div>
+ 
+ <!--遮罩层显示的DIV1-->
+ <div id="DialogDiv" style="display:none">
+  <h2>弹出层<a href="#" id="btnClose" onclick="closeDiv('DialogDiv')">关闭</a></h2>
+  <div class="form">我是弹出对话框111111！！</div>
+ </div>
+ 
+ <!--遮罩层显示的DIV2-->
+ <div id="DialogDiv2" style="display:none">
+  <h2>弹出层<a href="#" id="btnClose2" onclick="closeDiv('DialogDiv2')">关闭</a></h2>
+  <div class="form">我是弹出对话框2222！！</div>
+ </div>
+ 
+ <!--遮罩层显示的DIV3-->
+ <div id="DialogDiv3" style="display:none">
+  <h2>弹出层<a href="#" id="btnClose3" onclick="closeDiv('DialogDiv3')">关闭</a></h2>
+  <div class="form">我是弹出对话框3333333！！</div>
+ </div> 

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>进度条</title>
+		<style>
+			#out{width:600px;height:30px;border:3px solid #888;border-radius:20px;margin-top:100px;text-align:right;}
+			#in{float:left;width:0%;height:30px;background:#34FA24;border-radius:20px;font-size:20px;color:#fff;}
+
+			.button1{background:none;border:none;width:80px;height:30px;background:#4DBF7D;margin-top:20px;border-radius:5px;color:#fff;font-size:20px;}
+			.button2{background:none;border:none;width:100px;height:30px;background:#F79021;margin-top:20px;border-radius:5px;color:#fff;font-size:20px;}
+			
+			.button3{background:none;border:none;width:100px;height:30px;background:#5BC0DE;margin-top:20px;border-radius:5px;color:#fff;font-size:20px;}
+
+
+		</style>
+	</head>
+	<body>
+		<div style="width:600px;margin:100px auto">
+			<div id="out">
+				<div id="in"></div>
+			</div>
+			<button class="button1" onclick="start()">开始</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="bun" class="button2" onclick="text(this)">暂停</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button3"  onclick="ttt()">重新下载</button>
+		</div>
+		<script>
+			var div = document.getElementById('in');
+			var bun = document.getElementById('bun');
+
+			var m=0;
+			var msg = true;
+			var masg = true;
+			function start(){
+				if(msg){
+					msg = false;
+					test();
+				}else{
+					alert('nizii');
+				}
+				
+			}
+			
+			function test(){
+				if(m>100){
+					msg = true;
+					alert('下载已完成!');
+					return;
+				}
+				div.style.width = m+"%";
+				div.innerHTML = div.style.width;
+				m++;
+				a = setTimeout(test,100);
+			}
+
+			function text(aaa){
+				if(masg){
+					if(msg){return;}
+					masg = false;
+					aaa.innerHTML = '恢复下载';
+					clearTimeout(a);
+				}else{
+					masg = true;
+					clearTimeout(a);
+					test();
+					aaa.innerHTML = '暂停';
+				}
+			}
+
+			function ttt(){
+				clearTimeout(a);
+				bun.innerHTML = '暂停';
+				masg = true;
+				m = 0;
+				test();
+			}
+		</script>
+	</body>
+</html>

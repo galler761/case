@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+*{margin: 0; padding: 0; box-sizing: border-box; color: #666; user-select:none; -webkit-user-select: none;}
+.wrap{width: 320px; height: 320px; margin: 20px auto;}
+.wrap:after{content:''; display: block; clear: both;}
+.wrap .left{width: 240px; height: 320px; float: left;}
+.wrap .screen{width: 320px; height: 80px; text-align: right; font-size: 26px;}
+.right{width: 80px; height: 320px; float: right;}
+.left:after{content:''; display: block; clear: both;}
+.left .col{float: left; width: 80px; height: 80px; cursor: pointer; line-height: 80px; text-align: center;}
+.right .col{width: 80px; height: 64px; cursor: pointer; line-height: 64px; text-align: center;}
+</style>
+</head>
+<body>
+	<div class="wrap" id="root">
+		<div class="screen">{{screen}}</div>
+		<div class="left">
+			<div  x-for="num" class="col" x-on-click="numC">{{$el}}</div>
+			<div class="col" x-on-click="eq">=</div>
+		</div>
+		<div class="right">
+			<div class="col" x-on-click="remove">删除</div>
+			<div class="col" x-on-click="numC">/</div>
+			<div class="col" x-on-click="numC">*</div>
+			<div class="col" x-on-click="numC">-</div>
+			<div class="col" x-on-click="numC">+</div>
+		</div>
+	</div>
+</body>
+</html>
+<script src="xx.js"></script>
+<script>
+	var vm = xx("#root",{
+		screen:''
+		,num:[7,8,9,4,5,6,1,2,3,'.',0]
+		,numC:function(){
+			var me = this;
+			vm.screen+=me.innerHTML;
+			var patt = /^[\/\*\-\+]{1}/;
+			var r = patt.exec(vm.screen);
+			if(r!=null)vm.screen=vm.screen.substr(1);	
+		}
+		,remove:function(){
+			vm.screen=(''+vm.screen).slice(0,vm.screen.length-1);
+		}
+		,eq:function(){
+			if(vm.screen!="")vm.screen = eval(vm.screen);			
+		}
+	});
+</script>

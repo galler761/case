@@ -1,0 +1,447 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的首页 微博-随时随地发现新鲜事</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	</head>
+
+	<body>
+		<div id="z-index1">
+			<div id="content_center">
+				<div id="center_public">
+					<!--<p class="index4_top">
+                <img class="top_img" src="img/youshenme.jpg">
+                <b class="index4_center" style="float:right;width:100px;margin-right:20px;">还可以输入<span class="numbers">140</span>字</b> 
+            </p>
+
+            <textarea class="index4_text" maxlength="140" style="width:567px;">
+            </textarea>
+            
+            <ul class="index4_bottom" style="width:600px;">
+                <li class="additional_function" style="width:350px;">
+                	<span class="function_span1">表情</span>
+                    <span class="function_span2">图片</span>
+                    <span class="function_span2">视频</span>
+                    <span class="function_span2">话题</span>
+                </li>
+                
+                <li>
+                	<a class="open" style="margin-left:100px;" href="">公开</a>
+                </li>
+                
+                <li>
+                	<button class="public">发布</button>
+                </li>
+            </ul>-->
+				</div>
+
+				<ul id="center_nav">
+					<li>
+						<a href="">全部</a>
+					</li>
+					<li>
+						<a href="">原创</a>
+					</li>
+					<li>
+						<a href="">图片</a>
+					</li>
+					<li>
+						<a href="">视频</a>
+					</li>
+					<li>
+						<a href="">音乐</a>
+					</li>
+					<li>
+						<a href="">文章</a>
+					</li>
+					<li class="center_nav_input">
+						<input type="text" placeholder="搜索我关注人的微博">
+						<a href="javascript:;"><img src="img/tubiao10.png"></a>
+					</li>
+				</ul>
+
+				<!--输入框发表的动态将出现在这div里-->
+				<div id="new_content" style="float:left; width:600px; height:auto;">
+
+					<!--第一个子对象-->
+					<dl id="content_dynamic_state1">
+						<dt class="state1_owner" style="height:auto;">
+					<img src="img/spa.png">
+					<p class="owner_name">
+						<span>长剑腥腥挂壁</span><img src="img/tubiao9.png">
+					</p>
+					<p class="time">07-28 14:32 来自 iPhone</p>	
+					<p class="title" style="float:left;width:490px; height:auto;">
+						出生在笼中的鸟，认为飞翔是一种病
+					</p>
+				</dt>
+						<dd class="state1_time"></dd>
+						<dd class="state1_list">
+							<ul>
+								<li class="collection">
+									<a href="">收藏</a>
+								</li>
+								<li class="comment">
+									<a href="">评论16</a>
+								</li>
+								<li class="repeat">
+									<a href="">转发32</a>
+								</li>
+								<li class="agree">
+									<a href="">点赞54</a>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+				<!--new_content-->
+
+				<!--动态复制对象 -->
+				<dl id="content_dynamic_state2" class="owner_clone">
+					<dt class="state1_owner" style="height:auto;">
+				<img src="img/spa.png">
+				<p class="owner_name">
+                    <span>长剑腥腥挂壁</span><img src="img/tubiao9.png">
+                </p>
+				<p class="time">
+					<span class="dynamic_time">07-14 23:47</span> 来自 iPhone
+				</p>	
+                <p id="owner_content" class="title" style="float:left;width:490px; height:auto;">
+					我是奔跑的五花肉 我为自己带盐
+                </p>
+			</dt>
+					<dd class="state1_time"></dd>
+					<dd class="state1_list">
+						<ul>
+							<li class="collection">
+								<a href="">收藏</a>
+							</li>
+							<li class="comment">
+								<a href="">评论0</a>
+							</li>
+							<li class="repeat">
+								<a href="">转发0</a>
+							</li>
+							<li class="agree">
+								<a href="">点赞0</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+
+				<!--动态1知神君-->
+				<dl id="content_dynamic_state1">
+					<dt class="state1_owner">
+				<img src="img/touxiang1.jpg">
+				<p class="owner_name">
+                    <span>知神君</span><img src="img/tubiao7.png">
+                </p>
+				<p class="time">今天 07:21 来自 即刻笔记</p>	
+                <p class="title">
+                	<img src="img/laugh.gif">
+                    <img src="img/laugh.gif">
+                    <img src="img/laugh.gif">
+                	奇葩同桌的奇葩故事，你们来感受一下！！！
+                </p>	
+			</dt>
+
+					<!--小图查看区域。开始状态-->
+					<dd class="state1_content_default">
+						<table class="default_minpic">
+							<tr>
+								<td class="check"><img src="img/pic1.jpg"></td>
+								<td class="check"><img src="img/pic2.jpg"></td>
+								<td class="check"><img src="img/pic3.jpg"></td>
+							</tr>
+
+							<tr>
+								<td class="check"><img src="img/pic4.jpg"></td>
+								<td class="check"><img src="img/pic5.jpg"></td>
+								<td class="check"><img src="img/pic6.jpg"></td>
+							</tr>
+
+							<tr>
+								<td class="check"><img src="img/pic7.jpg"></td>
+								<td class="check"><img src="img/pic8.jpg"></td>
+								<td class="check"><img src="img/pic9.jpg"></td>
+							</tr>
+						</table>
+					</dd>
+
+					<!--大图片查看区域-->
+					<dd class="state1_content">
+						<ul class="state1_content_top">
+							<li class="li1">
+								<a href="javascript:;">收起</a>
+							</li>
+							<li class="li2">
+								<a href="javascript:;">查看大图</a>
+							</li>
+							<li class="li3">
+								<a href="javascript:;">向左旋转</a>
+							</li>
+							<li class="li4">
+								<a href="javascript:;">向右旋转</a>
+							</li>
+						</ul>
+
+						<div id="pics1">
+							<span class="maxpics"><img src="img/pic1.jpg"></span>
+							<span class="maxpics"><img src="img/pic2.jpg"></span>
+							<span class="maxpics"><img src="img/pic3.jpg"></span>
+							<span class="maxpics"><img src="img/pic4.jpg"></span>
+							<span class="maxpics"><img src="img/pic5.jpg"></span>
+							<span class="maxpics"><img src="img/pic6.jpg"></span>
+							<span class="maxpics"><img src="img/pic7.jpg"></span>
+							<span class="maxpics"><img src="img/pic8.jpg"></span>
+							<span class="maxpics"><img src="img/pic9.jpg"></span>
+						</div>
+
+						<ul class="pics">
+							<li class="minpics" style="border:2px solid #fa7d3c;"><img src="img/pic1.jpg"></li>
+							<li class="minpics"><img src="img/pic2.jpg"></li>
+							<li class="minpics"><img src="img/pic3.jpg"></li>
+							<li class="minpics"><img src="img/pic4.jpg"></li>
+							<li class="minpics"><img src="img/pic5.jpg"></li>
+							<li class="minpics"><img src="img/pic6.jpg"></li>
+							<li class="minpics"><img src="img/pic7.jpg"></li>
+							<li class="minpics"><img src="img/pic8.jpg"></li>
+							<li class="minpics"><img src="img/pic9.jpg"></li>
+						</ul>
+					</dd>
+					<!--<dd class="state1_content">-->
+
+					<dd class="state1_time"></dd>
+
+					<dd class="state1_list">
+						<ul>
+							<li class="collection">
+								<a href="">收藏</a>
+							</li>
+							<li class="comment">
+								<a href="">评论145</a>
+							</li>
+							<li class="repeat">
+								<a href="">转发726</a>
+							</li>
+							<li class="agree">
+								<a href="">点赞576</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+
+				<!--个人动态-->
+				<dl id="content_dynamic_state1">
+					<dt class="state1_owner" style="height:auto;">
+				<img src="img/spa.png">
+				<p class="owner_name">
+                    <span>长剑腥腥挂壁</span><img src="img/tubiao9.png">
+                </p>
+				<p class="time">07-02 09:55 来自 iPhone</p>	
+                <p class="title" style="float:left;width:490px; height:auto;">
+                	七月份期待的两件事 
+                    <img src="img/hearta_org.gif">
+                    <img src="img/hearta_org.gif">
+                    大鱼海棠 以及 
+                    <img src="img/doge_org.gif">
+                    <img src="img/doge_org.gif">
+                    海牙仲裁后美国 菲律宾 日本以及中国各方的动作
+                </p>
+			</dt>
+
+					<dd class="dayupic">
+						<img src="img/haitang2.jpeg">
+					</dd>
+
+					<dd class="state1_time"></dd>
+
+					<dd class="state1_list">
+						<ul>
+							<li class="collection">
+								<a href="">收藏</a>
+							</li>
+							<li class="comment">
+								<a href="">评论0</a>
+							</li>
+							<li class="repeat">
+								<a href="">转发0</a>
+							</li>
+							<li class="agree">
+								<a href="">点赞0</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+
+			</div>
+
+			<div id="content_right">
+				<div id="center_right_owner">
+					<p id="pictrue"><img src="img/spa.png"></p>
+					<p id="name">长剑腥腥挂壁</p>
+					<ul>
+						<li>
+							<p class="lip1">676</p>
+							<p class="lip2">关注</p>
+						</li>
+						<li class="fans">
+							<p class="lip1">32</p>
+							<p class="lip2">粉丝</p>
+						</li>
+						<li>
+							<p class="lip1">12</p>
+							<p class="lip2">微博</p>
+						</li>
+					</ul>
+				</div>
+
+				<div id="center_right_Olympics"></div>
+
+			</div>
+		</div>
+		<!--<div id="z-index1">-->
+
+		<div id="z-index2">
+			<ul id="ft_center">
+				<li class="logo">
+					<h1><img src="img/logo.jpg"></h1>
+				</li>
+
+				<li class="input">
+					<input class="txt" type="text" value="搜索微博、找人" onfocus="this.value='菲尔普斯承认准备退役'" />
+					<a href=""></a>
+				</li>
+
+				<li>
+					<a class="home" href="">首页</a>
+				</li>
+
+				<li>
+					<a class="find" href="">发现</a>
+				</li>
+
+				<li>
+					<a class="game" href="">游戏</a>
+				</li>
+
+				<li>
+					<a class="owner" href="">长剑腥腥挂壁</a>
+				</li>
+
+				<li>
+					<a class="email" href=""></a>
+				</li>
+
+				<li>
+					<a class="tool" href=""></a>
+				</li>
+
+				<li>
+					<a class="write" href="javascript:;" title="试一下N键盘？"></a>
+				</li>
+
+			</ul>
+		</div>
+		<!--<div id="z-index2">-->
+
+		<ul id="left_nav">
+
+			<li class="nav_li1">
+				<a href="">首页</a>
+				<a href="">我的收藏</a>
+				<a href="">我的赞</a>
+			</li>
+
+			<li class="nav_li2">
+				<a href=""><img src="img/tu1.png">热门微博<img id="redpoint" src="img/redpoint.png"></a>
+				<a href=""><img src="img/tu2.png">里约奥运会</a>
+			</li>
+
+			<li class="nav_li3">
+				<a href=""><img src="img/tu3.png">好友圈</a>
+				<a href=""><img src="img/tu4.png">群微博</a>
+				<a href=""><img src="img/tu5.png">特别关注</a>
+				<a href=""><img src="img/tu6.png">悄悄关注</a>
+			</li>
+		</ul>
+
+		<ul id="up_email">
+			<li>
+				<a href="">@我的</a>
+			</li>
+			<li>
+				<a href="">评论</a>
+			</li>
+			<li>
+				<a href="">赞</a>
+			</li>
+			<li>
+				<a class="private" href="">私信</a>
+			</li>
+			<li>
+				<a href="">未关注人私信</a>
+			</li>
+			<li>
+				<a href="">群通知</a>
+			</li>
+			<li>
+				<a class="set" href="">群消息设置</a>
+			</li>
+		</ul>
+
+		<ul id="up_tool">
+			<li>
+				<a href="">账号设置</a>
+			</li>
+			<li>
+				<a href="">会员中心</a>
+			</li>
+			<li>
+				<a href="">V认证</a>
+			</li>
+			<li>
+				<a href="">账号安全</a>
+			</li>
+			<li>
+				<a href="">以内隐私设置</a>
+			</li>
+			<li>
+				<a href="">消息设置</a>
+			</li>
+			<li>
+				<a href="">帮助中心</a>
+			</li>
+			<li>
+				<a class="out" href="">退出</a>
+			</li>
+		</ul>
+
+		<div id="z-index3"></div>
+
+		<div id="z-index4" style="width:500px; height:200px;">
+			<p class="index4_top">
+				<span>有什么新鲜事想告诉大家？</span>
+				<img src="img/X.png" class="index4_top_X">
+			</p>
+
+			<p class="index4_center">还可以输入<span class="numbers">140</span>字</p>
+
+			<textarea class="index4_text" maxlength="140"></textarea>
+
+			<ul class="index4_bottom">
+				<li class="additional_function"></li>
+				<li>
+					<a class="open" href="">公开</a>
+				</li>
+				<li><button class="public">发布</button></li>
+			</ul>
+		</div>
+
+		<script src="js/weibo.js"></script>
+	</body>
+
+</html>

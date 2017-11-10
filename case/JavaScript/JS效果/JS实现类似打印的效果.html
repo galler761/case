@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS 实现类似打印的效果</title>
+    <style type="text/css">
+    	#aa{height:30px;}
+    </style>
+</head>
+<body>
+	<input type="text" id="aa">
+	<div style="display:none" id="w">JS 实现类似打印的效果</div>
+	<script language="javascript">
+		var word=document.getElementById("w").innerHTML;
+		var index = 0;
+		function addIndex(){
+			if (index<word.length) {
+				index++
+			}else{
+				index=0
+			}
+		}
+		function type() {
+			addIndex();
+			var html = word.substring(0,index);
+			var input = document.getElementById('aa');
+			input.value = html;
+		}
+		setInterval(type,100);
+		
+	</script>
+</body>
+</html>

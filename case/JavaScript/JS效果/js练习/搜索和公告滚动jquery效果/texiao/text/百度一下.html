@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+				*{margin:0;padding:0;}
+			#box{width:404px;margin:100px;position:relative;}
+			#box input{float:right;width:0px;height:40px;font-size:30px;}
+			#box a{float:left;display:line-block;width:80px;height:44px;background:teal;color:#fff;line-height:40px;text-align:center;text-decoration:none;position:absolute;left:400px;top:0px;}
+		</style>
+		<script src="./jquery-1.8.3.min.js"></script>
+		<script>
+			$(function(){
+				$('#showbtn').click(function(){
+					$('#input').animate({
+						"width":"400px",
+					},3000);
+					return false;
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="input"><a href="#" id="showbtn">百度一下</a>
+		</div>
+	</body>
+</html>

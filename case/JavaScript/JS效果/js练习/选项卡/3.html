@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+	   .container{
+			width:800px;
+			margin:20px auto 10px;
+	   }
+	   ul {
+		list-style:none;
+	   }
+	   
+	   #options{
+			border-bottom:1px solid #999;
+			border-left:1px solid #999;
+			height:38px;
+	   }
+	   
+	   #options li{
+			float:left;
+			heigth:37px;
+			line-height:37px;
+			padding:0px 20px;
+			border-right:1px solid #999;
+			border-top:1px solid #999;
+			background-color:#f5f5f5;
+			cursor:pointer;
+	   }
+	   
+	   #options li.current{
+			background-color:#fff;
+			height:38px;
+	   }
+	   
+	   #cards{
+			clear:both;
+	   }
+	   
+	   #cards li{
+			padding:20px;
+			border:1px solid #999;
+			border-top:0px;
+			height:400px;
+			display:none;
+	   }
+	   #cards li.current{
+			display:block;
+	   }
+		
+	</style>
+</head>
+<body>
+
+	<h1>选项卡</h1>
+	<hr>
+	
+	<div class="container">
+		<ul id="options">
+			<li class="current">已完成订单</li>
+			<li>已发货订单</li>
+			<li>已付款订单</li>
+			<li>未付款订单</li>
+			<li>已失效订单</li>
+		</ul>
+		<ul id="cards">
+			<li class="current"> 啊， 这里是 已经完成了的订单</li>
+			<li> 呀， 这里是 已经发货了的订单</li>
+			<li> 嘿， 这里是 已经付款了的订单</li>
+			<li> 哦， 这里是 还没有付款了的订单</li>
+			<li> 呵呵， 这里是 已经失效了的订单</li>
+		</ul>
+	</div>
+	
+	<script>
+		//获取选项的集合和卡的集合
+		var optionList = document.getElementById('options').getElementsByTagName('li');
+		var cardList = document.getElementById('cards').getElementsByTagName('li');
+	
+		//给选项 绑定事件
+		for (var i = 0; i < optionList.length; i ++) {
+			(function(i){
+				optionList[i].onclick = function(){
+					//其他 选项 变灰
+					for (var j = 0; j < optionList.length; j ++) {
+						optionList[j].className = "";
+					}
+ 					//当前选项变白
+					this.className = "current";
+					
+					//所有 卡 隐藏
+					for (var j = 0; j < cardList.length; j ++) {
+						cardList[j].className = "";
+					}
+					//当前的 卡 显示
+					cardList[i].className = "current";
+				}
+			})(i)
+		}
+	
+	</script>
+</body>
+</html>

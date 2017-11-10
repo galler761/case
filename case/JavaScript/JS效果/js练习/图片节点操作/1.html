@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS</title>
+	<style>
+		
+		#imglist{
+			width:98%;
+			padding:20px;
+			border:1px solid #333;
+		}
+		#imglist img{
+			width:200px;
+			height:150px;
+			cursor:pointer;
+		}
+		#imglist img.selected{
+			border:2px solid red;
+			width:196px;
+			height:146px;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>图片延迟加载</h1>
+	<hr>
+	<div id="imglist">
+		<img src="../images/Meinv001.jpg">
+		<img src="../images/Meinv002.jpg">
+		<img src="../images/Meinv003.jpg">
+		<img src="../images/Meinv004.jpg">
+		<img src="../images/Meinv005.jpg">
+		<img src="../images/Meinv006.jpg">
+		<img src="../images/Meinv007.jpg">
+		<img src="../images/Meinv008.jpg">
+		<img src="../images/Meinv009.jpg">
+		<img src="../images/Meinv001.jpg">
+		<img src="../images/Meinv002.jpg">
+		<img src="../images/Meinv003.jpg">
+		<img src="../images/Meinv004.jpg">
+		<img src="../images/Meinv005.jpg">
+		<img src="../images/Meinv006.jpg">
+		<img src="../images/Meinv007.jpg">
+		<img src="../images/Meinv008.jpg">
+		<img src="../images/Meinv009.jpg">
+	</div>
+	<button onclick="replaceImg()">替换选定的图片</button><br>
+	<button onclick="appendImg()">追加节点</button>
+	<button onclick="insertImg()">指定位置追加节点</button><br>
+	<button onclick="createImg()">创建节点</button><br>
+	<hr>
+	<img src="../images/Meinv017.jpg" width=200 id="myimg">
+	<script>
+		//选定图片
+		var imgs = imglist.getElementsByTagName('img');
+		for (var i = 0; i < imgs.length; i ++) {
+			imgs[i].onclick = function(){
+				this.className = "selected";
+			}
+		}
+		
+		
+		//创建节点
+		 function createImg(){
+			var img = document.createElement('img');
+			img.src = "../images/Meinv016.jpg";
+			/*
+			var title = document.createAttribute('title');
+			title.nodeValue = "hello,翠翠";
+			img.setAttributeNode(title);
+			*/
+			//img.setAttribute('title', 'hello jinjign');
+			img.title = "hello, 艳艳";
+			imglist.appendChild(img);
+		 }
+		
+		//制定位置追加节点
+		function insertImg(){
+			imglist.insertBefore(myimg, imgs[3]);
+		}
+		
+		//追加接待你
+		function appendImg(){
+			imglist.appendChild(myimg);
+		}
+		
+		
+		
+		
+		//替换图片
+		function replaceImg(){
+			for (var i = 0; i < imgs.length; i ++) {
+				if (imgs[i].className == 'selected') {
+					//执行替换
+					imglist.replaceChild(myimg.cloneNode(true), imgs[i]);
+					imgs[i].id = "";
+				}
+			}
+		}
+		
+		
+		imglist.parentNode.appendChild(imglist.cloneNode(true));
+		
+	
+		
+		
+	</script>
+</body>
+</html>

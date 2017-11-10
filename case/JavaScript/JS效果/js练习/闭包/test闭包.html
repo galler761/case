@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			#box{
+				width:300px;
+				height:300px;
+				background:red;
+			}
+			#son{
+				width:100px;
+				height:100px;
+				background:green;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>鹅鹅鹅</li>
+			<li>曲项用刀割</li>
+			<li>拔毛用开水</li>
+			<li>炖鹅用大锅</li>
+		</ul>
+		<button>第一句诗</button>
+		<button>第二句诗</button>
+		<button>第三句诗</button>
+		<button>第四句诗</button>
+		<div id="box">
+			<div id="son"></div>
+		</div>
+		<font id="show" size="6"></font>
+	</body>
+	<script>
+		var bts = document.getElementsByTagName('button');
+		var lis = document.getElementsByTagName('li');
+		/*for(var i=0;i<bts.length;i++){
+			(function(i){
+				bts[i].onclick = function(){
+					alert(lis[i].innerHTML);
+				}
+			})(i)
+		}*/
+
+		for(var i=0;i<bts.length;i++){
+			bts[i].index = i;
+			bts[i].onclick = function(){
+				alert(lis[this.index].innerHTML);
+			}
+		}
+
+		/*
+			onmouseover  onmouseenter
+			onmouseout   onmouseleave
+
+			区别:鼠标在上层元素时，不触发离开事件
+		*/
+		var box = document.getElementById('box');  
+		/*box.onmouseover = function(){
+			console.log('进入');
+		}
+		box.onmouseout = function(){
+			console.log('退出');
+		}*/
+		box.onmouseenter = function(){
+			console.log('进入');
+		}
+		box.onmouseleave = function(){
+			console.log('退出');
+		}
+
+		var message = 'Javascript';
+		var i = 0 ;
+		setInterval(function(){
+			if(i>=message.length)  i=0;
+			document.getElementById('show').innerHTML = show(i,message);
+			i++;
+		},100);
+
+		function show(i,str){
+			var tmp = str.substr(0,i);
+			tmp += '<font color=red size=7>'+str[i]+'</font>';
+			tmp += str.substr(i+1);
+			return tmp;
+		}
+	</script>
+</html>

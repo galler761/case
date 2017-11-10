@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<title>jQuery Bootstrap点击弹出添加快捷方式代码</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body><script src="/demos/googlegg.js"></script>
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin: 100px auto;">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+				<ul class="shortcut-box clearfix">
+					<li class="col-xs-4 col-sm-4 col-md-3 col-lg-3" data-toggle="modal" data-target="#myModal">
+						<div>
+							<i class="fa fa-plus-circle"></i>
+							<p>审核失败</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--添加快捷方式模态框开始-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">	
+			<h4 class="modal-title shortcut-modal-title mid" id="myModalLabel">请选择审核失败内容</h4>
+			<div class="modal-footer">
+				<button type="button">取消</button>
+				<button type="button">确认</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<!--添加快捷方式模态框结束-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+
+</body>
+</html>

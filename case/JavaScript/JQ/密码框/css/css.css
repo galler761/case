@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+*,input,img,h1,div,body,table,tr,td{margin:0;padding:0;border:none;font-weight:normal;outline:medium;}
+body{ font-family:"微软雅黑";}
+.members{width:340px; height:400px;border:1px solid #777;margin:50px auto;}
+.members .table{width:320px; margin:10px auto;border:none}
+.members .table .td_l{width:80px;height:45px;line-height:45px;font-size:16px;font-weight:bold;text-align:center;}
+.members .table .td_r{width:240px;height:45px;line-height:45px;position:relative;}
+.members .table .td_r .input_user{width:200px;height:30px;padding-left:30px;background:url(../images/password.png) center left no-repeat;border:1px solid #777;outline:medium;}
+.members .table .td_r .input_password{width:170px;height:30px;padding:0 30px;background:url(../images/user.png) center left no-repeat;border:1px solid #777;outline:medium;}
+.members .table .td_r .show{position:absolute;width:25px;z-index:10;top:12px;right:15px;}

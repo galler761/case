@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.8.3.min.js"></script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a id="first" href="http://www.baidu.com">百度</a></li>
+			<li><a href="http://www.jd.com">京东</a></li>
+			<li><a href="http://www.taobao.com" id="taobao">淘宝</a></li>
+			<li>
+				<ol>
+					<li class="test"><a href="http://www.youku.com">优酷</a></li>
+					<li class="test"><a href="http://www.tmall.com">天猫</a></li>
+					<li class="test"><a href="http://www.nuomi.com">糯米</a></li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+	<p>用jquery的选择器配合筛选最少以10中方式找到内容为糯米的a链接并弹出内容糯米</p>
+    <script>
+        $(function(){
+            //alert($('li ol li:last').children().html());
+             //alert($('ol li:last').children().html());
+            //alert($('ul li ol li:eq(2)').children().html());
+            //alert($('div ol li:eq(2)').children().html());
+             //alert($("ol li:nth-child(3)").children().html());
+             //alert($("ol li").next().next().children().html());
+             //alert($("ol li:nth-child(2)").next().children().html());
+             //alert($("div ol li:nth-child(2)").next().children().html());
+             //alert($('ol li:eq(2)').children().html());
+             //alert($('ul li').find('a').last().html());
+             //alert($('li ol').find('a').last().html());
+              //alert($('a:eq(5)').html());
+              //alert($('a').eq(5).html());
+              //alert($('ul li a').eq(5).html());
+              //alert($('ul li').find('a').last().html());
+              alert($('ul li ol').find('a').eq(2).html());
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<input type="button" id="a1" value="全选" />
+	<input type="button" id="a2" value="不选" />
+	<input type="button" id="a3" value="反选" />
+	<input type="button" id="a3" value="反选" />
+	<input type="checkbox" name="" id="" value="" class="checkbox"/>
+	<input type="checkbox" name="" id="" value="" class="checkbox"/>
+	<input type="checkbox" name="" id="" value="" class="checkbox"/>
+	</body>
+</html>
+<script type="text/javascript">
+	   var aBtn=document.querySelectorAll('.checkbox');
+	  a1.onclick=function(){
+	  	for(var i=0;i<aBtn.length;i++){
+	  		aBtn[i].checked=true;
+	  	}  	
+	  }
+	    a2.onclick=function(){
+	  	for(var i=0;i<aBtn.length;i++){
+	  		aBtn[i].checked=false;
+	  	}
+	  }
+	      a3.onclick=function(){
+	  	for(var i=0;i<aBtn.length;i++){
+	  		aBtn[i].checked=!aBtn[i].checked;
+	  	}
+	  }
+</script>

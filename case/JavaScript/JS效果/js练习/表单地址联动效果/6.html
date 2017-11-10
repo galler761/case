@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<h1>表单事件--onchange  地址联动效果</h1>
+	<hr>
+	请选择您的地址：
+	<select id="pro"></select>
+	<select id="city"></select>
+	
+	<script>
+		//声明数组， 省的信息
+		var proList = ['江苏', '浙江', '安徽', '江西', '福建'];
+		//城市的信息
+		var cityList = new Array();
+		cityList[0] = ['南京', '苏州', '常州', '扬州', '徐州'];
+		cityList[1] = ['杭州', '嘉兴', '绍兴', '衢州', '宁波'];
+		cityList[2] = ['合肥', '安庆', '马鞍山', '黄山', '芜湖'];
+		cityList[3] = ['南昌', '赣州', '九江', '景德镇', '上饶'];
+		cityList[4] = ['福州', '泉州', '漳州', '厦门', '晋江'];
+		
+		//获取select
+		var pro = document.getElementById('pro');
+		var city = document.getElementById('city');
+		
+		
+		//第一个 select 框 中输出 省的信息
+		for (var i = 0; i < proList.length; i ++) {
+			pro.add(new Option(proList[i], i));
+		}
+		
+		//绑定 change事件
+		pro.onchange = function(){
+			//情况以前的选型
+			city.options.length = 0;
+			//获取 选择的option
+			var index = pro.value;
+			//根据索引值取出 对应的城市 信息
+			var citys = cityList[index];
+			//遍历
+			for (var i = 0; i < citys.length; i ++) {
+				city.add(new Option(citys[i], i));
+			}
+		}
+		
+		//手工出发 change事件
+		pro.onchange();
+	</script>
+	
+</body>
+</html>

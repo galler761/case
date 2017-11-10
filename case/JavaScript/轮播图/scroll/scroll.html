@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #a5a3a1;
+        }
+        .box{
+            width: 1280px;
+            height: 800px;
+            border: 2px solid #b7b7b7;
+            background:rgba(0,0,0,0);
+            box-shadow: 0 0 30px #fff;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .box ul{
+            width: 8000px;
+            position:absolute;
+            left: 0;
+            top: 0;
+        }
+        ul li{
+            list-style: none;
+            float: left;
+        }
+        .box ul li img{
+            width: 1280px;
+            height: auto;
+        }
+        .btn{
+            width: 30px;
+            height: 50px;
+            background-color: rgba(197, 197, 197, 0.50);
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            top:50%;
+            margin-top: -25px;
+            font-size: 40px;
+            cursor: pointer;
+            color: #fff;
+            font-family: "宋体", Arial, Helvetica, sans-serif;
+        }
+
+        .btn_l{
+            left: 0;
+        }
+        .btn_r{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="img/0.jpg"/></li>
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+    </ul>
+    <div class="btn btn_l">&lt</div>
+    <div class="btn btn_r">&gt</div>
+</div>
+</body>
+</html>

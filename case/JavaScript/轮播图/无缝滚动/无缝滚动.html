@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+<title>无标题文档</title>
+<style>
+*{ margin: 0;padding: 0px; list-style:none;}
+body{ background:#000;}
+.all{width:310px;height:465px; background:red; margin:100px auto; position:relative; overflow:hidden;}
+.all ul{width: 3000px; position:absolute; left:0; top:0;}
+.all li{ float: left;}
+</style>
+<script>
+window.onload = function(){
+	var ul01 = document.getElementById('ul01');
+	
+	var num = 0;
+	var timer;
+	
+	setInterval(function(){
+		num-=310;
+		
+		if( num<-1240){
+			num=0;
+		}
+		
+		
+		ul01.style.left = num + 'px';
+	},2000)
+	
+		
+}
+</script>
+</head>
+
+<body>
+<div class="all">
+	<ul id="ul01">
+    	<li><img src="img/01.jpg" width="310" height="465" alt=""/></li>
+        <li><img src="img/02.jpg" width="310" height="465" alt=""/></li>
+        <li><img src="img/03.jpg" width="310" height="465" alt=""/></li>
+        <li><img src="img/04.jpg" width="310" height="465" alt=""/></li>
+        <li><img src="img/01.jpg" width="310" height="465" alt=""/></li>
+        <li><img src="img/02.jpg" width="310" height="465" alt=""/></li>
+    </ul>
+</div>
+
+</body>
+</html>

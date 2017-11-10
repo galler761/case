@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <style type="text/css">
+            .spanstyle {
+                position:absolute;
+                top:-50px;
+                font-size:12pt;
+                color: red;
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        var message = "javascript测试代码，蛇形抖动";
+        for (i=0;i<=message.length-1;i++) {
+            document.write("<span id='span"+i+"'class='spanstyle'>");
+            document.write(message[i]);
+            document.write("</span>");
+        }
+
+        window.onmousemove = function (e){
+            document.title = 'X:'+e.clientX+'Y:'+e.clientY;
+            var test = 0;
+            var timmer = setInterval(function(){
+                if(test >= message.length-1) clearInterval(timmer);
+                snake(e.clientX,e.clientY,test);
+                test++;
+            },50);
+        }
+
+        function snake(x,y,i){
+            var span = document.getElementById("span"+i);
+            span.style.left = x+20+(i*30)+"px";
+            span.style.top = y+"px";
+        }
+    </script>
+</html>
+

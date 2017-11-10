@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+/*audio标签有一个方法是onended，W3C对它的解释是“当媒介已到达结尾时运行的脚本（可发送类似“感谢观看”之类的消息）。”这么问题就迎刃而解了。*/
+<audio controls="controls" autoplay="autoplay" id="audio" src="http://so1.111ttt.com:8282/2016/1/12m/10/205102159306.m4a?tflag=1491889514&pin=1d78d27553feb8fb49894cc570a4e497&ip=180.173.30.102#.mp3" style="width:500px;"></audio>
+<script type="text/javascript">
+var i = 0;
+var audios=[
+    "http://so1.111ttt.com:8282/2016/5/12m/10/205101601572.m4a?tflag=1491889763&pin=00b0e3cfdc2727028c8cd40a3913cd34&ip=180.173.30.102#.mp3",
+    "http://so1.111ttt.com:8282/2016/5/12m/10/205101416298.m4a?tflag=1491889789&pin=ca21cf0765639847b78d5fea2d9568ae&ip=180.173.30.102#.mp3",
+    "http://so1.111ttt.com:8282/2016/1/12m/10/205101007238.m4a?tflag=1491890978&pin=6ae41be616c20b7e1224e935de8c2c2d&ip=180.173.30.102#.mp3"
+    ];
+document.getElementById("audio").onended = function(){
+    if(audios[i]){
+        this.setAttribute('src',audios[i]);i++;
+    }else{
+        alert('没有音乐了');
+    }
+};
+</script>
+</body>
+</html>

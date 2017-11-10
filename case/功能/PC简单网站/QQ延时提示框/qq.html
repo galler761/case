@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>qq延时提示符</title>
+<style type="text/css">
+body,div{margin:0;padding:0;}
+.page{width:800px;height:600px;background:url(image/bg.png) no-repeat;margin:0 auto; position:relative;}
+.left{width:306px;height:391px;background:url(image/qq.png) no-repeat;position:absolute;right:15px;top:20px;}
+#head{width:52px;height:52px;background:url(image/link.png) 0 -52px no-repeat;float:left;margin:37px 0 0 12px;}
+a#head:hover{ background-position: 0 0;}
+#right{width:299px;height:207px;background:url(image/prompt.png) no-repeat;position:absolute;top:30px;left:-282px;display:none;}
+</style>
+<script type="text/javascript">
+window.onload=function ()
+{
+	var oHead=document.getElementById('head');
+	var oRight=document.getElementById('right');
+	var timer=null;
+	
+	oRight.onmouseover=oHead.onmouseover=function ()
+	{
+		clearInterval(timer);
+		setTimeout(function (){
+			oRight.style.display='block';
+		}, 300);
+	};
+	oRight.onmouseout=oHead.onmouseout=function ()
+	{
+		clearInterval(timer);
+		timer=setTimeout(function (){
+			oRight.style.display='none';
+		}, 300);
+	};
+};
+</script>
+</head>
+<body>
+	<div class="page">
+		<div class="left">
+			<a href="###" id="head"></a>
+			<div id="right"></div>
+		</div>
+	</div>
+</body>
+</html>

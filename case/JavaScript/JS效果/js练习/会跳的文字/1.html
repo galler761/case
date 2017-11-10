@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <script>
+        var message = 'Javascript';
+		var i = 0 ;
+		setInterval(function(){
+			if(i>=message.length)  i=0;
+			document.getElementById('show').innerHTML = show(i,message);
+			i++;
+		},100);
+
+		function show(i,str){
+			var tmp = str.substr(0,i);
+			tmp += '<font color=red size=7>'+str[i]+'</font>';
+			tmp += str.substr(i+1);
+			return tmp;
+		}
+	</script>
+    </head>
+    <body>
+        <font id="show" size="6"></font>
+    </body>
+</html>
+

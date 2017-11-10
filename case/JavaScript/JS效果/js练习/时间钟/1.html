@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表</title>
+	<style>
+		#iWatch{
+			width:300px;
+			text-align:center;
+			line-height:60px;
+			font-size:40px;
+			font-weight:bold;
+			border:2px solid #333;
+			background:#abcdef;
+		}
+	</style>
+</head>
+<body>
+	<div id="iWatch">
+		
+	</div>
+	<script>
+		
+		function run(){
+			//实例化 Date
+			var date = new Date();
+			//获取时分秒
+			var h = date.getHours();
+			var i = date.getMinutes();
+			var s = date.getSeconds();
+			//处理
+			h = (h<10)?'0'+h:h;
+			i = (i<10)?'0'+i:i;
+			s = (s<10)?'0'+s:s;
+			//写入表
+			document.getElementById('iWatch').innerHTML = h+':'+i+':'+s;
+		}
+		
+		setInterval(run, 1000);
+		
+		
+		run();
+	</script>
+	
+</body>
+</html>

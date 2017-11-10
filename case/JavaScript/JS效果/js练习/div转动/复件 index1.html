@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正方形</title>
+	<style>
+		#box{
+			width:400px;
+			height:400px;
+			background:#eee;
+			margin:100px auto;
+			position:relative;
+		}
+		#point{
+			width:10px;
+			height:10px;
+			background:red;
+			position:absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="point" style="top:0;left:0">
+			
+		</div>
+	</div>
+</body>
+<script>
+	setInterval(run,1);
+	//run()
+	var x = 0;//top
+	var y = 0;//left
+	function run(){
+		if(x<390 && y==0){
+			down()
+		}
+		if(x==390 && y<390){
+			right()
+		}
+		if(y==390 && x>0){
+			up()
+		}
+		if(x==0 && y>0){
+			left()
+		}
+	}
+
+	function down(){
+		point.style.top = x+'px';
+		x++;
+	}
+
+	function right(){
+		point.style.left = y+'px';
+		y++;
+	}
+	function up(){
+		point.style.top = x+'px';
+		x--;
+	}
+	function left(){
+		point.style.left = y+'px';
+		y--;
+	}
+</script>
+</html>

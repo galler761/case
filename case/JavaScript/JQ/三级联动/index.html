@@ -1,0 +1,75 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery表单省市区城市三级联动</title>
+<script src="js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="js/Area.js" type="text/javascript"></script>
+<script src="js/AreaData_min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function (){
+	initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '0', '0', '0');
+	$(".adj_cit").on("click",function(){
+		$(".center").slideToggle();
+	});
+});
+//得到地区码
+function getAreaID(){
+	var area = 0;          
+	if($("#seachdistrict").val() != "0"){
+		area = $("#seachdistrict").val();                
+	}else if ($("#seachcity").val() != "0"){
+		area = $("#seachcity").val();
+	}else{
+		area = $("#seachprov").val();
+	}
+	return area;
+}
+function showAreaID() {
+	//地区码
+	var areaID = getAreaID();
+	//地区名
+	var areaName = getAreaNamebyID(areaID) ;
+	$(".adj_cit").html('<span>'+areaName+'</span>');
+	$(".center").hide();         
+}
+//根据地区码查询地区名
+function getAreaNamebyID(areaID){
+	var areaName = "";
+	if(areaID.length == 2){
+		areaName = area_array[areaID];
+	}else if(areaID.length == 4){
+		var index1 = areaID.substring(0, 2);
+		areaName = area_array[index1] + " " + sub_array[index1][areaID];
+	}else if(areaID.length == 6){
+		var index1 = areaID.substring(0, 2);
+		var index2 = areaID.substring(0, 4);
+		areaName = area_array[index1] + " " + sub_array[index1][index2] + " " + sub_arr[index2][areaID];
+	}
+	return areaName;
+}
+</script>
+
+</head>
+<body>
+<style type="text/css">
+	.adj_cit{width: 390px;border:1px solid #dfdfdf;height:45px;line-height: 45px;cursor: pointer;padding-left: 15px;color:#666;margin:20px auto;}
+	.center{display: none;text-align: center;}
+</style>
+<div class="adj_cit">
+	<span>选择您所在的城市</span>
+	
+</div>
+<center>
+	<div class="center">
+		<select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>&nbsp;&nbsp;
+		<select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"></select>&nbsp;&nbsp;
+		<span id="seachdistrict_div"><select id="seachdistrict" name="seachdistrict"></select></span>
+
+		<input type="button"  value="确定" onClick="showAreaID()"/>
+	</div>
+</center>
+
+
+</body>
+</html>

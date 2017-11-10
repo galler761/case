@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>互融CLUB</title>
+<script>
+//计算根节点HTML的字体大小
+function resizeRoot(width){
+	var deviceWidth = document.documentElement.clientWidth,
+		num = width,
+		num1 = num / 100;
+	if(deviceWidth > num){
+		deviceWidth = num;	
+	}
+	document.documentElement.style.fontSize = deviceWidth / num1 + "px";
+}
+//根节点HTML的字体大小初始化
+resizeRoot(750);
+
+window.onresize = function(){
+	resizeRoot(750);
+};
+</script>
+<link rel="stylesheet" href="css/daiyan.css">
+</head>
+<body>
+<section class="page1">
+	<div class="daiyan">
+		<img src="images/daiyan_bg.jpg" alt="" class="daiyan_bg">
+		<p><img src="images/yan.png" alt="" class="yan"></p>
+		<p class="already_join">已有982,267人参加</p>
+		<p class="play">
+			<img src="images/play.png" alt="">
+			<input type="file" class="uploadfile" accept="image/*">
+		</p>
+	</div>
+</section>
+<section class="page2">
+	<div class="daiyan daiyan1">
+		<img src="images/daiyan_bg.jpg" alt="" class="daiyan_bg" id="daiyan_bg">
+		<div id="daiyan_txt">
+			<p class="point"><label>我在：</label><input type="text" placeholder="(点击填写)" class="pointtxt"></p>
+			<p class="daiyan_msg">祝互融CLUB三岁生日快乐！</p>
+		</div>			
+		<img src="images/qrcode.jpg" alt="" class="qrcode">
+		<p><img src="images/bottom.jpg" alt="" id="bottom"></p>
+	</div>
+	<div class="daiyan_ctrl">
+		<button class="prev">上一步</button><button class="save">点击保存图片</button>
+	</div>
+</section>
+<section class="page3">
+	<div class="daiyan daiyan2">
+		<img src="images/daiyan_bg.jpg" alt="" class="daiyan_bg" id="daiyan_bg1">		
+	</div>
+	<img src="images/save.png" alt="" class="save_tip">
+</section>
+<canvas id="myCanvas" style="display:none">您的浏览器不支持canvas</canvas>
+<script src="js/zepto.min.js"></script>
+<script src="js/daiyan_upload.js"></script>
+<script src="js/touch-0.2.14.min.js"></script>
+<script src="js/exif.js"></script>
+<script>
+$(".prev").click(function(){
+	window.location.href = "daiyan.html?random="+ Date.parse(new Date());
+	formatTransform(0, 0);
+});
+//拖拽用户输入地点的效果
+var offx = 0, offy = 0;
+var scale = 1;
+var dy_txt = document.getElementById('daiyan_txt');
+function formatTransform(offx, offy) {
+    var translate = 'translate3d(' + (offx + 'px,') + (offy + 'px,') + '0)';
+    return translate;
+}
+
+touch.on(dy_txt, 'touchstart', function (ev) {
+	if(ev.target.className != "pointtxt"){
+		ev.preventDefault();
+	}	
+});
+
+touch.on(dy_txt, 'drag', function(ev) {
+    var currOffx = offx + ev.x;
+    var currOffy = offy + ev.y;
+
+    var maxW = $(window).width() - $("#daiyan_txt").width();    //除去匹配元素宽度后的可视区域的宽度
+    var maxH = $("#daiyan_bg").height() - $("#daiyan_txt").height() - $(".daiyan_ctrl").height()- $("#bottom").height() * 2;   //除去匹配元素高度后的可视区域的高度
+    currOffx = currOffx < 0 ? 0 : currOffx;      //保证匹配元素不会被拖至可视区域以外
+    currOffx = currOffx > maxW ? maxW : currOffx;
+    currOffy = currOffy < 0 ? 0 : currOffy;
+    currOffy = currOffy > maxH ? maxH : currOffy;
+    dy_txt.style.webkitTransform = formatTransform(currOffx, currOffy);
+});
+
+touch.on(dy_txt, 'dragend', function(ev) {
+    offx += ev.x;
+    offy += ev.y;
+});
+
+$(".save").click(function(){
+	var pointMsg = $(".pointtxt").val(),
+        daiyanMsg = $(".daiyan_msg").html();
+    var imgbox = document.getElementById("daiyan_bg"),
+        canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    canvas.width = 750;            
+    var imgUrl = new Image,
+        qrCodeUrl = new Image,
+        point = new Image;
+    imgUrl.crossOrigin = "anonymous";
+    imgUrl.src = imgbox.src;
+    qrCodeUrl.src = "images/qrcode.jpg";
+    point.src = "images/point.png";
+    var daiyan_text = "我要代颜";            
+    var btm = document.getElementById("bottom");                
+    imgUrl.onload = function () {
+        canvas.height = this.height + 50;
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, 750, 1334);
+        var erWeiMaY = this.height - qrCodeUrl.height - 70;
+        var wyDyY = this.height - 57;
+        if (ctx.drawImage(imgUrl, 0, 0, 750, this.height), ctx.beginPath(), ctx.beginPath(), ctx.font = "normal 44px PingFangSC-Medium", ctx.textAlign = "start", ctx.textBaseline = "hanging", ctx.shadowOffsetX = 0, ctx.shadowOffsetY = 5, ctx.shadowColor = "rgba(0, 0, 0, 0.3)", ctx.shadowBlur = 5, "" != pointMsg && void 0 != pointMsg && null != pointMsg) {
+            var pTxt = "我在：" + pointMsg;
+            ctx.fillText(pTxt, 95, offy * 2 + 55);
+            ctx.drawImage(point, 0, 0, 42, 55, 40, offy * 2 + 55, 42, 55);
+        }
+
+        ctx.beginPath();
+        ctx.drawImage(qrCodeUrl, 0, 0, 140, 140, 570, erWeiMaY, 140, 140);
+        ctx.drawImage(btm, 0, 0, 750, 50, 0, this.height, 750, 50);
+
+        if (ctx.beginPath(), ctx.font = "normal 22px PingFangSC-Medium") {
+            ctx.fillText(daiyan_text, 595, wyDyY);
+        }
+
+        if (ctx.beginPath(), ctx.font = "normal 30px PingFangSC-Medium", ctx.shadowOffsetX = 0, ctx.shadowOffsetY = 5, ctx.shadowColor = "rgba(0, 0, 0, 0.3)", ctx.shadowBlur = 5) {
+            ctx.fillText(daiyanMsg, 95, offy * 2 + 130);
+        }
+
+        document.getElementById("daiyan_bg1").src = canvas.toDataURL('image/jpeg');
+
+        $(".page2").hide().siblings(".page3").show();
+
+        var tipTop = this.height / 4 - 47;
+        $(".save_tip").show().css("top", tipTop);
+        setTimeout(function () {
+            $(".save_tip").hide();
+        }, 3000);               
+    };
+});
+</script>
+</body>
+</html>

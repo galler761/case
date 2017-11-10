@@ -1,0 +1,19 @@
+body{ width: 200px; height: 200px;}
+@media only screen and (min-width:1024px) {
+	body{ background:red;}
+};
+@media only screen and (min-width:1360px) {
+	body{ background:orange;}
+};
+@media only screen and (min-width:1440px) {
+	body{ background:purple;}
+};
+@media only screen and (min-width:1600px) {
+	body{ background:green;}
+};
+@media only screen and (min-width:1680px) {
+	body{ background:lightgreen;}
+};
+@media only screen and (min-width:1920px) {
+	body{ background:blue;}
+}

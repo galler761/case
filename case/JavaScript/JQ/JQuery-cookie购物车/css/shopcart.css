@@ -1,0 +1,7 @@
+*{margin:0;padding:0;}
+.container{margin:auto;width:1000px;border:#ccc solid 1px; border-radius: 5px;}
+.scTitle{margin:auto; width:100%;height:50px;background-color:coral;font-size:40px;text-align: center;line-height: 50px;color:#fff;}
+.scBox{width:980px;border:#FF7F50 solid 1px;margin:auto;}
+.scBox > table, .shopcart > table{width:100%;}
+.scBox > table td,.shopcart > table td{text-align: center;font-size:16px;height:30px;line-height: 30px;}
+.scBox > table td img,.shopcart > table td img{width:100px;height:100px;}

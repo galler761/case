@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>密码框</title>
+<link href="css/css.css" rel="stylesheet">
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+    $('.show').mousedown(function(){
+		$('.input_password').attr('type','text');
+	 });
+	$('.show').mouseout(function(){
+		$('.input_password').attr('type','password');
+	 });
+});
+</script>
+</head>
+
+<body>
+<div class="members">
+  <table class="table">
+    	<tr>
+        	<td class="td_l">账号：</td>
+            <td class="td_r"><input type="text" class="input_user"required="required"></td>
+        </tr>
+        <tr>
+        	<td class="td_l">密码：</td>
+            <td class="td_r"><input type="password" class="input_password" required="required">
+            <input type="image" src="images/show.png" class="show"></td>
+        </tr>
+    </table>
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用 AJAX 请求改变 <div> 元素的文本</title>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="div1">
+			这是一个测试案例
+		</div>
+		<input type="button" id="btn" value="点击有惊喜" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#btn').click(function(){
+					$.ajax({
+						type:"get",
+						url:"txt/test.txt",
+						async:true,
+						success:function(result){
+							$(".div1").html(result);
+						},
+						error:function(xhr,status){
+							console.log(xhr,status);
+						}
+					});
+				})
+			})
+		</script>
+	</body>
+</html>

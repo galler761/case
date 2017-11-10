@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="text">
+
+		</div>
+		<script type="text/javascript">
+			var msg = "我一定要好好学习，天天向上."
+			var i = 0;
+			window.onload = loadText(msg, 200, "text"); //文字，时间，Id名
+			function loadText(msg, date, ID) {
+				var Elme = document.getElementById(ID);
+				var arr = msg.split("");
+				text();
+
+				function text() {
+					Elme.innerHTML = Elme.innerHTML + arr[i]; //因为innerHTML 会替换原值，所以是innerHTML + 新值
+					i++;
+					if(i < arr.length) {
+						setTimeout(function() {
+							text();
+						}, date)
+					} else {
+						alert('打印完毕')
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

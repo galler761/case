@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <style type="text/css">
+            *{margin:0;padding:0;}
+            body{margin:0 auto;width:800px;}
+            .top{width:800px;height:100px;background:gray;}
+            #sub{z-index:0;width:800px;height:30px;background:#cccccc;margin-top:20px;position:relative;text-align:center;line-height:30px;}
+            .box{width:800px; height:2000px;background:pink;}
+            .fort{width:800px;height:200px;background:#cccccc;margin-top:20px;}
+        </style>
+    </head>
+    <body>
+        <div class="top"></div>
+        <div>滚轮滑动导航条定位页头</div>
+        <div class="box"></div>
+        <div class="fort"></div>
+    </body>
+    <script>
+        var sub = document.getElementById('sub');
+        var offset = sub.offsetTop;
+
+        window.onscroll = function(){
+            var y = document.documentElement.scrollTop || document.body.scrollTop;
+            var k = y - offset;
+
+            if(k > 0){
+                sub.style.top = k + 'px';
+                sub.style.background = 'blue';
+                sub.style.color = 'red';
+            }else{
+                sub.style.top = '0px';
+                sub.style.background = '#cccccc';
+                sub.style.color = 'black';
+            }
+        }
+    </script>
+</html>
+

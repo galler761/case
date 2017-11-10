@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>基于zepto的移动端/H5触摸拖动加载更多数据</title>
+<style>
+*{margin:0;padding:0;outline:0;-webkit-box-sizing:border-box;box-sizing:border-box;}
+body{background:#f1f1f1;color:#666;}
+li{list-style-type:none;}
+a{text-decoration:none;color:#666;}
+.tabs_con{background:#fff;font-size:12px;}
+.tabs_con li{height:40px;line-height:40px;border-bottom:1px solid #e9e9e9;padding-left:10px;}
+#wrapper{position:absolute;z-index:1;top:45px;bottom:48px;width:100%;overflow:auto;}
+#scroller{position:absolute;z-index:1;-webkit-tap-highlight-color:rgba(0,0,0,0);width:100%;}
+#pullDown, #pullUp{height:40px;line-height:40px;font-size:12px;color:#888;text-align:center;}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon{position:absolute;margin:8px 0 0 30%;width:24px;height:24px;background:url(images/arrow.png) 0 0 no-repeat;
+	-webkit-background-size:auto 100%;
+	background-size:auto 100%;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;
+}
+#pullDown .pullDownIcon{-webkit-transform:rotate(0deg) translateZ(0);}
+#pullUp .pullUpIcon{-webkit-transform:rotate(-180deg) translateZ(0);}
+#pullDown.flip .pullDownIcon{-webkit-transform:rotate(-180deg) translateZ(0);}
+#pullUp.flip .pullUpIcon {-webkit-transform:rotate(0deg) translateZ(0);}
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon{background-image: url(images/loader.png);background-size:100% auto;background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+@-webkit-keyframes loading {
+	from{-webkit-transform:rotate(0deg) translateZ(0);}
+	to{-webkit-transform:rotate(360deg) translateZ(0);}
+}
+</style>
+</head>
+<body>
+<div id="wrapper">			
+	<div id="scroller">
+		<div class="pullDown" id="pullDown">
+			<div class="pullDownIcon"></div><div class="pullDownLabel">下拉刷新</div>
+		</div>
+		<div class="tabs_con">
+			<ul>
+				<li>您好，这里是中华人民共和国！</li>
+				<li>您好，这里是中华人民共和国！</li>
+				<li>您好，这里是中华人民共和国！</li>
+				<li>您好，这里是中华人民共和国！</li>
+				<li>您好，这里是中华人民共和国！</li>
+			</ul>
+		</div>
+		<div class="pullUp" id="pullUp">
+			<div class="pullUpIcon"></div><div class="pullUpLabel">上拉加载更多</div>
+		</div>
+	</div>			
+</div>
+<script src="js/zepto.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script>
+	var myScroll;	
+
+	function pullDownAction () {
+		setTimeout(function () {			
+			myScroll.refresh();
+		}, 1000);
+	}
+
+	function pullUpAction () {
+		setTimeout(function () {
+			var html = "";
+				for (var i = 0; i < 3; i++) {
+					html += '<li>test您好，这里是中华人民共和国！</li>';
+				}
+			
+			$(".tabs_con").children("ul").append(html);
+			myScroll.refresh();
+		}, 1000);
+	}
+
+	function loaded() {
+		var pullDownEl = $('#pullDown'),
+			pullDownHeight = pullDownEl.height(),
+			pullUpEl = $('#pullUp'),	
+			pullUpHeight = pullUpEl.height(),
+			pullDownLabel = $('.pullDownLabel'),
+			pullUpLabel = $('.pullUpLabel');
+		
+		myScroll = new iScroll('wrapper', {
+			topOffset: pullDownHeight - 5,
+			onRefresh: function () {
+				if (pullDownEl.hasClass('loading')) {
+					pullDownEl.removeClass();
+					pullDownLabel.html("下拉刷新");
+				} else if (pullUpEl.hasClass('loading')) {
+					pullUpEl.removeClass();
+					pullUpLabel.html("上拉加载更多");
+				}
+			},
+			onScrollMove: function () {
+				if (this.y > 5 && !pullDownEl.hasClass('flip')) {
+					pullDownEl.removeClass().addClass('flip');
+					pullDownLabel.html("释放立即刷新");
+					this.minScrollY = 0;
+				} else if (this.y < 5 && pullDownEl.hasClass('flip')) {
+					pullDownEl.removeClass();
+					pullDownLabel.html("下拉刷新");
+					this.minScrollY = -pullDownHeight;
+				} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.hasClass('flip')) {
+					pullUpEl.removeClass().addClass('flip');
+					pullUpLabel.html("释放加载更多");
+					this.maxScrollY = this.maxScrollY;
+				} else if (this.y > (this.maxScrollY + 5) && pullUpEl.hasClass('flip')) {
+					pullUpEl.removeClass();
+					pullUpLabel.html("上拉加载更多");
+					this.maxScrollY = pullUpHeight;
+				}
+			},
+			onScrollEnd: function () {
+				if (pullDownEl.hasClass('flip')) {
+					pullDownEl.removeClass().addClass('loading');
+					pullDownLabel.html("加载中...");				
+					pullDownAction();
+				} else if (pullUpEl.hasClass('flip')) {
+					pullUpEl.removeClass().addClass('loading');
+					pullUpLabel.html("加载中...");				
+					pullUpAction();
+				}
+			}
+		});
+	}
+
+	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+</script>
+</body>
+</html>

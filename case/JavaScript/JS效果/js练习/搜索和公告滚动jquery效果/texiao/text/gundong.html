@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS</title>
+	<script>
+		
+	</script>
+	<style>
+		#box{
+			width:600px;
+			height:400px;
+			border:1px solid #999;
+			overflow:hidden;
+		}
+		ul, li{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		#box img{
+			width:100px;
+			height:50px;
+		}
+		#box li{
+			height:60px;
+			padding:20px;
+		}
+		.left{
+			width:100px;
+			float:left;
+		}
+		.right{
+			width:450px;
+			float:right;
+		}
+	</style>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+			setInterval(function(){
+				$("#newslist li").last().fadeTo(0, 0).hide().prependTo("#newslist").slideDown(1000).fadeTo(1000, 1);
+			}, 5000)
+			
+		
+		});
+		
+		
+		
+	</script>
+</head>
+<body>
+	<h1>jQuery 滚动效果</h1>
+	<hr>
+	<div id="box">
+		<ul id="newslist">
+			<li>
+				<div class="left"><img src="../images/Meinv001.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降于中国</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv002.jpg"></div>
+				<div class="right">
+					<p>北京时间18时30分，日本发生127级特大地震</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv003.jpg"></div>
+				<div class="right">
+					<p>北京时间19时30分，日本民众暴乱，强力维护中国主权</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv004.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv005.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li><li>
+				<div class="left"><img src="../images/Meinv006.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv007.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv008.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li>
+			<li>
+				<div class="left"><img src="../images/Meinv009.jpg"></div>
+				<div class="right">
+					<p>北京时间3时30分，日本首相安倍晋三投降</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

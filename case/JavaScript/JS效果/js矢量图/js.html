@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+    </head>
+    <body>
+        <select onchange="change(this)">
+            <option value="./img/变量.svg">变量</option>
+            <option value="./img/数据类型.svg">数据类型</option>
+            <option value="./img/流程控制.svg">流程控制</option>
+            <option value="./img/运算符.svg">运算符</option>
+            <option value="./img/Function.svg">Function</option>
+            <option value="./img/Array.svg">Array</option>
+            <option value="./img/String.svg">String</option>
+            <option value="./img/正则表达式.svg">正则表达式</option>
+            <option value="./img/BOM.svg">BOM</option>
+            <option value="./img/事件处理.svg">事件处理</option>
+            <option value="./img/DOM.svg">DOM</option>
+        </select>
+        <br>
+        <img id="img" src="./img/变量.svg"/>
+    </body>
+    <script>
+        function change(obj){
+            document.getElementById('img').src = obj.value;
+        }
+    </script>
+</html>
+

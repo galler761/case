@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/ecmascript">
+
+function leo(n){
+	var navUi = document.getElementById("m"+n);
+	if(navUi.style.display != "block"){
+		for(var i=0;i<=5;i++){
+			document.getElementById("m"+i).style.display = "none";
+		}
+		navUi.style.display = "block";
+	}else{
+		navUi.style.display = "none";
+	}
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin:30px 150px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+img {border:0}
+#nav {
+	width:145px;
+	background: #8e9eb1;
+	border: 1px solid #8e9eb1;
+}
+#nav li {
+	width: 145px;
+	line-height: 24px;
+	border-top: 1px solid #a2b4c9;
+	border-bottom: 1px solid #708195;
+	position: relative;
+}
+.img {
+	position: absolute;
+	top:5px;left:10px;
+}
+.navLink {
+	width: 115px;
+	height: 24px;
+	padding-left:30px;
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+}
+.navLink:hover {
+	background: url(navLink.gif) repeat-x;
+}
+.menu {
+	width:145px;
+	display: none;
+}
+.menu li {
+	width:145px;
+	height: 22px;
+	border-bottom: 1px solid #708195;
+	background: url(menu.gif);
+	position: relative;
+}
+.menuLink {padding-left:50px;color:#6b7f97;text-decoration: none;}
+.menuLink:hover {
+	text-decoration: underline;
+}
+.img2 {
+	position: absolute;
+	top:5px;left:30px;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<ul id="nav">
+	<li><a onclick="leo(0)" href="#" class="navLink"><img src="nav.gif" class="img" />妙味首页</a></li>
+    <ul id="m0" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />网站介绍</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />精品套餐</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />妙味特色</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />免费试听</a></li>
+    </ul>
+    <li><a onclick="leo(1)" href="#" class="navLink"><img src="nav.gif" class="img" />关于妙味</a></li>
+    <ul id="m1" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />团队介绍</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />妙味成员</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />想说的话</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />寻觅高手</a></li>
+    </ul>
+    <li><a onclick="leo(2)" href="#" class="navLink"><img src="nav.gif" class="img" />培训套餐</a></li>
+    <ul id="m2" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />CSS课程</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />PHP课程</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />AS3.0课程</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />课程说明</a></li>
+    </ul>
+    <li><a onclick="leo(3)" href="#" class="navLink"><img src="nav.gif" class="img" />妙味特色</a></li>
+    <ul id="m3" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />单独授课</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />按需订制</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />招聘要求</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />愉悦体验</a></li>
+    </ul>
+    <li><a onclick="leo(4)" href="#" class="navLink"><img src="nav.gif" class="img" />妙味资料库</a></li>
+    <ul id="m4" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />CSS</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />AS3</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />JavaScript</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />PHP</a></li>
+    </ul>
+    <li><a onclick="leo(5)" href="#" class="navLink"><img src="nav.gif" class="img" />联系妙味</a></li>
+    <ul id="m5" class="menu">
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />QQ</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />MSN</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />手机</a></li>
+        <li><a href="#" class="menuLink"><img src="nav2.gif" class="img2" />地址</a></li>
+    </ul>
+</ul>
+    
+    
+	
+
+</body>
+</html>

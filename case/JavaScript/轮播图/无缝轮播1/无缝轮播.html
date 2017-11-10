@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝轮播</title>
+	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="js/banner.js"></script>
+	<style type="text/css">
+     *{margin: 0;padding: 0;list-style: none;}
+     .banner{border: 5px solid yellowgreen;width:940px;height: 529px;margin: 100px auto;overflow: hidden; position: relative;}
+     .banner .box{width: 5000px;position: absolute;}
+
+     .banner .box li{float: left; }
+     .banner .list{position: absolute;bottom: 10px;left:50%;margin-left:-46px;text-align: center;font-size: 12px;font-weight: bold;
+     }
+     .banner .list li{width: 20px;height: 20px;line-height:20px;border-radius: 50%;background: #888;display: inline-block;margin: 0 4px;cursor: pointer; color: #fff;}
+     .banner .list li.active{background: #F60;}
+     .banner .btn{width: 36px;height: 54px;
+     	background: rgba(0,0,0,0.5);position: absolute;top: 50%;margin-top: -27px;cursor: pointer;line-height: 54px;
+     	text-align: center;color: #fff;font-size: 42px;}
+     	.banner .btn_left{left: 0;}
+     	.banner .btn_right{right: 0;}
+
+	</style>
+</head>
+<body>
+<div class="banner">
+	
+   <ul class="box">
+   	
+     <li><img src="images/img_01.jpg"></li>
+     <li><img src="images/img_02.jpg"></li>
+     <li><img src="images/img_03.jpg"></li>
+     <li><img src="images/img_04.jpg"></li>
+
+
+   </ul>
+  <ul class="list">
+  	
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+
+  
+
+  </ul>
+
+<div class="btn btn_left">&lt;</div>
+<div class="btn btn_right">&gt;</div>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS图片轮播</title>
+	<style>
+		.picshow_main {
+			width: 960px; 
+			position: relative; 
+			height: 240px;
+		}
+		.picshow_main .imgbig {
+			filter: progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward); 
+			width: 960px; 
+			height: 440px;
+		}
+		.picshow_change {
+            width:250px;
+			right: 0px; 
+			left: 800px; 
+			bottom: 0px;
+            top:400px;
+			position: absolute; 
+			height: 30px;
+			text-align: left;
+		}
+		.picshow_change img {
+			width: 20px; 
+			height: 17px;
+		}
+		.picshow_active {
+			display: block
+		}
+		.picshow_unactive {
+			display: none
+		}
+	</style>
+	<script>
+		//图片滚动展示 Start
+          var counts = 4;
+          //大图
+          var nn = 1;
+          var key = 0;
+          function change_img() {
+            for ( var i = 1; i <= counts; i++) {
+              document.getElementById("picdiv" + i).className = 'picshow_unactive';
+            }
+            document.getElementById("picdiv" + nn).className = 'picshow_active';
+            if(document.getElementById("pic" + nn).src == "")
+              document.getElementById("pic" + nn).src = document.getElementById("pic" + nn).getAttribute("src2");
+            for ( var i = 1; i <= counts; i++) {
+              document.getElementById("xxjdjj" + i).className = 'axx';
+            }
+            document.getElementById("xxjdjj" + nn).className = 'bxx';
+            nn++;
+            if (nn > counts) {
+              nn = 1;
+            }
+            tt = setTimeout('change_img()', 2000);
+          }
+          function changeimg(n) {
+            nn = n;
+            window.clearInterval(tt);
+            change_img();
+          }
+	</script>
+</head>
+<body>
+	<table cellSpacing=0 cellPadding=0 width=950 align=center border=0>
+		<tbody>
+		  	<tr>
+			    <td width=660 height=280>
+			        <div class=picshow_main>
+			        <div class=picshow_unactive id=picdiv1><img class=imgbig id=pic1 
+			        src="images/1a.jpg" border=0></div>
+			        <div class=picshow_unactive id=picdiv2><A id=url2 style="CURSOR: pointer" 
+			        href="http://www.wangzhan8.com/jzdt_010.asp" target=_blank><img 
+			        class=imgbig id=pic2 src="images/2a.jpg" border=0></A></div>
+			        <div class=picshow_unactive id=picdiv3><A id=url2 style="CURSOR: pointer" 
+			        href="http://www.wangzhan8.com/register.asp" target=_blank><img  
+			        class=imgbig id=pic3 src="images/3a.jpg" border=0></A></div>
+			        <div class=picshow_active id=picdiv4><A id=url4 style="CURSOR: pointer" 
+			        href="http://www.wangzhan8.com/dljm.asp" target=_blank><img  class=imgbig 
+			        id=pic4 src="images/4a.jpg" border=0></A></div>
+			        <div class=picshow_change><A class=axx id=xxjdjj1 
+			        href="javascript:changeimg(1);" target=_self><img  
+			        src="images/1.jpg" border=0></A> <A class=axx id=xxjdjj2 
+			        href="javascript:changeimg(2);" target=_self><img  
+			        src="images/2.jpg" border=0></A> <A class=axx id=xxjdjj3 
+			        href="javascript:changeimg(3);" target=_self><img  
+			        src="images/3.jpg" border=0></A> <A class=bxx id=xxjdjj4 
+			        href="javascript:changeimg(4);" target=_self><img  
+			        src="images/4.jpg" border=0></A> </div>
+			        </div>
+			    	<script>
+			          change_img();
+			        </script>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS实例</title>
+	<style>
+		#box{
+			font-size:60px;
+			font-family:'Microsoft YaHei';
+		}
+		#box button{
+			font-size:60px;
+			font-family:'Microsoft YaHei';
+			width:300px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<h1>倒计时</h1>
+	<hr>
+	<div id="box"></div>
+	<script>
+		//声明 要倒计时 的秒数
+		var seconds = 3;
+		
+		//调用run
+		run();
+		
+		//定时函数
+		var timer = setInterval(run, 1000);
+		
+		//定义函数
+		function run(){
+			//判断 倒计时结束
+			if (seconds <= 0) {
+				document.getElementById('box').innerHTML = "<button>抢购</button>";
+				clearInterval(timer);
+				return;
+			}
+			//取出 时间中 的小时数
+			var h = Math.floor(seconds / 3600);
+			//获取分钟数
+			var s = seconds - h * 3600;
+			var i = Math.floor(s / 60);
+			//获取秒数
+			s -= i * 60;
+			
+			//处理 时分秒 的格式
+			h = (h > 9)?h:'0'+h;
+			i = (i > 9)?i:'0'+i;
+			s = (s > 9)?s:'0'+s;
+			
+			//把时分秒 输出 到指定位置
+			var timeStr = "距离本次团购还有 "+h+'时'+i+'分'+s+'秒';
+			document.getElementById('box').innerHTML = timeStr;
+			
+			//秒数 -1
+			seconds --;
+		}
+	</script>
+</body>
+</html>

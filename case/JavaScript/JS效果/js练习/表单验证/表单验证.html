@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS</title>
+	<style>
+		input{
+			width:360px;
+			height:40px;
+			line-height:40px;
+		}
+	</style>
+</head>
+<body>
+	<h1>表单事件--表单验证的实例</h1>
+	<hr>
+	<form action="1.php" name="regForm" method="post" onsubmit="return checkForm()">
+	<table>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" name="user" onblur="checkEmail()"></td>
+			<td id="userInfo"></td>
+		</tr>
+		<tr>
+			<td>密码：</td>
+			<td><input type="password" name="pass" onblur="checkPass()"></td>
+			<td id="passInfo"></td>
+		</tr>
+		<tr>
+			<td>确认密码 ：</td>
+			<td><input type="password" name="repass" onblur="checkRepass()"></td>
+			<td id="repassInfo"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="注册" onblur="checkValue()"></td>
+			<td></td>
+		</tr>
+	</table>
+	</form>
+	<script>
+	
+		//验证邮箱的函数
+		function checkEmail(){
+			//获取表单中的只
+			var value = document.regForm.user.value;
+			//获取提示框
+			var td = document.getElementById('userInfo');
+			//验证对错、
+			if (value.match(/^[\w-]+@[\w-]+(\.[\w]+){1,3}$/) == null) {
+				td.innerHTML = "用户格式不正确";
+				td.style.color = "red";
+				return false;
+			} else {
+				td.innerHTML= "用户正确";
+				td.style.color = "green";
+				return true;
+			}
+		}
+		
+		
+		//验证密码的函数
+		function checkPass(){
+			//获取表单中的只
+			var value = document.regForm.pass.value;
+			//获取提示框
+			var td = document.getElementById('passInfo');
+			//验证对错、
+			if (value.match(/^\w{6,18}$/) == null) {
+				td.innerHTML = "密码必须是6-18位的数字、字母、下划线";
+				td.style.color = "red";
+				return false;
+			} else {
+				td.innerHTML = "密码正确";
+				td.style.color = "green";
+				return true;
+			}
+		}
+		
+		
+		//验证密码的函数
+		function checkRepass(){
+			//获取表单中的只
+			var value = document.regForm.repass.value;
+			var pass = document.regForm.pass.value;
+			//获取提示框
+			var td = document.getElementById('repassInfo');
+			//验证对错、
+			if (pass != value) {
+				td.innerHTML = "两次密码不一致";
+				td.style.color = "red";
+				return false;
+			} else {
+				td.innerHTML = "确认密码正确";
+				td.style.color = "green";
+				return true;
+			}
+		}
+		
+		//submit 函数
+		function checkForm(){
+			return checkEmail() && checkPass() && checkRepass();
+		}
+	</script>
+</body>
+</html>

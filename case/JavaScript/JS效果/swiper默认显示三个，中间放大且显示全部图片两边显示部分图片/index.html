@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>互融CLUB</title>
+<link rel="stylesheet" href="http://m.hurongclub.com/Resource/css/base_new.css">
+<link rel="stylesheet" href="http://m.hurongclub.com/Resource/css/swiper.min.css">
+<script src="http://m.hurongclub.com/Resource/js/zepto.min.js"></script>
+<script>
+//计算根节点HTML的字体大小
+function htmlFontsize(){
+    var deviceWidth = document.documentElement.clientWidth;
+    if(deviceWidth > 750){
+        deviceWidth = 750;  
+    }
+    document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";
+}
+//根节点HTML的字体大小初始化
+htmlFontsize();
+
+$(window).resize(function(){
+    htmlFontsize();
+});
+</script>
+<style>
+body{background: #f4664b;font-size:.14rem;}
+.swiper-container{height:8.2rem;}
+#investproSwiper{margin-top: 0.52rem;}
+#investproSwiper .swiper-slide{width:5rem;height:7.25rem;}
+#investproSwiper .swiper-slide .investpro{width:4.61rem;height:6.37rem;background-size: 100% 100%;background-repeat: no-repeat;margin-top: 0.58rem;margin-left: 0.19rem;-webkit-transition: all 0.5s linear;}
+#investproSwiper .swiper-slide-active .investpro{width:5.16rem;height:7.25rem;margin-left:-.08rem;margin-top:.12rem;}
+#investproSwiper .swiper-slide .hrplan_slide{background-image: url(images/hrplan_small.png);}
+#investproSwiper .swiper-slide-active .hrplan_slide{background-image: url(images/hrplan_big.png);}
+#investproSwiper .swiper-slide .newhand_slide{background-image: url(images/newhand_small.png);}
+#investproSwiper .swiper-slide-active .newhand_slide{background-image: url(images/newhand_big.png);}
+#investproSwiper .swiper-slide .sxm_slide{background-image: url(images/sxm_small.png);}
+#investproSwiper .swiper-slide-active .sxm_slide{background-image: url(images/sxm_big.png);}
+.swiper-slide a{width:3.8rem;height: .7rem;background: #eb4e39;display: block;font-size: .36rem;color: #fff;text-align: center;line-height: .7rem;border-radius: .08rem;position: absolute;left: 0;right: 0;margin: auto;bottom: .85rem;z-index: 2;}
+.swiper-slide-active .investpro a{width: 4.33rem;height: .8rem;line-height: .8rem;bottom: .4rem;}
+.swiper-container-horizontal>.swiper-pagination{height:.5rem;text-align:center;bottom:0;}
+.swiper-pagination-bullet{background:#fff;border-radius:50%;width:.12rem;height:.12rem;margin-left:.18rem;opacity:1;}
+.swiper-pagination-bullet-active{background:#e04531;}
+.investproTab{width:4.6rem;height:6.37rem;position: absolute;top: 0.58rem;z-index: 2;opacity: 0;}
+.investpro-prev{left:-3.6rem;}
+.investpro-next{right:-3.6rem;}
+</style>
+</head>
+<body>
+<div class="swiper-container" id="investproSwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="investpro newhand_slide"><a href="##">立即投资</a></div>
+        </div>
+        <div class="swiper-slide">
+            <div class="investpro sxm_slide"><a href="##">立即投资</a></div>
+        </div>
+        <div class="swiper-slide">
+            <div class="investpro hrplan_slide"><a href="##">立即投资</a></div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="investproTab investpro-prev" id="investpro-prev"></div>
+    <div class="investproTab investpro-next" id="investpro-next"></div>
+</div>
+<script src="http://m.hurongclub.com/Resource/js/swiper-3.2.5.min.js"></script>
+<script>
+    var abcSwiper = new Swiper("#investproSwiper", {
+        slidesPerView: 'auto',   //设置slider容器能够同时显示的slides数量
+        centeredSlides: true,    //设定为true时，活动块会居中，而不是默认状态下的居左。
+        loop: true,
+        speed: 500,
+        noSwiping: false,        //设置为true时禁止切换
+        paginationClickable: false,
+        pagination : '.swiper-pagination',
+        prevButton:'#investpro-prev',
+        nextButton:'#investpro-next'
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.box {
+				width: 1200px;
+				height: 300px;
+				border: 1px solid #000;
+				margin: 50px auto;
+				overflow: hidden;
+			}
+			
+			.box ul {
+				overflow: hidden;
+				width: 9000px;
+			}
+			
+			.box ul li {
+				float: left;
+				width: 200px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.8.3-min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				$('li').mouseenter(function(event) {
+					$(this).stop().animate({
+						'width': 500
+					}, 400).siblings().stop().animate({
+						'width': 140
+					}, 400)
+				}).mouseleave(function() {
+					$('li').stop().animate({
+						'width': 200
+					}, 400)
+
+				});
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="box">
+			<ul>
+				<li><img src="img/01.jpg" height="300" width="500" alt="" /></li>
+				<li><img src="img/02.jpg" height="300" width="500" alt="" /></li>
+				<li><img src="img/03.jpg" height="300" width="500" alt="" /></li>
+				<li><img src="img/04.jpg" height="300" width="500" alt="" /></li>
+				<li><img src="img/05.jpg" height="300" width="500" alt="" /></li>
+				<li><img src="img/01.jpg" height="300" width="500" alt="" /></li>
+			
+			</ul>
+
+		</div>
+
+	</body>
+
+</html>

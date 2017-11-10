@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生成带有指定数据类型的 AJAX 请求</title>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="点击" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn").click(function(){
+					$.ajax({
+						url:"js/test.js",
+						dataType:"script"
+					});
+				});
+			})
+		</script>
+	</body>
+</html>

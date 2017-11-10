@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<head>
+<title>图片轮播</title>
+<style type="text/css">
+<!--
+#s_list li {
+ width:154px;
+ height:auto;
+ float:left;
+ padding: 0px;
+ margin: 0px;
+ list-style-image: none;
+ list-style-type: none;
+}
+#s_list a {
+ DISPLAY: block;
+ MARGIN: 0px;
+ WIDTH: 154px;
+ HEIGHT: auto;
+ TEXT-ALIGN: center;
+ padding-top: 3px;
+ padding-right: 0px;
+ padding-bottom: 3px;
+ padding-left: 0px;
+}
+#demo {
+ background: #FFF;
+ overflow:hidden;
+ border: 1px dashed #CCC;
+ width: 930px;
+ height:180px;
+}
+#demo img {
+border: 1px solid #F2F2F2;
+}
+#indemo {
+float: left;
+width: 800%;
+}
+#demo1 {
+ float: left;
+}
+#demo2 {
+float: left;
+}
+-->
+</style>
+</head>
+<body>
+<div id="demo">
+<div id="indemo">
+<div id="demo1">
+    <ul id="s_list">    
+      <li><a href="#"><img src="1.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="2.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="3.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="4.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="5.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="6.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="7.jpg" width="154" height="130" border="0" /></a>
+      <li><a href="#"><img src="8.jpg" width="154" height="130" border="0" /></a>
+</ul>
+</div>
+<div id="demo2"></div>
+</div>
+</div>
+<script>
+    var speed=1;
+    var tab=document.getElementById("demo");
+    var tab1=document.getElementById("demo1");
+    var tab2=document.getElementById("demo2");
+    tab2.innerHTML=tab1.innerHTML;
+function Marquee(){
+    if(tab2.offsetWidth-tab.scrollLeft<=0){
+        tab.scrollLeft-=tab1.offsetWidth
+}else{
+    tab.scrollLeft++;
+}
+}
+    var MyMar=setInterval(Marquee,speed);
+    tab.onmouseover=function() {clearInterval(MyMar)};
+    tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>
+</body>
+</html>
+

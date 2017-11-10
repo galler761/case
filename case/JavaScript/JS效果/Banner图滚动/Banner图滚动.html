@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{ padding: 0px; margin: 0px;}
+			#banner{ width: 100%; overflow: hidden; white-space: nowrap; position: relative;}
+			#banner #inside{ width: 9600px; position: relative; left: 50%; margin-left: -960px; transition: all 1s ease;}
+			#banner img{ width: 1920px;}
+			#bannerNum{ padding: 0px; list-style: none; overflow: hidden; width: 160px; position: absolute; bottom: 30px; right: 50px;}
+			#bannerNum li{ width: 30px; height: 30px; background-color: white; text-align: center; line-height: 30px; margin: 0px 5px; float: left; cursor: pointer;}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="banner">
+			<div id="inside">
+				<img src="img/banner1.png" id="img1" />
+				<img src="img/banner2.png" id="img2" />
+				<img src="img/banner3.png" id="img3" />
+				<img src="img/banner4.png" id="img4" />
+				<img src="img/banner1.png" id="img5" />
+			</div>
+			<ul id="bannerNum">
+				<li onclick="changeBanner(1)">1</li>
+				<li onclick="changeBanner(2)">2</li>
+				<li onclick="changeBanner(3)">3</li>
+				<li onclick="changeBanner(4)">4</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var num = 1;
+			var inside;
+			window.onload = function() {
+				inside = document.getElementById("inside");
+				var interval = setInterval(function() {
+					inside.style.transition = "all 1s ease";
+					num++;
+					switch(num) {
+						case 1:
+							inside.style.transition = "none";
+							inside.style.marginLeft = (-960) + "px";
+							break;
+						case 2:
+							inside.style.marginLeft = (-960 - 1920) + "px";
+							break;
+						case 3:
+							inside.style.marginLeft = (-960 - 1920 * 2) + "px";
+							break;
+						case 4:
+							inside.style.marginLeft = (-960 - 1920 * 3) + "px";
+							break;
+						case 5:
+							inside.style.marginLeft = (-960 - 1920 * 4) + "px";
+							num = 0;
+							break;
+						default:
+							break;
+					}
+				}, 2000);
+			}
+			function changeBanner(num1) {
+				inside.style.transition = "none";
+				switch(num1) {
+					case 1:
+						inside.style.marginLeft = (-960) + "px";
+						break;
+					case 2:
+						inside.style.marginLeft = (-960 - 1920) + "px";
+						break;
+					case 3:
+						inside.style.marginLeft = (-960 - 1920 * 2) + "px";
+						break;
+					case 4:
+						inside.style.marginLeft = (-960 - 1920 * 3) + "px";
+						break;
+					default:
+						break;
+				}
+				num = num1 - 1;
+			}
+		</script>
+	</body>
+
+</html>

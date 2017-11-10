@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			#box{
+				width:100px;
+				height:100px;
+				background:red;
+				position:absolute;
+			}
+			#car{
+				width:100px;
+				height:50px;
+				background:red;
+				top:200px;
+				border-radius:6px 20px 20px 6px;
+				position:absolute;
+			}
+			span{
+				width:1px;
+				height:300px;
+				background:green;
+				position:absolute;
+				left:800px;
+			}
+			button{
+				position:absolute;
+			}
+			#snike{
+				width:50px;
+				height:50px;
+				background:teal;
+				position:absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="input">
+		<div id="box"></div>
+		
+		<div id="car" style="left:0;"></div>
+		<button onclick="move()">前进</button>
+		<span></span>
+		<div id="snike" style="left:300px;top:300px"></div>
+	</body>
+	<script>
+		var input = document.getElementById('input');
+		var num=0;
+		input.oninput = function(){
+			var length = input.value.length;
+			if(num >length){
+				num=length;
+			}else if(num<length){
+				if((length-4)%5 == 0){
+					input.value = input.value+' ';
+					num=length;
+				}else if(length%5==0){
+					input.value = input.value.substr(0,length-1)+' '+input.value.substr(length-1);
+					num=length
+				}else{
+					num=length;
+				}
+			}
+		}
+
+		var box = document.getElementById('box');
+		var x = 0;
+		var y = 0;
+		box.onmousedown = function(e){
+			var e = e || event;
+			x = e.clientX - box.offsetLeft;
+			y = e.clientY - box.offsetTop;
+
+			document.onmousemove = function(e){
+				var e = e || event;
+				var l = e.clientX - x;
+				var t = e.clientY - y;
+
+				if(l<0){
+					l = 0;
+				}else if(l > document.documentElement.clientWidth - box.offsetWidth){
+					l = document.documentElement.clientWidth - box.offsetWidth;
+				}
+
+				if(t<0){
+					t = 0;
+				}else if(t>document.documentElement.clientHeight-box.offsetHeight){
+					t = document.documentElement.clientHeight-box.offsetHeight;
+				}
+				box.style.left = l + 'px';
+				box.style.top = t + 'px';
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+			return false;
+		}
+
+		function move(){
+			var car = document.getElementById('car');
+			var timmer = setInterval(function(){
+				//距离越远速度越快
+				var speed = (800-car.offsetLeft)/20;
+				//移动整数点像素
+				speed  = Math.ceil(speed);
+				car.style.left = parseInt(car.style.left) + speed + 'px';
+				if(car.offsetLeft>=800){
+					clearInterval(timmer);
+				}
+			},30)
+		}
+
+		var snike = document.getElementById('snike');
+		var xx = 1;
+		var yy = 0;
+		var mask = false;
+		var timmer;
+
+		document.onkeydown = function(e){
+			var e = e || event;
+			switch(e.keyCode){
+				case 37:
+				//左
+					xx = -1;
+					yy = 0;
+					mask = true;
+				break;
+				case 38:
+				//上
+					xx = 0;
+					yy = -1;
+					mask = true;
+				break;
+				case 39:
+				//右
+					xx = 1;
+					yy = 0;
+					mask = true;
+				break;
+				case 40:
+				//下
+					xx = 0;
+					yy = 1;
+					mask = true;
+				break
+			}
+			if(!timmer && mask){
+				timmer = run();
+			}
+		}
+
+		document.onkeyup =  function(){
+			clearInterval(timmer);
+			timmer = false;
+			mask = false;
+		}
+
+		function run(){
+			return setInterval(function(){
+				var left = parseInt(snike.style.left);
+				var top = parseInt(snike.style.top);
+				snike.style.left = left + xx + 'px';
+				snike.style.top = top + yy + 'px';
+			},10);
+		}
+	</script>
+</html>

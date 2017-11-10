@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="msg">上课不听讲，一半只有三种情况：1.手里有个手机 2.心里有个美女 3.身边做个逗比mg</p>
+
+</body>
+<script>
+	var msg = document.getElementById('msg');
+	//var mssg = document.getElementById('mssg');
+	function test(){
+		var str = msg.innerHTML;
+		msg.innerHTML = str.substr(1)+str.charAt(0);
+	}
+	
+	//function text(){
+		//var str =  mssg.innerHTML;
+		//str = str.split("");
+		//str.push(str.shift());
+		//mssg.innerHTML = str.join("");
+	//}
+	setInterval('test()',100);
+	//setInterval('text()',100);
+</script>
+</html>

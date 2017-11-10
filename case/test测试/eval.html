@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript利用eval，拼出一个对象属性并给其赋值</title>
+	</head>
+	<body>
+		<!--归根结底就是把一切转换成字符串，然后用eval解析。比如eval(newData+'++')，如果写成eval(newData++)就报错。因为newData变量的值是字符串，而++是运算符-->
+		<script type="text/javascript">
+			var getEval = function (data){
+				var newData = 'Project';
+				for(var i = 0; i < arguments.length; i++){
+					newData += '["'+arguments[i]+'"]';
+				}
+				if(eval(newData) < 8){
+					eval(newData+'++');
+				}
+				return eval(newData);
+			}
+			var Project = {
+				num:1,
+				arr:[{num:8},{num:2}]
+			}
+			console.log(getEval('num'));
+			console.log(getEval('arr','1','num'));
+			console.log("num")
+		</script>
+	</body>
+</html>

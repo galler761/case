@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sample_reels{
+            width: 800px;margin: 0 auto;
+        }
+        .sample_reels:after{
+            content: "";display: block;height:0;clear: both;
+        }
+        .sample_reels div{
+            float: left;
+        }
+        .sample_reels div a{
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            width: 200px;height: 150px;
+            /*-webkit-transition: background 2s;
+            transition: background 2s;*/
+
+        }
+        .sample_reels .introduce_img{
+            position: absolute; margin: auto;
+            left: 0;right: 0;top: -20px;bottom: 0;z-index: 1;
+            transition:top 2s;
+        }
+        .sample_reels .link{
+            position: absolute;margin: auto;left: 0;right: 0;top: 205px;bottom: 0;transition:top 2s;
+        }
+        .sample_reels div a:hover{
+            /*background: rgba(238, 124, 123, 0.8);*/
+            background: red !important;
+        }
+        .sample_reels div a:hover .link{
+            right: 0;top: 0;bottom: 0;left: 0
+        }
+        .sample_reels div a:hover .introduce_img{
+            right: 0;top: 30px;bottom: 0;left: 0
+        }
+        a img:nth-of-type(2){
+        	width: 100%;
+        	height: 5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="sample_reels">
+    <div>
+        <a href="#">
+            <span class="introduce_img">DOM编程艺术DEMO</span>
+            <img src="img/01.jpg" alt=""/>
+            <img class="link" src="img/04.jpg" alt=""/>
+        </a>
+    </div>
+    <div>
+        <a href="#">
+            <span class="introduce_img">自学shop_home</span>
+            <img src="img/02.jpg" alt=""/>
+            <img class="link" src="img/04.jpg" alt=""/>
+        </a>
+    </div>
+    <div>
+        <a href="#">
+            <span class="introduce_img">自学shop_detail</span>
+            <img src="img/03.jpg" alt=""/>
+            <img class="link" src="img/04.jpg" alt=""/>
+        </a>
+    </div>
+    <div>
+        <a href="#">
+            <span class="introduce_img">企业网站</span>
+            <img src="img/04.jpg" alt=""/>
+            <img class="link" src="img/01.jpg" alt=""/>
+        </a>
+    </div>
+</div>
+</body>
+</html>
