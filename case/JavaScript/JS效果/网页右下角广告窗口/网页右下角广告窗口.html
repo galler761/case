@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页右下角广告窗口</title>
+		<style type="text/css">
+			#div{ width: 300px; height: 250px; background-color: red; position: fixed; bottom: -250px; right: 0px; transition: all 1.5s ease;}
+			#close{ width: 20px; height: 20px; background-color: green; text-align: center; line-height: 20px; float: right; margin: 10px; cursor: pointer;}
+
+		</style>
+	</head>
+
+	<body>
+		<p>网页打开，右下角广告图自动弹出，点击关闭可以在右下角显示一横条。点击打开，可以显示全部广告窗。 常用于客服窗口聊天等场景。</p>
+
+		<div id="div">
+			<div id="close" onclick="closeWin()">
+				×
+			</div>
+		</div>
+		<script type="text/javascript">
+			var div;
+
+			window.onload = function() {
+
+				div = document.getElementById("div");
+
+				div.style.bottom = "0px";
+
+			}
+
+			function closeWin() {
+
+				var close = document.getElementById("close");
+
+				if(close.innerText == "×") {
+
+					close.innerText = "√";
+
+					div.style.bottom = "-200px";
+
+				} else {
+
+					close.innerText = "×";
+
+					div.style.bottom = "0px";
+
+				}
+
+			}
+		</script>
+	</body>
+
+</html>
