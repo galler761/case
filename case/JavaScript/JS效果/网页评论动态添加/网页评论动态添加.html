@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页评论动态添加</title>
+		<style type="text/css">
+			#outside{ width: 1000px; margin: 0 auto; border: 1px solid #E7EAEE; overflow: hidden; padding-bottom: 15px;}
+			#outside h3{ width: 95%; margin: 15px auto; padding-bottom: 10px; border-bottom: 1px solid #E7EAEE; font-family: "宋体", sans-serif;}
+			#outside .comment1{ width: 95%; margin: 10px auto; color: #BBBBBB; font-size: 12px; border-bottom: 1px dashed #E7EAEE; font-family: "宋体", sans-serif;}
+			#outside .comment1 time{ float: right;}
+			#outside .comment1 span{ color: #5979B2; margin-left: 5px; font-weight: bold;}
+			#outside .comment1 p{ font-size: 16px; color: black;}
+			#outside h4{ width: 95%; margin: 15px auto; color: #404E73; font-size: 16px; font-weight: bold; font-family: "宋体", sans-serif;}
+			#outside #addComment{ width: 95%; margin: 0 auto; font-size: 12px; color: #BBBBBB;}
+			#outside #name{ width: 200px; border: 1px solid #D9E2EF;}
+			#outside #comContent{ width: 800px; height: 100px; resize: none; border: 1px solid #D9E2EF; vertical-align: text-top;}
+			#outside button{ width: 100px; height: 30px; background-color: #2D46A3; color: white; border: hidden; float: right; margin: 15px 100px;}
+
+		</style>
+	</head>
+
+	<body>
+		<p>输入用户名和评论内容，将信息动态追加到已有评论后方。</p>
+
+		<div id="outside">
+
+			<h3>最新平均</h3>
+
+			<div id="comment">
+
+				<div id="comment1" class="comment1">
+
+					腾讯网友
+
+					<span>李二狗</span>
+
+					<time>2010年10月5日 19:21:12</time>
+
+					<p>
+
+						公务员好啊！可以为人民币服务！
+
+					</p>
+
+				</div>
+
+			</div>
+
+			<h4>发表评论</h4>
+
+			<div id="addComment">
+
+				昵 称：<input type="text" id="name" />
+
+				<br /><br /> 评论内容:
+
+				<textarea id="comContent"></textarea>
+
+				<button onclick="addComment()">提交评论</button>
+
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var idNum = 1;
+			function addComment() {
+				idNum++;
+				var inputValue = document.getElementById("name").value;
+				var textValue = document.getElementById("comContent").value;
+				if(inputValue == "" || textValue == "") {
+					alert("昵称和评论内容不能为空！！");
+					return;
+				}
+				var comContent1 = document.getElementById("comment1");
+				var newComment = comContent1.cloneNode(true);
+				newComment.setAttribute("id", "comment" + idNum);
+				newComment.getElementsByTagName("span")[0].innerText = inputValue;
+				newComment.getElementsByTagName("p")[0].innerText = textValue;
+				var commentDiv = document.getElementById("comment");
+				commentDiv.appendChild(newComment);
+				document.getElementById("name").value = "";
+				document.getElementById("comContent").value = "";
+			}
+
+			window.onload = function() {
+				var outside = document.getElementById("outside");
+				console.log(document.styleSheets[0].cssRules[0].style.border);
+			}
+		</script>
+
+	</body>
+
+</html>
