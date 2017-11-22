@@ -1,0 +1,25 @@
+/* 注册页面样式 */
+
+html{font-size: 50px;}
+@media (min-width: 320px) and (max-width: 374px){ html{font-size: 52px;}
+	}
+@media (min-width: 375px) and (max-width: 720px) and (-webkit-min-pixel-ratio: 2){ html{font-size: 54px;}
+	}
+@media (min-width: 414px) and (max-width: 736px) and (-webkit-min-pixel-ratio: 3){ html{font-size: 56px;}
+	}
+@media (min-width: 768px) and (max-width: 1023px){ html{font-size: 60px;}
+	}
+@media (min-width: 1024px) and (max-width: 1290px){ html{font-size: 55px;}
+	}
+@media (min-width: 1290px){ html{font-size: 75px;}
+	}
+html,body,h1,h2,input,textarea,p,button,header,nav,footer{margin: 0;padding: 0;}
+ul{list-style: none;}
+input{border-style: none;}
+fieldset{border-style: none;width: 100%;height: 500px;}
+.progressbar{font-size: 0.8rem;width: 100%;}
+.progressbar li{width: 33%;height: 100%;float: left;}
+#reg{width: 13rem;height: 20rem;background: rgb(241, 248, 250);position: fixed;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+#reg h3{width: 10rem;color: #888;font-size: 1rem;}
+#reg input{width: 10rem;height: 1.3rem;font-size: 0.8rem;margin-bottom: 0.5rem;}
+#reg input:last-child{width: 5rem;height: 2rem;background: #27AE60;color: #fff;}
