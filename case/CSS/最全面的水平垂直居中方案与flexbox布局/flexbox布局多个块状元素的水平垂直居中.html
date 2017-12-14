@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>flexbox布局多个块状元素的水平垂直居中</title>
+		<style type="text/css">
+			.content{display: flex;justify-content: center;background-color: #666;height: 100px;}
+			.center{margin: 0 auto; 
+					width: 100px; 
+					height: 100px; 
+					background-color: #666; 
+					color: #fff; 
+					display: flex; 
+					align-items: center; 
+					justify-content: center; 
+					font-weight: bold; 
+					font-size: 18px;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="center">
+				块状元素
+			</div>
+			<div class="center">
+				块状元素
+			</div>
+			<div class="center">
+				块状元素
+			</div>
+		</div>
+	</body>
+
+</html>
