@@ -43,7 +43,7 @@
 			readyList,
 
 			// A central reference to the root jQuery(document)
-			// 所有 jQuery 对象最后的指向应该都是回到 jQuery(document)
+			// 所有 jQuery 对象最后的指向应该都是回到 jQuery(document) 
 			rootjQuery,
 
 			// Support: IE<10
