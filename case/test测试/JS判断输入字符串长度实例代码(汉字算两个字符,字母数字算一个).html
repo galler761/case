@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>js判断输入字符串长度（汉字算两个字符，字母数字算一个）</title>
+  <style type="text/css">
+    .pbt {
+      margin-bottom: 10px;
+    }
+
+    .ie6 .pbt .ftid a, .ie7 .pbt .ftid a {
+      margin-top: 1px;
+    }
+
+    .cl:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+  </style>
+  <script type="text/javascript">
+    //获取字符串长度（汉字算两个字符，字母数字算一个）
+    function getByteLen(val) {
+      var len = 0;
+      for (var i = 0; i < val.length; i++) {
+        var a = val.charAt(i);
+        if (a.match(/[^\x00-\xff]/ig) != null) {
+          len += 2;
+        }
+        else {
+          len += 1;
+        }
+      }
+      return len;
+    }
+    // 只要键盘一抬起就验证编辑框中的文字长度，最大字符长度可以根据需要设定
+    function checkLength(obj) {
+      var maxChars = 80;//最多字符数   
+      var curr = maxChars - getByteLen(obj.value);
+      if (curr > 0) {
+        document.getElementById("checklen").innerHTML = curr.toString();
+      } else {
+        document.getElementById("checklen").innerHTML = '0';
+        document.getElementById("subject").readOnly = true;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="pbt cl">
+    <textarea id="subject" maxlength="80" onkeyup="checkLength(this)" accesskey="1" tabindex="11"></textarea>
+    <span id="subjectchk">还可输入
+    <strong id="checklen" style="color: #FF0000">80</strong>
+      个字符
+    </span>
+    <span id="postNameRule" class="spn_flag_1" style="display: none"></span>
+  </div>
+</body>
+</html>
