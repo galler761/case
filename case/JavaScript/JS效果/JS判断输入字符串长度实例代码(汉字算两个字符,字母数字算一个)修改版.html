@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.div1{position: relative;}
+			.textarea_txt{width: 88%;margin: 1rem auto;display: flex;font-size: 0.55rem;}
+			textarea{ resize: none;}
+			.num{position: relative;}
+			.font_num{position: absolute; right: 2.1rem; bottom: 1.2rem;}
+			.textarea_div{ width: 13.4rem; height: 2rem; border: none; background-color: #F68657; color: #FFFFFF; font-size: 17px; line-height: 2rem; text-align: center; border-radius: 0.2rem;margin: 0 auto;}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<textarea class="textarea_txt" id="opinion" rows="10" cols="50" placeholder="对我们的网站，商品，服务您还有审议建议吗?" onkeyup="checkLength(this)" maxlength="500" accesskey="1" tabindex="11"></textarea>
+			<div class="num">
+				<span id="font_num" class="font_num">
+					0/500
+				</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取字符串长度（中文算两个，字母数字算一个）
+			function getByteLen(val){
+				var len = 0;
+				for(var i = 0;i < val.length;i++){
+					var a = val.charAt(i);
+					if(a.match(/[^\x00-\xff]/ig) != null){
+						len += 2;
+					}else{
+						len += 1;
+					}
+				}
+				return len;
+			}
+			//只要键盘一抬起就验证编辑框中的文字长度，最大字符长度可以根据需要设定
+			function checkLength(obj){
+				var maxChars = 500;//最多字符数
+				var curr = maxChars - getByteLen(obj.value);
+				if(curr > 0){
+					document.getElementById("font_num").innerHTML=maxChars - curr.toString() + "/" + maxChars;
+				}else{
+					document.getElementById("font_num").innerHTML=curr + "/" + maxChars;
+					document.getElementById("opinion").readOnly = true;
+				}
+			}
+		</script>
+	</body>
+</html>
