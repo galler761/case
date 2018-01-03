@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body>
+		<div id="myDiv">
+			通过 AJAX 改变文本
+		</div>
+		<button id="b1">改变内容</button>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#b1").click(function() {
+					htmlobj = $.ajax({
+						url: "test.txt",
+						async: false
+					});
+					$("#myDiv").html(htmlobj.responseText);
+				});
+			});
+		</script>
+	</body>
+
+</html>
