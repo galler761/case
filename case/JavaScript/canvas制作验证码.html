@@ -36,7 +36,7 @@
 			}
 			//干扰线的随机X坐标值
 			function lineX() {
-				var ranLineX = Math.floor(Math.random() * 90);
+				var ranLineX = Math.floor(Math.random() * 120);
 				return ranLineX;
 			}
 			//干扰线的随机Y坐标值
@@ -51,20 +51,20 @@
 				vas.width = 120;
 				vas.height = 40; //设置canvas的宽度和高度            
 				context.strokeRect(0, 0, 120, 40); //绘制一个矩形的方框
-				//				var aCode = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//				var aCode = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 				for(var i = 0; i < 4; i++) {
-					var deg = 90 * Math.random() * Math.PI / 180
+//					var deg = 90 * Math.random() * Math.PI / 180
 					var x = 20 + 20 * i; //文字的x轴
 					var y = 20 + Math.random() * 10; //文字的y轴
-					//					var index = Math.floor(Math.random() * aCode.length); //获取数组中的随机的索引值
-					//					var txt = aCode[index]; //获取到数组的随机内容
+//					var index = Math.floor(Math.random() * aCode.length); //获取数组中的随机的索引值
+//					var txt = aCode[index]; //获取到数组的随机内容
 					context.font = "bold 20px 微软雅黑";
 					context.fillStyle = getColor(); //设置颜色
 					context.fillText(rand(), x, y); //把rend()生成的随机文本填充到canvas中,将文字写到画布上	
-					//					context.translate(x,y);
-					//					context.rotate(deg);				
-					//					context.translate(-x,-y);
-					//					context.rotate(-deg);
+//					context.translate(x,y);
+//					context.rotate(deg);				
+//					context.translate(-x,-y);
+//					context.rotate(-deg);
 				}
 				//生成20条干扰线
 				for(var i = 0; i < 20; i++) {
