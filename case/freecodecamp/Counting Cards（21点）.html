@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			你需要写一个函数，实现21点算法，它根据参数 card的值来递增或递减变量count，
+			函数返回一个由当前count和 "Bet"(count>0)或"Hold"(count<=0) 拼接的字符串。
+			注意count和 "Bet" 或 "Hold"应该用空格分开。
+			例如：
+			"-3 Hold"
+			"5 Bet"
+			提示
+			既然card的值为7、8、9时，count值不变，那我们就可以忽略这种情况。
+		-->
+				<script type="text/javascript">
+					var count = 0;
+
+					function cc(card) {
+						// 请把你的代码写在这条注释以下
+						switch(card) {
+							case 1:
+							case 2:
+							case 3:
+							case 4:
+							case 5:
+							case 6:
+								count += 1;
+								break;
+							case 10:
+							case "J":
+							case "Q":
+							case "K":
+							case "A":
+								count -= 1;
+								break;
+						}
+
+						return count + " " + (count > 0 ? "Bet" : "Hold");
+						// 请把你的代码写在这条注释以上
+					}
+
+					// 你可以在这里添加/删除 cc 方法的调用来测试结果
+					// 提示: 左边只会显示最后一次执行的返回值
+					cc(2);
+					cc(3);
+					cc(7);
+					cc('K');
+					cc('A');
+				</script>
+	</body>
+
+</html>
