@@ -1,0 +1,247 @@
+/* header start */
+.pageHeader{
+	width:100%;
+	height:100vh;
+	min-height:340px;
+	background:#18181d;
+	transition:height 0.4s ease;
+	padding-top:80px;
+	box-sizing:border-box;
+	position:relative;
+}
+.headNav{
+	width:100%;
+	height:80px;
+	background:rgba(255,255,255,0.07);
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:1000;
+}
+.headNav div.logo{
+	background:url("../images/header/logo.png");
+	width:130px;
+	height:25px;
+	margin:25px 0 0 20px;
+	float:left;
+}
+.headNav div.menu{
+	float:right;
+	margin:18px 20px 0 10px
+}
+.headNav div.menu ul li{
+	display:inline-block;
+	font-size:1.4rem;
+	font-size:14px;
+}
+
+.headNav div.menu ul li a{
+	display:block;
+	height:37px;
+	color:#fff;
+	font-weight:bold;
+	perspective:1000px;
+}
+
+.headNav div.menu ul li a span{
+	display:block;
+	padding:0.75rem;
+	height:33px;
+	line-height:34px;
+	position:relative;
+	border:2px solid transparent;
+	transform-style:preserve-3d;
+	transform-origin:50% 0 0;
+	transition:0.3s;
+}
+
+.headNav div.menu ul li a span:before{
+	content:attr(data-hover);
+	position:absolute;
+	left:-2px;
+	top:100%;
+	width:100%;
+	height:100%;
+	background:#E44E27;
+	line-height:51px;
+	text-align:center;
+	opacity:0;
+	border:2px solid #E44E27;
+	transform-origin:50% 0 0;
+	transform:rotateX(-90deg);
+	transition:0.3s;
+}
+.headNav div.menu ul li a:hover span{
+	transform:rotateX(90deg);
+	border-color:#E44E27;
+}
+.headNav div.menu ul li a:hover span:before{
+	opacity:1;
+}
+
+.simple{
+	height:100%;
+	position:relative;
+	z-index:1000;
+}
+.simple div.content{
+	max-width:640px;
+	height:100%;
+	margin:auto;
+}
+.simple div.content .simple-item{
+	height:33.3%;
+	min-height:105px;
+	border-top:1px solid #2d2d32;
+
+}
+.simple-item div.anim{
+	display:table;
+	width:100px;
+	height:100%;
+	float:left;
+	position:relative;
+}
+.simple-item div.anim a{
+	display:block;
+	width:100px;
+	position:absolute;
+	top:50%;
+	left:0px;
+	margin-top:-50px;
+}
+.simple-item div.anim a.anim1{
+	height:89px;
+}
+.simple-item div.anim a.anim2{
+	height:100px;
+}
+.simple-item div.anim a.anim3{
+	height:111px;
+}
+.simple-item div.anim a img{
+	width:100%;
+	position:absolute;
+
+}
+.simple-item div.anim a img.img{
+	left:0px;
+	top:0px;
+}
+.simple-item div.anim a img.img11{
+	left:0%;
+	top:50%;
+	transform:scale(0.4);
+	opacity:0;
+	transition:0.5s;
+
+}
+.simple-item div.anim a img.img12{
+	left:40%;
+	bottom:50%;
+	transform:scale(0.4);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img13{
+	right:40%;
+	bottom:50%;
+	transform:scale(0.4);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img21{
+	left:0px;
+	top:50%;
+	transform:scale(0.2) rotate(-90deg);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img22{
+	left:0px;
+	bottom:50%;
+	transform:scale(0.2) rotate(90deg);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img31{
+	left:20%;
+	bottom:30%;
+	transform:scale(0.2) rotate(-70deg);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img32{
+	left:0;
+	bottom:40%;
+	transform:scale(0.2);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item div.anim a img.img33{
+	left:20%;
+	bottom:30%;
+	transform:scale(0.2) rotate(70deg);
+	opacity:0;
+	transition:0.5s;
+}
+.simple-item:hover div.anim a img.img11{
+	left:0px;
+	top:0px;
+	transform:scale(1);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img12{
+	left:0px;
+	bottom:0px;
+	transform:scale(1);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img13{
+	right:0px;
+	bottom:0px;
+	transform:scale(1);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img21{
+	left:0px;
+	top:0px;
+	transform:scale(1) rotate(0deg);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img22{
+	left:0px;
+	bottom:0px;
+	transform:scale(1) rotate(0deg);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img31{
+	left:0px;
+	bottom:0px;
+	transform:scale(1) rotate(0deg);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img32{
+	left:0px;
+	bottom:0px;
+	transform:scale(1) rotate(0deg);
+	opacity:1;
+}
+.simple-item:hover div.anim a img.img33{
+	left:0px;
+	bottom:0px;
+	transform:scale(1) rotate(0deg);
+	opacity:1;
+}
+
+.canvasBg{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+#canvas{
+	display:block;
+}
+/* end header */
