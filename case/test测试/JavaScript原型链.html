@@ -1,57 +1,63 @@
 <html>
 
-	<head>
-		<meta charset="UTF-8" />
-		<title>javascript原型链</title>
-	</head>
+<head>
+    <meta charset="UTF-8" />
+    <title>javascript原型链</title>
+</head>
 
-	<body>
-		<script type="text/javascript">
-			/*//创建对象的三种方式
-				//第一种方式：字面量
-				var a1 = {name:'a1'};
-				var a11 = new Object({name:'a11'});
-				console.log(a1);
-				console.log(a11);
-				//第二种方式：构造函数
-				var M = function(){
-					this.name = 'name';
-				}
-				var b2 = new M('b2');
-				console.log(b2);
-				//第三种方式：Object.create
-				var P = {name:'p'}
-				var c3 = Object.create(P);
-				console.log(c3);
-			*/
-			// 第一种方式：字面量
-			var o1 = {
-				name: 'o1'
-			}
-			var o2 = new Object({
-				name: 'o2'
-			})
-			// 第二种方式：构造函数
-			var M = function(name) {
-				this.name = name;
-			}
-			var o3 = new M('o3')
-			// 第三种方式：Object.create
-			var p = {
-				name: 'p'
-			}
-			var o4 = Object.create(p)　　
-			console.log(o1);　　　　　　
-			console.log(o2);　　
-			console.log(o3);　　
-			console.log(o4);
-			var o5 = new M();
-			o3.__proto__.say = function(){
-				console.log('HelloWorld');
-			}
-			o3.say();
-			o5.say();
-		</script>
-	</body>
+<body>
+    <script type="text/javascript">
+        //创建对象的三种方式
+        //第一种方式：字面量
+        // var a1 = {
+        //     name: 'a1'
+        // };
+        // var a11 = new Object({
+        //     name: 'a11'
+        // });
+        // console.log(a1);
+        // console.log(a11);
+        // //第二种方式：构造函数
+        // var M = function() {
+        //     this.name = 'name';
+        // }
+        // var b2 = new M('b2');
+        // console.log(b2);
+        // //第三种方式：Object.create
+        // var P = {
+        //     name: 'p'
+        // }
+        // var c3 = Object.create(P);
+        // console.log(c3);
+
+        // 第一种方式：字面量
+        var o1 = {
+            name: 'o1'
+        }
+        var o2 = new Object({
+                name: 'o2'
+            })
+            // 第二种方式：构造函数
+        var M = function(name) {
+            this.name = name;
+        }
+        var o3 = new M('o3')
+            // 第三种方式：Object.create
+        var p = {
+            name: 'p'
+        }
+        var o4 = Object.create(p)　　
+        console.log(o1);　　　　　　
+        console.log(o2);　　
+        console.log(o3);　　
+        console.log(o4);
+        var o5 = new M();
+        o3.__proto__.say = function() {
+            console.log('HelloWorld');
+        }
+        o3.say();
+        o5.say();
+    </script>
+</body>
 
 </html>
