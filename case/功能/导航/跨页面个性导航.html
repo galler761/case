@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-		<style type="text/css">
-			* {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
-			
-			html,
-			body,
-			ul {
-				height: 100%;
-			}
-			
-			ul li {
-				background: #fcf;
-				width: 100%;
-				height: 100%;
-			}
-			
-			ol {
-				width: 102px;
-				position: fixed;
-				left: 100px;
-				top: 0;
-			}
-			
-			ol li {
-				width: 100px;
-				height: 100px;
-				border: 1px solid #000;
-				background-color: #ccc;
-				margin-bottom: -1px;
-				line-height: 100px;
-				text-align: center;
-				font-size: 30px;
-				cursor: pointer;
-			}
-			
-			ol li.current {
-				background-color: #fcf;
-			}
-		</style>
-		<script type="text/javascript" src="jquery-1.8.3-min.js"></script>
-		<script type="text/javascript">
-			$(function() {
-				var bgcolors = ['pink', 'red', 'blue', 'green', 'yellow']
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        html,
+        body,
+        ul {
+            height: 100%;
+        }
+        
+        ul li {
+            background: #fcf;
+            width: 100%;
+            height: 100%;
+        }
+        
+        ol {
+            width: 102px;
+            position: fixed;
+            left: 100px;
+            top: 0;
+        }
+        
+        ol li {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: #ccc;
+            margin-bottom: -1px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        ol li.current {
+            background-color: #fcf;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery-1.8.3-min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var bgcolors = ['pink', 'red', 'blue', 'green', 'yellow']
 
-				$('ul li').each(function(index, element) {
-					$(element).css('background', bgcolors[index])
-				})
+            $('ul li').each(function(index, element) {
+                $(element).css('background', bgcolors[index])
+            })
 
-				$('ol li').click(function(event) {
-					$(this).addClass('current').siblings().removeClass('current')
+            $('ol li').click(function(event) {
+                $(this).addClass('current').siblings().removeClass('current')
 
-					var selfIndex = $(this).index();
-					var win_hei = $(window).height();
+                var selfIndex = $(this).index();
+                var win_hei = $(window).height();
 
-					$('html,body').animate({
-						scrollTop: win_hei * selfIndex
-					}, 500);
-				});
-			})
-		</script>
-	</head>
+                $('html,body').animate({
+                    scrollTop: win_hei * selfIndex
+                }, 500);
+            });
+        })
+    </script>
+</head>
 
-	<body>
-		<ul>
-			<li>首页</li>
-			<li>关注</li>
-			<li>动态</li>
-			<li>风格</li>
-			<li>作品</li>
-		</ul>
-		<ol>
-			<li class="current">首页</li>
-			<li>关注</li>
-			<li>动态</li>
-			<li>风格</li>
-			<li>作品</li>
-		</ol>
-	</body>
+<body>
+    <ul>
+        <li>首页</li>
+        <li>关注</li>
+        <li>动态</li>
+        <li>风格</li>
+        <li>作品</li>
+    </ul>
+    <ol>
+        <li class="current">首页</li>
+        <li>关注</li>
+        <li>动态</li>
+        <li>风格</li>
+        <li>作品</li>
+    </ol>
+</body>
 
 </html>

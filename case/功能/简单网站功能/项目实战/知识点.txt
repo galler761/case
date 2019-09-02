@@ -1,0 +1,9 @@
+vw ,vh
+
+vw = view width  vh = view height
+
+
+div{
+	width = 100vw;//宽度就是浏览器窗口宽度的100%
+	height = 50vh;//高度就是浏览器窗口高度的50%
+}
