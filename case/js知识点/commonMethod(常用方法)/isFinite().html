@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // isFinite(value) 将其参数转换为数字，如果是常规数字，则返回 true，而不是 NaN / Infinity / -Infinity
+        alert(isFinite("15")); // true
+        alert(isFinite("str")); // false, 因为一个特殊的价值: NaN
+        alert(isFinite(Infinity)); // false, 因为一个特殊的价值: Infinity
+
+        // isFinite 用于验证字符串值是否为常规数字
+        let num = +prompt("Enter a number", '');
+        // 结果会是 true，除非你输入无穷大，无穷大或不是数字
+        alert(isFinite(num));
+
+        // 注意，所有数字函数（包括 isFinite）中的空字符串或空格字符串均被视为 0。
+    </script>
+</body>
+
+</html>

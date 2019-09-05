@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 在字符串中查找子字符串
+        // 第一个方法是 str.indexOf(substr, pos)。
+        // 从给定位置 pos 开始，在 str 中查找 substr，如果没有找到，则返回 -1，否则返回匹配成功的位置。
+        let str = 'Widget with id';
+        alert(str.indexOf('Widget')); // 0，因为 'Widget' 一开始就被找到
+        alert(str.indexOf('widget')); // -1，没有找到，检索是大小写敏感的
+        alert(str.indexOf("id")); // 1，"id" 在位置 1 处（……idget 和 id）
+        // 可选的第二个参数允许我们从给定的起始位置开始检索
+        // 例如，"id" 第一次出现的位置是 1。查询下一个存在位置时，我们从 2 开始检索：
+        let str = 'Widget with id';
+        alert(str.indexOf('id', 2)) // 12
+
+        // 我们对所有存在位置都感兴趣，可以在一个循环中使用 indexOf。每一次新的调用都发生在上一匹配位置之后
+        let str = 'As sly as a fox, as strong as an ox';
+        let target = 'as'; // 让我们查看一下
+        let pos = 0;
+        while (true) {
+            let foundPos = str.indexOf(target, pos);
+            if (foundPos == -1) break;
+            alert(`Found at ${foundPos}`);
+            pos = foundPos + 1; // 继续从下一个位置查找
+        }
+        // 相同的算法可以简写
+        let str = "As sly as a fox, as strong as an ox";
+        let target = "as";
+        let pos = -1;
+        while ((pos = str.indexOf(target, pos + 1)) != -1) {
+            alert(pos);
+        }
+
+        // 因为 str.indexOf("Widget") 返回 0（意思是它在起始位置查找匹配）。是的，但是 if 认为 0 应该是 false
+        let str = "Widget with id";
+        if (str.indexOf("Widget") != -1) {
+            alert("We found it"); // 现在运行了！
+        }
+        // 简写 indexOf 检查
+        let str = "Widget";
+        if (~str.indexOf("Widget")) {
+            alert('Found it!'); // 正常运行
+        }
+    </script>
+</body>
+
+</html>

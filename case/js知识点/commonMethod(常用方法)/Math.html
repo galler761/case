@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>几个内置的数值修约函数</title>
+</head>
+
+<body>
+    <script>
+        // Math.floor
+        // 向下舍入：3.1 变成 3，-1.1 变成 -2。
+        // Math.ceil
+        // 向上舍入：3.1 变成 4，-1.1 变成 -1。
+        // Math.round
+        // 向最近的整数舍入：3.1 变成 3, 3.6变成4，-1.1变成-1`。
+        // Math.trunc（IE 浏览器不支持这个方法）
+        // 删除小数点后的所有内容而不舍入：3.1 变成 3，-1.1 变成 -1。
+
+        // Math.random():返回从 0 到 1 的随机数（不包括 1）
+        alert(Math.random());
+        // Math.max(a, b, c...) / Math.min(a, b, c...):从任意数量的参数中返回最大/最小值。
+        alert(Math.max(3, 5, -10, 0, 1)); // 5
+        alert(Math.min(1, 2)); // 1
+        // Math.pow(n, power):返回 n 的 power 次幂，即 npower
+        alert(Math.pow(2, 10)); // 2 的 10 次幂 = 1024
+    </script>
+</body>
+
+</html>

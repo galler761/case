@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数 parseInt 返回一个整数，而 parseFloat 将返回一个浮点数
+        alert(parseInt('100px')); // 100
+        alert(parseFloat('12.5em')); // 12.5
+        alert(parseInt('12.3')); // 12, 只返回整数部分
+        alert(parseFloat('12.3.4')); // 12.3, 第二点停止读数
+
+        //没有数字可读的情况下,parseInt / parseFloat 会返回 NaN
+        alert(parseInt('a123')); // NaN,第一个符号停止进程
+
+        // parseInt() 函数有一个可选的第二个参数。它指定了数字系统的基础，因此 parseInt 还可以解析十六进制数字，二进制数字等字符串
+        alert(parseInt('0xff', 16)); // 255
+        alert(parseInt('ff', 16)); // 255, 不带0x也可以
+        alert(parseInt('2n9c', 36)); // 123456
+    </script>
+</body>
+
+</html>

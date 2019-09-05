@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = `Hello`;
+        // 第一个字符
+        alert(str[0]); // H
+        alert(str.charAt(0)); // H
+
+        // 最后一个字符
+        alert(str[str.length - 1]); // o
+        // 方括号是获取字符的一种现代化方法，而 charAt 是历史原因才存在的
+        // 它们之间的唯一区别是，如果没有找到字符，[] 返回 undefined，而 charAt 返回一个空字符串：
+        let str = `Hello`;
+        alert(str[1000]); // undefined
+        alert(str.charAt(1000)); // '' （空字符串）
+
+        // 使用 for..of 遍历字符
+        for (let char of "Hello") {
+            alert(char); // H,e,l,l,o （char 变为“H”，然后是“e”，然后是“l”等）
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 12.34;
+        alert(num.toFixed(1)); // "12.3"
+
+        // 这会向上或向下舍入到最接近的值，类似于 Math.round：
+        let num = 12.36;
+        alert(num.toFixed(1)); // "12.4"
+
+        // toFixed 的结果是一个字符串。如果小数部分比所需要的短，则在结尾添加零
+        let num = 12.34;
+        alert(num.toFixed(5)); // "12.34000", 加上零正好是5位数
+
+        // 使用一元加号将它强制为一个数字
+        let sum = 0.1 + 0.2;
+        alert(+sum.toFixed(2)); // 0.3
+    </script>
+</body>
+
+</html>

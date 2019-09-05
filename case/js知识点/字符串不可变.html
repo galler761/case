@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符串不可变</title>
+</head>
+
+<body>
+    <script>
+        let str = 'Hi';
+        str[0] = 'h'; // error
+        alert(str[0]); // 无法运行 
+
+        // 解决方法是创建一个新的字符串，并将其分配给 str 而不是以前的字符串
+        let str = 'Hi';
+        str = 'h' + str[1]; // 字符串替换
+        alert(str); // hi
+    </script>
+</body>
+
+</html>

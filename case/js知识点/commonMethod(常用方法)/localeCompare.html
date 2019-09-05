@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正确的比较</title>
+</head>
+
+<body>
+    <script>
+        // 调用 str.localeCompare(str2) 会根据语言规则返回一个整数，这个整数能表明 str 是否在 str2 前，后或者等于它
+        // 如果 str 小于 str2 返回负数，例如，str 在 str2 前。
+        // 如果 str 大于 str2 返回正数，例如，str 在 str2 后。
+        // 如果它们相等则返回 0。
+        alert('Österreich'.localeCompare('Zealand')); // -1
+        // 这个方法实际上在文档中指定了两个额外的参数， 它允许它指定语言（ 默认从环境中获取， 字符顺序视语言不同而不同） 
+        // 并设置诸如区别大小之类的附加规则， 或应该处理将 "a"和 "á"看作相等情况等。
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>includes() 方法</title>
+</head>
+
+<body>
+    <!-- 判断一个数组是否包含一个指定的值，如果是返回 true，否则false。 -->
+    <script>
+        // 更现代的方法 str.includes(substr, pos) 取决于 str 是否包含 substr 来返回 true/false。
+        let site = ['runoob', 'google', 'taobao'];
+        site.includes('runoob'); // true 
+        site.includes('baidu'); // false
+
+        // 要测试匹配，这是正确的选择，但不需要它的位置
+        alert("Widget with id".includes("Widget")); // true
+        alert("Hello".includes("Bye")); // false
+
+        // str.includes 的第二个可选参数从以下位置开始搜索位置
+        alert("Midget".includes("id")); // true
+        alert("Midget".includes("id", 3)); // false, 位置 3 没有“id”
+
+        // 方法 str.startsWith 和 str.endsWith 完全按照它们所说的执行：
+        alert("Widget".startsWith("Wid")); // true，“Widget”以“Wid”开始
+        alert("Widget".endsWith("get")); // true，“Widget”以“get”结束
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            a: 100,
+            b: 200,
+            c: 'abc'
+        }
+
+        function multiplyNumeric(obj) {
+            for (let key in obj) {
+                if (typeof obj[key] == 'number') {
+                    obj[key] *= 2;
+                }
+            }
+            console.log(obj);
+        }
+        multiplyNumeric(user);
+    </script>
+</body>
+
+</html>

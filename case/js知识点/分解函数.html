@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分解函数</title>
+</head>
+
+<body>
+    <script>
+        // function showPrimes(n) {
+        //     nextPrime: for (let i = 2; i < n; i++) {
+        //         //  检测 i 是否是一个质数（素数）
+        //         for (let j = 2; j < i; j++) {
+        //             if (i % j == 0) continue nextPrime;
+        //         }
+        //         console.log(i);
+        //     }
+        // }
+        // showPrimes(10);
+    </script>
+    <script>
+        // 更好的变体，使用一个分解出来的函数 isPrime
+        // 更容易的理解代码
+        // 因为函数自己变成了注释。这种代码被称之为自我描述型代码。
+        function showPrimes(n) {
+            for (let i = 2; i < n; i++) {
+                if (!isPrime(i)) continue;
+                console.log(i); //2,3,5,7
+            }
+        }
+
+        function isPrime(n) {
+            for (let i = 2; i < n; i++) {
+                // 注意点：n在前
+                if (n % i == 0) return false;
+            }
+            return true;
+        }
+        showPrimes(10);
+    </script>
+</body>
+
+</html>

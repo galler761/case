@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首字母大写</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 ucFirst(str)，并返回首字母大写的字符串str
+        // ucFirst("john") == "John";
+        function ucFirst(name) {
+            // 如果 str 是空的，那么 str[0] 就是 undefined，但由于 undefined 并没有 toUpperCase() 方法，因此我们会得到一个错误
+            if (!name) return name;
+
+            // 方法多种，选合适的即可
+            // name = name.slice(0, 1).toUpperCase() + name.slice(1);
+            return name[0].toUpperCase() + name.slice(1);
+        }
+        console.log(ucFirst('john'));
+    </script>
+</body>
+
+</html>
