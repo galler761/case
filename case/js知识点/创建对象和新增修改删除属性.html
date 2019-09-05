@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建对象和新增修改删除属性</title>
+</head>
+
+<body>
+    <script>
+        // 1.两种语法的任一种来创建一个空的对象
+        // let user = new Object(); // “构造函数” 的语法
+        let user = {}; //创建一个空的 user 对象.“字面量” 的语法
+        // 2.两种语法新增属性
+        // user.name = "John";
+        // user.surname = "Smith";
+        user = {
+            name: 'John', //为这个对象增加一个属性，键是 name 值是 John。
+            surname: 'Smith' //再增加一个属性键surname值 Smith
+        }
+        user.name = 'Pete'; //把 name 属性的值改成 Pete
+        delete user.name; //从对象中删除 name 属性
+        console.log(user)
+    </script>
+</body>
+
+</html>
