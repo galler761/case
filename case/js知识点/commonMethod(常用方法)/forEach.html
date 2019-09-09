@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>forEach</title>
+</head>
+
+<body>
+    <script>
+        // forEach() 方法对数组的每个元素执行一次提供的函数。
+        // 语法：数组当前项的值，数组当前项的索引，数组对象本身
+        // arr.forEach(function(item, index, array) {
+        //      ... do something with item
+        // });
+        // 例如：为每个元素调用 alert
+        ["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
+
+        // 详细地介绍了它们在数组中的位置
+        ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+            console.log(`数组当前项的值: ${item} ,数组当前项的索引: ${index} ,数组对象本身 ${array}`);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pop/push, shift/unshift 方法</title>
+</head>
+
+<body>
+    <script>
+        // 队列是最常见的使用数组的方法之一,一个有序的元素的集合支持两个操作
+        // （入队）unshift，在数组的开头添加一个或多个元素，并且返回新的长度。
+        let fruits = ["Orange", "Pear"];
+        fruits.unshift('Apple');
+        alert(fruits); // Apple, Orange, Pear
+        // （出队）shift 取出队列最前端的一个元素，整个队列往前移，这样原先排第二的元素现在排在了第一。例如：取出数组的第一个元素并返回它
+        // shift()方法和unshift()方法恰恰相反。该方法用于把数组的第一个元素从其中删除，并返回被删除的值。如果数组是空的，shift()方法将不进行任何操作，返回undefined的值。
+        let fruits = ["Apple", "Orange", "Pear"];
+        alert(fruits.shift()); // 移除 Apple 然后 alert 显示出来
+        alert(fruits); // Orange, Pear
+
+        // 数组还有另一个用例，就是数据结构栈,支持两种操作
+        // （入栈）push 在末端添加一个元素或者多个元素,并返回新的长度.例如：在数组末端添加元素
+        let fruits = ["Apple", "Orange"];
+        fruits.push("Pear");
+        alert(fruits); // Apple, Orange, Pear
+        // （出栈）pop 从末端取出一个元素.例如：取出并返回数组的最后一个元素
+        // pop()方法刚好和push()方法相反。pop()方法删除数组的最后一个元素，把数组的长度减1，并且返回它被删除元素的值，如果数组变为空，则该方法不改变数组，返回undefine值。
+        let fruits = ["Apple", "Orange", "Pear"];
+        alert(fruits.pop()); // 移除 "Pear" 然后 alert 显示出来
+        alert(fruits); // Apple, Orange
+
+        // 所以新元素的添加和取出都是从“末端”开始的。
+        // 栈通常被被形容成一叠卡片：要么添加卡片放到最上面，要么从最上面拿走卡片：
+
+        // unshift()比push()要慢差不多100倍!因此，平时还是要慎用unshift()，特别是对大数组。
+        // 如果一定要达到unshift()的效果，可以借助于Array的reverse()方法，
+        // Array的reverse()的方法能够把一个数组反转。先把要放进数组的元素用push()添加，
+        // 再执行一次reverse()，就达到了unshift()的效果。
+    </script>
+</body>
+
+</html>

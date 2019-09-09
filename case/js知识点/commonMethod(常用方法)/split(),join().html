@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // split() 方法使用指定的分隔符字符串将一个String对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。
+        // 例如：用逗号分隔空格
+        let names = 'Bilbo, Gandalf, Nazgul';
+        let arr = names.split(', ');
+        for (let name of arr) {
+            console.log(`A message to ${name}.`); // A message to Bilbo  (and other names)
+        }
+
+        // split 方法有一个可选的第二个数字参数 — 对数组长度的限制。如果提供了，那么额外的元素将被忽略。但实际上它很少使用：
+        let arr2 = 'Bilbo, Gandalf, Nazgul, Saruman'.split(', ', 2);
+        console.log(arr2); // Bilbo, Gandalf
+    </script>
+
+    <script>
+        // 拆分为字母,调用空的参数 split(s) 会将字符串分成一个字母数组：
+        let str3 = "test";
+        console.log(str3.split('')); // t,e,s,t
+    </script>
+
+    <script>
+        // arr.join(str) 与 split 相反。它会在它们之间创建一串由 str 粘合的 arr 项。
+        let arr4 = ['Bilbo', 'Gandalf', 'Nazgul'];
+        let str = arr4.join(';');
+        console.log(str); // Bilbo;Gandalf;Nazgul
+    </script>
+</body>
+
+</html>

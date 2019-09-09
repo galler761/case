@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组循环</title>
+</head>
+
+<body>
+    <script>
+        let arr = ["Apple", "Orange", "Pear"];
+        // 遍历数组最古老的方式就是 for 循环，运行的最快, 可兼容旧版本浏览器
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // 但对于数组来说还有另一种循环方式，for..of ，现代语法，只能访问 items。
+        // for..of 不能获取当前元素的索引，但大多数情况是够用的。而且这样写更短。
+        let fruits = ["Apple", "Orange", "Plum"];
+        for (let fruit of fruits) {
+            console.log(fruit);
+        }
+
+        // 技术上来讲，因为数组也是对象，所以使用 for..in 也是可能的：通常来说，我们不应该用 for..in 来处理数组。永远不会使用
+        // 因为有潜在问题:
+        // 1.for..in 循环会迭代所有属性，不仅仅是这些数字属性。
+        // 在浏览器和其它环境中有一种“类数组”的对象，它们看似是数组，也就是说，它们有 length 和索引属性，但是也可能有其它的非数字的属性和方法，这通常是我们不需要的。
+        // for..in 循环会把它们都列出来。所以如果我们需要处理类数组对象，这些“额外”的属性就会存在问题。
+        // 2.for..in 循环适用于普通对象，不适用于数组，而且会慢 10-100 倍。虽然这样也依然非常快。只有在遇到瓶颈或者一些不相关的场景增速可能会有问题。
+        let arr1 = ["Apple", "Orange", "Pear"];
+        for (let key in arr1) {
+            console.log(arr1[key]);
+        }
+    </script>
+</body>
+
+</html>

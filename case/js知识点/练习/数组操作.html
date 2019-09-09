@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组操作</title>
+</head>
+
+<body>
+    <script>
+        let styles = ['Jazz', 'Blues']; //创建一个数组 styles，里面有两项 “Jazz” 和 “Blues”.
+        styles.push('Rock-n-Roll'); //将 “Rock-n-Roll” 从数组末端添加进去. //Jazz, Bues, Rock-n-Roll
+        //用 “Classics” 替换掉数组最中间的元素。你的查找数组最中间的元素的代码应该适用于任何奇数长度的数组。
+        styles[Math.floor((styles.length - 1) / 2)] = 'Classics'; //Jazz, Classics, Rock-n-Roll
+        styles.shift(); //Jazz
+        console.log(styles); //去掉数组的第一个值并显示它。//Classics, Rock-n-Roll
+        styles.unshift('Rap', 'Reggae') //在数组前面添加 Rap 和 Reggae。
+        console.log(styles); //Rap, Reggae, Classics, Rock-n-Roll
+    </script>
+</body>
+
+</html>

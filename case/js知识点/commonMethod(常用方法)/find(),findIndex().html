@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>find 和 findIndex</title>
+</head>
+
+<body>
+    <script>
+        // 找到具有特定条件的对象
+        // find() 方法,语法:item 是元素,index 是它的索引,array 是数组本身。
+        // 该函数对数组中的每个元素重复调用：
+        // let result = arr.find(function(item, index, array) {
+        //      如果查询到返回 true
+        // });
+        // 如果它返回true，则查询停止，返回 item。如果没有查询到，则返回 undefined。
+        // 例如，我们有一组用户，每个用户都有 id 和 name 字段。让我们找到一个 id == 1：
+        let users = [{
+            id: 1,
+            name: "John"
+        }, {
+            id: 2,
+            name: "Pete"
+        }, {
+            id: 3,
+            name: "Mary"
+        }];
+        let user = users.find(item => item.id == 1);
+        console.log(user.name); // John
+
+        // findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+        var array1 = [5, 12, 8, 130, 44];
+
+        function isLargeNumber(element) {
+            return element > 13;
+        }
+        console.log(array1.findIndex(isLargeNumber)); //3
+    </script>
+</body>
+
+</html>

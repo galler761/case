@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>filter</title>
+</head>
+
+<body>
+    <script>
+        // find 方法查询的是使函数返回 true 的第一个元素。
+        // 如果需要匹配的有很多，我们可以使用 arr.filter(fn)。
+        // 语法与 find 大致相同，但是它返回的是所有匹配元素组成的数组：
+        //let results = arr.filter(function(item, index, array) {
+        //     在元素通过过滤器时返回 true
+        //});
+        // 例如：
+        let users = [{
+            id: 1,
+            name: "John"
+        }, {
+            id: 2,
+            name: "Pete"
+        }, {
+            id: 3,
+            name: "Mary"
+        }];
+
+        // 返回前两个用户的数组
+        let someUsers = users.filter(item => item.id < 3);
+        console.log(someUsers.length); // 2
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清空数组最好的方法</title>
+</head>
+
+<body>
+    <script>
+        // length 属性的另一个有意思的点是它是可写的。
+        // 如果我们手动增加长度，一切正常。但是如果我们减少长度，数组就会变短。这种处理是不可逆的
+        // 清空数组最好的方法就是：arr.length = 0;。
+        let arr = [1, 2, 3, 4, 5];
+        arr.length = 2; // 只剩 2 个元素
+        alert(arr); // [1, 2]
+
+        arr.length = 5; // 又把 length 加回来
+        alert(arr[3]); // undefined: 被截断的那些数值并没有回来
+    </script>
+</body>
+
+</html>

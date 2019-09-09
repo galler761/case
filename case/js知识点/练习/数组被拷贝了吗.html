@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组被拷贝了吗?</title>
+</head>
+
+<body>
+    <script>
+        let fruits = ["Apples", "Pear", "Orange"];
+        let shoppingCart = fruits;
+        shoppingCart.push('新的值');
+        console.log(fruits.length); //4
+        // 这是因为数组是对象。所以 shoppingCart 和 fruits 是同一数组的引用。
+    </script>
+</body>
+
+</html>

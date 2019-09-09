@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>push()方法和unshift()方法的性能测试</title>
+</head>
+
+<body>
+    <script>
+        // 关于代码中"var s=+newDate();"的技巧说明
+        // 解释如下:=+这个运算符是不存在的;
+        // +相当于.valueOf();
+        // +new Date()相当于new Date().valueOf()
+        // 4个结果一样返回当前时间的毫秒数
+        //   alert(+new Date());
+        //   alert(+new Date);
+        //   var s=new Date();
+        //   alert(s.valueOf());
+        //   alert(s.getTime());
+        var arr = [];
+        var startTime = +new Date(); //+new Date()相当于new Date().valueOf()，返回当前时间的毫秒数
+        // push性能测试 
+        for (var i = 0; i < 100000; i++) {　　
+            arr.push(i);
+        }
+        var endTime = +new Date();
+        console.log("调用push方法往数组中添加100000个元素耗时" + (endTime - startTime) + "毫秒");
+
+        arr1 = [];
+        startTime1 = +new Date();
+        // unshift性能测试 
+        for (var i = 0; i < 100000; i++) {　　
+            arr1.unshift(i);
+        }
+        endTime1 = +new Date();
+        console.log("调用unshift方法往数组中添加100000个元素耗时" + (endTime1 - startTime1) + "毫秒");
+
+
+        var arr2 = [],
+            s = +new Date;
+        for (var i = 0; i < 100000; i++) {　　
+            arr2.push(i);
+        }
+        //调用reverse方法将数组里面的100000元素的顺序反转
+        arr2.reverse();
+        console.log("调用reverse方法将数组里面的100000元素的顺序反转耗时：" + (+new Date - s) + "毫秒");
+    </script>
+</body>
+
+</html>

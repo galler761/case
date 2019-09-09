@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 当我们需要遍历一个数组时— 我们可以使用 forEach。
+        // 当我们需要迭代并返回每个元素的数据时— 我们可以使用 map。
+        // arr.reduce 和 arr.reduceRight 和上面差不多， 但有点复杂。 它们用于根据数组计算单个值。
+        // 语法：该函数应用于元素。
+        // item — 当前的数组元素。index — 当前索引。arr — 数组本身。
+        // 目前为止，这很像 forEach/map。但还有一个参数不同就是：previousValue — 是前一个函数调用的结果，第一次调用是初始化。
+        // let value = arr.reduce(function(previousValue, item, index, arr) {
+        //     ...
+        // }, initial);
+        // 例子：
+        let arr = [1, 2, 3, 4, 5];
+        // 在第一次运行时，sum 是初始值（reduce 的最后一个参数），等于 0，current 是第一个数组元素，等于 1。所以结果是 1。
+        // 在第二次运行时，sum = 1，我们添加第二个数组元素（2）并返回。
+        // 在第三次运行中，sum = 3，我们再添加一个元素，等等……
+        let result = arr.reduce((sum, current) => sum + current, 0);
+        console.log(result); // 15
+        // 表格
+        //                  sum              current              result
+        // the first call   0                1                    1
+        // the second call  1                2                    3
+        // the third call   3                3                    6
+        // the fourth call  6                4                    10
+        // the fifth call   10               5                    15
+
+        // 先前调用的结果成为下一个调用的第一个参数。
+    </script>
+    <script>
+        // 省略初始值
+        let arr = [1, 2, 3, 4, 5];
+        // 删除初始值
+        let result = arr.reduce((sum, current) => sum + current);
+        alert(result); // 15
+        // 结果是一样的。 这是因为如果没有初始值， 那么 reduce 将数组的第一个元素作为初始值， 并从第二个元素开始迭代。
+        // 计算表与上面相同， 减去第一行
+        // 但是这种使用需要非常小心。 如果数组为空， 那么在没有初始值的情况下调用 reduce 会导致错误。
+        // 例如
+        let arr = [];
+        // Error: Reduce of empty array with no initial value
+        // 如果初始值存在，reduce 将返回空 arr。
+        arr.reduce((sum, current) => sum + current);
+        // 所以建议始终指定初始值。
+    </script>
+    <script>
+        // arr.reduceRight 也一样，但是遍历是从右到左。
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>最大子数组</title>
+</head>
+
+<body>
+    <script>
+        // 任务是：找出连续的 arr 的子数组，其里面所有项的和最大。
+        // 写出函数 getMaxSubSum(arr)，用其找出并返回最大和。
+        // 如果所有项都是负数，那就一个项也不取（数组是空的），所以返回的是 0：
+        function getMaxSubSum(arr) {
+            // 遍历数组，将当前局部元素的和保存为变量 s。如果 s 在某一点变成负数了，就重新分配 s=0。所有 s 中的最大值就是答案
+            // 该算法只需要遍历1轮数组，所以时间复杂度是 O(n)。
+            let maxSum = 0;
+            let partialSum = 0;
+            for (let item of arr) { // arr 中的每个 item
+                partialSum += item; // 将其添加到 partialSum
+                console.log(partialSum); //-1,2,5-4   -1,2,5,-4,11   -2,-1,1,3,2  100,91,93,90,95   1,3,6   -1,-2,-3
+                maxSum = Math.max(maxSum, partialSum); // 记住最大值
+                if (partialSum < 0) partialSum = 0; // 如果是负数就置为 0
+            }
+            return maxSum;
+        }
+        console.log(getMaxSubSum([-1, 2, 3, -9])); // 5
+        console.log(getMaxSubSum([-1, 2, 3, -9, 11])); // 11
+        console.log(getMaxSubSum([-2, -1, 1, 2])); // 3
+        console.log(getMaxSubSum([100, -9, 2, -3, 5])); // 100
+        console.log(getMaxSubSum([1, 2, 3])); // 6
+        console.log(getMaxSubSum([-1, -2, -3])); // 0
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // arr.sort 方法对数组进行排序,语法:
+        let arr = [1, 2, 15];
+        arr.sort(); // 该方法重新排列 arr 的内容（并返回它）
+        console.log(arr); // 1, 15, 2,这些元素默认情况下按字符串排序
+
+        // 要使用我们自己的排序顺序，我们需要提供带两个参数的函数作为 arr.sort() 的参数。
+        // 例如：
+        function compareNumeric(a, b) {
+            if (a > b) return 1;
+            if (a == b) return 0;
+            if (a < b) return -1;
+        }
+        let arr1 = [1, 2, 15];
+        arr1.sort(compareNumeric);
+        console.log(arr1); // 1, 2, 15
+    </script>
+
+    <script>
+        // 比较函数可以返回任何数字,比较函数只需要返回一个正数表示更大，而负数表示更少
+        let arr2 = [1, 2, 15];
+        arr2.sort(function(a, b) {
+            return a - b;
+        });
+        console.log(arr2); // 1, 2, 15
+    </script>
+
+    <script>
+        // 箭头函数最好
+        let arr3 = [1, 2, 15];
+        console.log(arr3.sort((a, b) => a - b));
+    </script>
+
+    <script>
+        // arr.reverse 方法颠倒 arr 中元素的顺序。
+        let arr4 = [1, 2, 3, 4, 5];
+        arr4.reverse();
+        console.log(arr4); // 5,4,3,2,1
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组基于对象。 不构成单独的语言类型。
+        // 所以 typeof 无法从对象中区分出数组来：
+        // 但是数组经常被使用，以至于有一种特殊的方法用于判断：
+        // Array.isArray(value)。如果 value 是一个数组，则返回 true；否则返回 false。
+        alert(Array.isArray({})); // false
+        alert(Array.isArray([])); // true
+    </script>
+</body>
+
+</html>

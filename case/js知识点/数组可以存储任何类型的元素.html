@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组可以存储任何类型的元素</title>
+</head>
+
+<body>
+    <script>
+        // 混合值
+        let arr = ['Apple', {
+            name: 'John'
+        }, true, function() {
+            alert('hello');
+        }];
+
+        // 获取索引为 1 的对象然后显示它的 name
+        alert(arr[1].name); // John
+
+        // 获取索引为 3 的函数并执行
+        arr[3](); // hello
+    </script>
+</body>
+
+</html>

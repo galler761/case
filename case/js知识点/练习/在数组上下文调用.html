@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在数组上下文调用</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['a', 'b'];
+        arr.push(function() {
+            alert(this);
+        })
+
+        // 调用 arr[2] 函数也就是调用对象函数,自然地，它接收 this 引用的对象 arr 然后输出该数组
+        arr[2](); // "a","b",function
+    </script>
+</body>
+
+</html>
