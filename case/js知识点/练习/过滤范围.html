@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤范围</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 filterRange(arr, a, b) 获取一个数组 arr， 查找 a 和 b 之间的元素并返回它们的数组。
+        // 该函数不应该修改原数组。 它应该返回新的数组。
+        function filterRange(arr, a, b) {
+            let newArr = arr.filter(item => item > a && item < b);
+            return newArr;
+        }
+        let arr = [5, 3, 8, 1];
+        var filtered = filterRange(arr, 1, 4);
+        console.log(filtered);
+        console.log(arr);
+    </script>
+</body>
+
+</html>
