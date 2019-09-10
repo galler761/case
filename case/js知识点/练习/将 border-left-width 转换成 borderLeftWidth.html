@@ -14,10 +14,17 @@
         // 即： 删除所有短横线， 短横线后的第一个单词变为大写。
         // 使用 split 将字符串拆分成数组，然后将其转换 join 并返回。
         function camelize(str) {
-            console.log(str.split('-').join('')[0].toUpperCase());
-            console.log(str.split('-').join('')[0].toUpperCase());
+            let newStr = str.split('-');
+            let newStr2 = '';
+            newStr.forEach((item, index) => {
+                newStr2 += item.slice(0, 1).toUpperCase() + item.slice(1)
+            });
+            console.log(newStr2.slice(0, 1).toLowerCase() + newStr2.slice(1));
         }
         camelize('border-left-width');
+        camelize("-webkit-transition");
+        camelize("list-style-image");
+        camelize("background-color");
     </script>
 </body>
 
