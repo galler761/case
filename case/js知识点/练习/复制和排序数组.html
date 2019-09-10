@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复制和排序数组</title>
+</head>
+
+<body>
+    <script>
+        // 我们有一个字符串数组 arr。 我们希望有一个排序过的副本， 但保持 arr 不变。
+        // 创建一个函数 copySorted(arr) 返回这样一个副本。
+        function copySorted(arr) {
+            // 可以使用 slice() 来创建一个副本并对其进行排序：
+            return arr.slice().sort();
+        }
+        let arr = ["HTML", "JavaScript", "CSS"];
+        let sorted = copySorted(arr);
+        console.log(sorted); // CSS，HTML，JavaScript
+        console.log(arr); // HTML，JavaScript，CSS（没有变化）
+    </script>
+</body>
+
+</html>
