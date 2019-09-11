@@ -10,23 +10,39 @@
 
 <body>
     <script>
-        // 你有一个 user 对象数组，每个对象都有 user.name。编写将其转换为 names 数组的代码。
         let john = {
             name: "John",
-            age: 25
+            surname: "Smith",
+            id: 1
         };
         let pete = {
             name: "Pete",
-            age: 30
+            surname: "Hunt",
+            id: 2
         };
         let mary = {
             name: "Mary",
-            age: 28
+            surname: "Key",
+            id: 3
         };
 
         let users = [john, pete, mary];
-        let names = users.map(item => item.name);
-        console.log(names); // John, Pete, Mary
+
+        let usersMapped = users.map(user => ({
+            fullName: `${user.name} ${user.surname}`,
+            id: user.id
+        }));
+
+        /*
+        usersMapped = [
+          { fullName: "John Smith", id: 1 },
+          { fullName: "Pete Hunt", id: 2 },
+          { fullName: "Mary Key", id: 3 }
+        ]
+        */
+
+        alert(usersMapped[0].id); // 1
+        alert(usersMapped[0].fullName); // John Smith
     </script>
 </body>
 
