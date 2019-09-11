@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤唯一数组元素</title>
+</head>
+
+<body>
+    <script>
+        // 定义 arr 为一个数组。
+        // 创建一个函数 unique(arr)， 函数将返回一个数组， 包含 arr 中所有元素且元素均唯一。
+        function unique(arr) {
+            let set = new Set();
+            for (let user of arr) {
+                set.add(user);
+            }
+            return set;
+        }
+        let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+        console.log(unique(values)); // Hare, Krishna, :-O
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set</title>
+</head>
+
+<body>
+    <script>
+        // Set 是一个值的集合， 这个集合中所有的值仅出现一次。
+        // 主要方法包括：
+        // new Set(iterable)– 创建 set， 利用数组来创建是可选的（ 任何可迭代对象都可以）。
+        // set.add(value)– 添加值， 返回 set 自身。
+        // set.delete(value)– 删除值， 如果该 value 在调用方法的时候存在则返回 true， 否则返回 false。
+        // set.has(value)– 如果 set 中存在该值则返回 true， 否则返回 false。
+        // set.clear()– 清空 set。
+        // set.size– 元素个数。
+
+        // 例如，我们有访客登门，我们希望记住所有人。但是重复来访者并不应该有两份记录。一个访客必须只记录一次。
+        // Set 就恰好是可以做到这个的数据结构：
+        let set = new Set();
+        let john = {
+            name: "John"
+        };
+        let pete = {
+            name: "Pete"
+        };
+        let mary = {
+            name: "Mary"
+        };
+        // 访客，一些用户来了多次
+        set.add(john);
+        set.add(pete);
+        set.add(mary);
+        set.add(john);
+        set.add(mary);
+        // set 保证了值的唯一
+        console.log(set.size); // 3
+        for (let user of set) {
+            console.log(user.name); // John（然后是 Pete 和 Mary）
+        }
+        // 缺点：Set 的替换方案是使用用户数组，每次插入新元素时使用 arr.find 方法检查用户编码是否重复。
+        // 但是性能就会很差，因为这个方法会遍历整个数组，检查每个元素。而对于唯一性检查，Set 在内部优化得更好。
+    </script>
+
+    <script>
+        // Set 迭代
+        // 我们可以使用for..of 或者 forEach 来循环查看 set：
+        let set1 = new Set(["oranges", "apples", "bananas"]);
+        for (let value of set1) console.log(value);
+        // 和 forEach 相同：
+        set1.forEach((value, valueAgain, set1) => {
+            console.log(value);
+        });
+        // 注意到这里有个有趣得事情。 forEach 函数用于 Set 时有三个参数： value， 然后又一个 value， 之后是目标对象。 确实， 相同值的 value 在参数中出现了两次。
+        // 为了兼容 Map， 它在使用 forEach 方法时也包括三个参数。
+        // 适用于 Map 的迭代方法 set 也同样支持：
+        // set.keys()– 返回 set 中值的迭代对象，
+        // set.values()– 和 set.keys 一样， 为了兼容 Map，
+        // set.entries()– 返回形如[value, value] 的迭代对象， 为了兼容 Map 而存在。
+    </script>
+</body>
+
+</html>
