@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>按年龄对用户排序</title>
+</head>
+
+<body>
+    <script>
+        // 编写函数 sortByAge(users) 获得对象数组的 age 属性并对它进行排序。
+        function sortByAge(users) {
+            return users.sort((a, b) => a.age - b.age);
+        }
+        let john = {
+            name: "John",
+            age: 25
+        };
+        let pete = {
+            name: "Pete",
+            age: 30
+        };
+        let mary = {
+            name: "Mary",
+            age: 28
+        };
+        let arr = [pete, john, mary];
+        sortByAge(arr)
+
+        // 现在排序是：[john, mary, pete]
+        console.log(arr[0].name); // John
+        console.log(arr[1].name); // Mary
+        console.log(arr[2].name); // Pete
+    </script>
+</body>
+
+</html>
