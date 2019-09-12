@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>保存阅读日期</title>
+</head>
+
+<body>
+    <script>
+        // https://zh.javascript.info/map-set-weakmap-weakset
+        let messages = [{
+            text: "Hello",
+            from: "John"
+        }, {
+            text: "How goes?",
+            from: "John"
+        }, {
+            text: "See you soon",
+            from: "Alice"
+        }];
+
+        let readMap = new WeakMap();
+        readMap.set(messages[0], new Date(2017, 1, 1));
+    </script>
+</body>
+
+</html>

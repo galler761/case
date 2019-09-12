@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤 anagrams</title>
+</head>
+
+<body>
+    <script>
+        // Anagrams 是有相同数量相同字母但是顺序不同的单词
+        // 写一个函数 aclean(arr)，它返回的数组中 anagrams 被删除。
+        function aclean(arr) {
+            let obj = {};
+            for (let i = 0; i < arr.length; i++) {
+                // 为了找到所有 anagrams，让我们把每个单词打散为字母并排序。当单词有序后，所有的 anagrams 都一样
+                let sorted = arr[i]. // PAN
+                toLowerCase(). // pan
+                split(""). // ['p','a','n']
+                sort(). // ['a','n','p']
+                join(""); // anp
+                // map.set(sorted, word);//也可以使用一般的对象而不用 Map，因为键就是字符串
+                obj[sorted] = arr[i];
+            }
+            return Array.from(Object.values(obj));
+        }
+        let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+        console.log(aclean(arr)); // "nap,teachers,ear" or "PAN,cheaters,era"
+    </script>
+</body>
+
+</html>

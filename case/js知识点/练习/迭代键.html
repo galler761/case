@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>迭代键</title>
+</head>
+
+<body>
+    <script>
+        //我们希望得到 map.keys() 的数组然后继续对它进行处理（脱离开 map 本身）。
+        let map = new Map();
+        map.set("name", "John");
+        let keys = Array.from(map.keys()); //因为 map.keys() 返回的是迭代器而非数组。可以使用方法 Array.from 来将它转化为数组：
+        keys.push("more");
+        alert(keys); // name, more
+    </script>
+</body>
+
+</html>

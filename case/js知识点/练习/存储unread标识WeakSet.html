@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>存储 "unread" 标识</title>
+</head>
+
+<body>
+    <script>
+        // https://zh.javascript.info/map-set-weakmap-weakset
+        // 明智的选择是 WeakSet
+        let messages = [{
+            text: "Hello",
+            from: "John"
+        }, {
+            text: "How goes?",
+            from: "John"
+        }, {
+            text: "See you soon",
+            from: "Alice"
+        }];
+
+        let readMessages = new WeakSet();
+
+        // 两个消息已读
+        readMessages.add(messages[0]);
+        readMessages.add(messages[1]);
+        // readMessages 包含两个元素
+
+        // ...让我们再读一遍第一条消息！
+        readMessages.add(messages[0]);
+        // readMessages 仍然有两个不重复的元素
+
+        // 回答：message[0] 已读？
+        alert("Read message 0: " + readMessages.has(messages[0])); // true
+
+        messages.shift();
+        // 现在 readMessages 有一个元素（技术上来说内存可能稍后被清理）
+
+        // 附：如果消息被其他代码管理，那么仅为了自己的功能给每个消息添加一个属性也许会很危险，但是我们可以将它改为 symbol 来规避冲突。
+        // the symbolic property is only known to our code
+        let isRead = Symbol("isRead");
+        messages[0][isRead] = true;
+        // 现在即使其他人的代码使用 for..in 循环消息的属性，我们的秘密标识也不会出现。
+    </script>
+</body>
+
+</html>
