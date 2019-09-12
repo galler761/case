@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象解构</title>
+</head>
+
+<body>
+    <script>
+        // 解构赋值同样适用于对象。
+        // 基本的语法是：let {var1, var2} = {var1:…, var2…}
+
+        // 在等号右侧有一个已经存在的对象，我们想把它拆开到变量中。等号左侧包含了对象相应属性的一个“模式”。
+        // 以下简单例子中就是 {...} 中一系列变量。
+        let options = {
+            title: "Menu",
+            width: 100,
+            height: 200
+        };
+        let {
+            title,
+            width,
+            height
+        } = options;
+        console.log(title); // Menu
+        console.log(width); // 100
+        console.log(height); // 200、
+    </script>
+
+    <script>
+        // 属性 options.title、options.width 和 options.height 的值被赋给了对应的变量。变量的顺序并不重要，以下的代码也奏效：
+        // 改变 let {...} 中属性的顺序
+        let {
+            height2,
+            width2,
+            title2
+        } = {
+            title2: "Menu2",
+            height2: 2002,
+            width2: 1002
+        }
+        console.log(title2); // Menu2
+        console.log(width2); // 1002
+        console.log(height2); // 2002
+        // 等号左侧的模式可以更加复杂，并给属性和变量之间指定一个映射关系。
+    </script>
+
+    <script>
+        // 如果我们想把一个属性赋值给不同名字的变量，比如把 options.width 属性赋值给变量 w，那可以使用冒号来指定：
+        let options3 = {
+            title3: "Menu3",
+            width3: 1003,
+            height3: 2003
+        };
+        // { 原属性：目标变量 }
+        let {
+            width3: w,
+            height3: h,
+            title3
+        } = options3;
+        // width3 -> w
+        // height3 -> h
+        // title3 -> title3
+        console.log(title3); // Menu3
+        console.log(w); // 1003
+        console.log(h); // 2003
+        // 冒号表示了“什么值：赋值给谁”。以上的例子中就是属性 width 赋值给 w，属性 height 赋值给 h，属性 title 赋值给同名变量。
+    </script>
+
+    <script>
+        // 对于可能缺失的属性，我们可以使用 "=" 来指定默认值
+        let options4 = {
+            title4: "Menu4"
+        };
+        let {
+            width4 = 1004, height4 = 2004, title4
+        } = options4;
+        console.log(title4); // Menu4
+        console.log(width4); // 1004
+        console.log(height4); // 2004
+        // 就像数组或函数参数一样，默认值可以是表达式甚至是函数调用。只会在这个变量未被赋值的时候才会被计算/调用。
+    </script>
+
+    <script>
+        // 以下的代码提示输入宽度 width，但不会提示输入标题 title
+        let options5 = {
+            title5: "Menu5"
+        };
+        let {
+            width5 = prompt("width5?"), title5 = prompt("title5?")
+        } = options5;
+        console.log(title5); // Menu
+        console.log(width5); // 你输入的宽度值
+
+        // 也可以结合冒号和等号一起使用
+        let options6 = {
+            title6: "Menu6"
+        };
+        let {
+            width6: w6 = 1006,
+            height6: h6 = 2006,
+            title6
+        } = options6;
+        console.log(title6); // Menu6
+        console.log(w6); // 100
+        console.log(h6); // 200
+    </script>
+
+    <script>
+        // 剩余操作符（即三个点）
+        let options7 = {
+            title7: "Menu7",
+            height7: 2007,
+            width7: 1007
+        };
+        let {
+            title7,
+            ...rest7
+        } = options7;
+        // now title="Menu", rest={height: 200, width: 100}
+        console.log(rest7.height7); // 200
+        console.log(rest7.width7); // 100
+    </script>
+</body>
+
+</html>

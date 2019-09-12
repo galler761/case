@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组解构</title>
+</head>
+
+<body>
+    <script>
+        // 将数组解构到变量中的一个例子
+        // 有一个存放了名字和姓氏的数组
+        let arr = ["Ilya", "Kantor"]
+        let [firstName, surname] = arr; // 解构赋值
+        console.log(firstName); // Ilya
+        console.log(surname); // Kantor
+
+        // 可以针对这些变量进行操作，而不是针对原来的数组元素
+        // 与 split 函数（或其他返回值是数组的函数）结合使用时，看起来就更优雅了
+        let [firstName1, surname1] = "Ilya Kantor".split(' ');
+        console.log(firstName1);
+        console.log(surname1);
+    </script>
+
+    <script>
+        // “解构"并不意味着"破坏”
+        // 这种语法叫做“解构赋值”，因为它通过将结构中的各元素复制到变量中来达到“解构”的目的。但数组本身是没有被修改的
+        // 以下代码的更精简写法而已
+        // let [firstName, surname] = arr;
+        let firstName2 = arr[0];
+        let surname2 = arr[1];
+        console.log(firstName2);
+        console.log(surname2);
+    </script>
+
+    <script>
+        // 忽略第一个元素
+        // 数组中不想要的元素也可以通过添加额外的逗号来把它丢弃：
+        // 不需要第一个和第二个元素
+        let [, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+        console.log(title); // Consul,数组的第一个和第二个元素被跳过，第三个元素被赋值给了 title 变量，剩下的元素也被跳过了
+    </script>
+
+    <script>
+        // 用于等号右侧的任何可迭代对象
+        // … 事实上我们也可以在任何可迭代对象中使用， 不仅仅是数组：
+        let [a, b, c] = "abc"; // ["a", "b", "c"]
+        let [one, two, three] = new Set([1, 2, 3]);
+        console.log(one);
+        console.log(two);
+        console.log(three);
+    </script>
+
+    <script>
+        // 赋值给等号左侧的任何类型
+        // 我们可以在等号左侧使用任何“ 可以被赋值的” 变量。
+        // 例如， 一个对象的属性：
+        let user = {};
+        [user.name, user.surname] = "Ilya Kantor".split(' ');
+        console.log(user.name); // Ilya
+    </script>
+
+    <script>
+        // 使用.entries() 循环
+        // 在前面的章节中我们已经见过了 Object.entries(obj) 方法。
+        // 我们可以使用.entries() 方法和解构语法来遍历一个对象的键 - 值对：
+        let user1 = {
+            name: "John",
+            age: 30
+        };
+        // 循环遍历键-值对
+        for (let [key, value] of Object.entries(user1)) {
+            console.log(`${key}:${value}`); // name:John, then age:30
+        }
+    </script>
+
+    <script>
+        // …对于 map 对象也类似：
+        let user2 = new Map();
+        user2.set("name", "John");
+        user2.set("age", "30");
+        for (let [key, value] of user2.entries()) {
+            console.log(`${key}:${value}`); // name:John, then age:30
+        }
+    </script>
+
+    <script>
+        // 剩余的‘…’
+        // 如果我们不仅要获得第一个值， 还要将后续的所有元素也收集起来—— 我们可以使用三个点 "..."加一个参数来接收“ 剩余的” 元素：
+        let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+        console.log(name1); // Julius
+        console.log(name2); // Caesar
+        console.log(rest[0]); // Consul
+        console.log(rest[1]); // of the Roman Republic
+        console.log(rest.length); // 2
+        // rest 变量的值就是数组中剩下的元素组成的数组。不一定要使用变量名 rest，我们也可以使用其他的变量名，
+        // 只要确保它前面有三个点，并且在解构赋值的最后一个参数位置上就行了。
+    </script>
+
+    <script>
+        // 默认值
+        // 如果赋值语句中变量的数量多于数组中实际元素的数量， 赋值不会报错。 未赋值的变量被当作 undifined：
+        let [firstName3, surname3] = [];
+        console.log(firstName3); // undefined
+        // 想要提供一个“默认值”给未赋值的变量，我们可以使用 = 来提供：
+        // 默认值
+        let [name4 = "Guest", surname4 = "Anonymous"] = ["Julius"];
+        console.log(name4); // Julius (来自数组的值)
+        console.log(surname4); // Anonymous (默认值被使用了)
+        // 因为默认值可以是更加复杂的表达式甚至可以是函数调用，这些表达式或函数只会在这个变量未被赋值的时候才会被计算
+    </script>
+
+    <script>
+        // 例子，我们使用了 prompt 函数来提供两个默认值，但它只会在未被赋值的那个变量上进行调用
+        // 只会提示输入姓氏
+        let [name5 = prompt('name?'), surname5 = prompt('surname?')] = ["Julius"];
+        console.log(name5); // Julius (来自数组)
+        console.log(surname5); // 你输入的值
+    </script>
+</body>
+
+</html>

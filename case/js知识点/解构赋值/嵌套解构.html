@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>嵌套解构</title>
+</head>
+
+<body>
+    <script>
+        // 如果一个对象或数组包含了其他的对象和数组，我们可以在等号左侧使用更复杂的模式来抽取深层的数据。
+        // 以下代码中 options 的属性 size 是另一个对象，属性 items 是另一个数组。赋值语句中等号左侧的模式拥有相同的结构
+        let options = {
+            size: {
+                width: 100,
+                height: 200
+            },
+            items: ["Cake", "Donut"],
+            extra: true // 一些不会被解构的额外属性
+        };
+        // 为了清晰起见，解构赋值语句被写成多行
+        let {
+            size: { // 把 size 赋值到这里
+                width,
+                height
+            },
+            items: [item1, item2], // 把 items 赋值到这里
+            title = "Menu" // 在对象中不存在的属性（会使用默认值）
+        } = options;
+        console.log(title); // Menu
+        console.log(width); // 100
+        console.log(height); // 200
+        console.log(item1); // Cake
+        console.log(item2); // Donut
+        // 最终， 我们得到了 width、 height、 item1、 item2 和具有默认值的 title 变量。
+        // 有一个拥有很多属性的复杂对象， 我们只想要抽取我们所需要的其中某些属性。 这在解构赋值语句中是很常见的。
+
+        // 还可能是这样的情况
+        // 将 size 作为一个整体取出赋值给一个变量，忽略剩下的所有
+        let {
+            size
+        } = options;
+    </script>
+
+    <script>
+        // 智能函数参数
+        // 可以把所有参数当作一个对象来传递，然后函数马上把这个对象解构成多个变量：
+        // 我们传递一个对象给函数
+        let options1 = {
+            title1: "My menu1",
+            items1: ["Item11", "Item21"]
+        };
+        // ...然后函数马上把对象展开成变量
+        function showMenu({
+            title1 = "Untitled1",
+            width1 = 200,
+            height1 = 100,
+            items1 = []
+        }) {
+            // title, items – 从 options 参数提取出来,
+            // width, height – 使用默认值
+            console.log(`${title1} ${width1} ${height1}`); // My Menu 200 100
+            console.log(items1); // Item1, Item2
+        }
+        showMenu(options1);
+    </script>
+
+    <script>
+        // 同样可以对含有嵌套对象的对象使用更加复杂的结构语句和冒号映射
+        let options2 = {
+            title2: "My menu2",
+            items2: ["Item12", "Item22"]
+        };
+
+        function showMenu({
+            title2 = "Untitled2",
+            width2: w = 100, // width 赋值给 w
+            height2: h = 200, // height 赋值给 h
+            items2: [item1, item2] // items 第一个元素赋值给 item1, 第二个元素赋值给 item2
+        }) {
+            console.log(`${title2} ${w} ${h}`); // My Menu 100 200
+            console.log(item1); // Item1
+            console.log(item2); // Item2
+        }
+        showMenu(options2);
+    </script>
+
+    <script>
+        // 注意，这种解构假定了调用 showMenu() 函数时传递了一个参数，如果我们想让所有的参数都使用默认值，那我们应该传递一个空的对象
+        // 我们可以通过指定空对象 {} 为整个函数参数的默认值
+        // 清晰起见，精简了部分参数
+        function showMenu({
+            title3 = "Menu3",
+            width3 = 1003,
+            height3 = 2003
+        } = {}) {
+            console.log(`${title3} ${width3} ${height3}`);
+        }
+        showMenu(); // Menu 100 200
+        // 在以上的代码中，整个参数对象默认就是 {}，因此总会有对象可以用来解构。
+    </script>
+</body>
+
+</html>
