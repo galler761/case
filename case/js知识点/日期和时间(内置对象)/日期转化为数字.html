@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日期转化为数字，日期差值</title>
+</head>
+
+<body>
+    <script>
+        // 当 Date 对象转化为数字时，得到的是对应的时间戳，相当于 date.getTime()：
+        let date = new Date();
+        console.log(+date); // 以毫秒为单位的数值，相当于 date.getTime()
+        // 有一个重要的副作用：日期可以相减，它们相减的结果是以毫秒为单位。
+    </script>
+
+    <script>
+        // 这个作用可以用来做时间度量
+        let start = new Date(); // 起始时间
+        // 做一些操作
+        for (let i = 0; i < 1000000; i++) {
+            let doSomething = i * i * i;
+        }
+        let end = new Date(); // 结束时间
+        console.log(`The loop took ${end - start} ms`);
+    </script>
+
+    <script>
+        // Date.now()
+        // 如果我们仅仅想要度量时间间隔，我们不需要整个 Date 对象。有一个特殊的方法 Date.now()，它会返回当前的时间戳。
+        // 它相当于 new Date().getTime()，但它不会在中间创建一个 Date 对象。因此它更快，而且不会对垃圾处理造成额外的压力
+        let start1 = Date.now(); // 从 1979-01-01 00:00:00 开始至今的时间戳
+        for (let i = 0; i < 1000000; i++) {
+            let doSomething = i * i * i;
+        }
+        let end1 = Date.now(); // 操作完成后，得到这一时刻的时间戳
+        console.log(`The loop took ${end1 - start1} ms`); // 相减的是时间戳，而不是日期
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>展示星期数</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 getWeekDay(date) 来显示一个日期的星期数， 
+        // 用简写表示：‘ MO’、‘ TU’、‘ WE’、‘ TH’、‘ FR’、‘ SA’、‘ SU’。
+        function getWeekDay(date) {
+            let week = date.getDay();
+            switch (week) {
+                case 0:
+                    return 'SU';
+                    break;
+                case 1:
+                    return 'MO';
+                    break;
+                case 2:
+                    return 'TU';
+                    break;
+                case 3:
+                    return 'WE';
+                    break;
+                case 4:
+                    return 'TH';
+                    break;
+                case 5:
+                    return 'FR';
+                    break;
+                case 6:
+                    return 'SA';
+                    break;
+            }
+        }
+
+        function getWeekDay1(date) {
+            // date.getDay() 方法返回星期数， 从星期日开始。
+            // 我们创建一个星期数组， 这样可以通过它的序号得到名称：
+            let days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+            return days[date.getDay()];
+        }
+        let date = new Date(2012, 0, 3); // 3 Jan 2012
+        console.log(getWeekDay(date)); // 应该输出 "TU"
+        console.log(getWeekDay1(date)); // 应该输出 "TU"
+    </script>
+</body>
+
+</html>

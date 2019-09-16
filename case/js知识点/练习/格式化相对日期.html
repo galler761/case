@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>格式化相对日期</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 formatDate(date)， 能够将 date 格式化如下：
+        // 如果 date 距离现在少于 1 秒，输出 "刚刚"。
+        // 否则，如果少于 1 分钟，输出 "n 秒之前"。
+        // 否则，如果少于 1 小时，输出 "n 分钟之前"。
+        // 否则，输出完整日期，用格式"DD.MM.YY HH:mm"。即："day.month.year hours:minutes"，所有的数都用两位数表示，例如：31.12.16 10:00。
+
+        // 为获取 date 距离当前时间的间隔 —— 我们将两个日期相减
+        function formatDate(date) {
+            let diff = new Date() - date; // 差值用毫秒表示
+            if (diff < 1000) { // 少于一秒
+                return 'right now';
+            }
+            let sec = Math.floor(diff / 1000); // 将间隔转化为秒
+            if (sec < 60) {
+                return sec + ' sec. ago';
+            }
+            let min = Math.floor(diff / 60000); // 将间隔转化为分钟
+            if (min < 60) {
+                return min + ' min. ago';
+            }
+            // 格式化日期
+            // 在单个数值之前加 0 日/月/小时/分钟
+            let d = date;
+            d = [
+                '0' + (d.getDate() + 1),
+                '0' + (d.getMonth() + 1),
+                '' + d.getFullYear(),
+                '0' + d.getHours(),
+                '0' + d.getMinutes()
+            ].map(component => component.slice(-2)); // 得到每个组件的后两位
+            // 将时间信息和日期组合在一起
+            return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+        }
+        console.log(formatDate(new Date(new Date - 1))); // "right now"
+        console.log(formatDate(new Date(new Date - 30 * 1000))); // "30 sec. ago"
+        console.log(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 min. ago"
+        // 昨天的日期如： 31.12.2016, 20:00
+        console.log(formatDate(new Date(new Date - 86400 * 1000)));
+    </script>
+
+    <script>
+        // 另一种解法
+        function formatDate1(date) {
+            let dayOfMonth = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let hour = date.getHours();
+            let minutes = date.getMinutes();
+            let diffMs = new Date() - date;
+            let diffSec = Math.round(diffMs / 1000);
+            let diffMin = diffSec / 60;
+            let diffHour = diffMin / 60;
+            // 格式化
+            year = year.toString().slice(-2);
+            month = month < 10 ? '0' + month : month;
+            dayOfMonth = dayOfMonth + 1 < 10 ? '0' + dayOfMonth + 1 : dayOfMonth + 1;
+            if (diffSec < 1) {
+                return 'right now';
+            } else if (diffMin < 1) {
+                return `${diffSec} sec. ago`
+            } else if (diffHour < 1) {
+                return `${diffMin} min. ago`
+            } else {
+                return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`
+            }
+        }
+        console.log(formatDate1(new Date(new Date - 1))); // "right now"
+        console.log(formatDate1(new Date(new Date - 30 * 1000))); // "30 sec. ago"
+        console.log(formatDate1(new Date(new Date - 5 * 60 * 1000))); // "5 min. ago"
+        // 昨天的日期如： 31.12.2016, 20:00
+        console.log(formatDate1(new Date(new Date - 86400 * 1000)));
+    </script>
+</body>
+
+</html>

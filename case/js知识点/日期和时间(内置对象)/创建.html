@@ -14,16 +14,52 @@
         // 不带参数—— 创建一个表示当前日期和时间的 Date 对象：
         let now = new Date();
         console.log(now); // 显示当前的日期/时间
+    </script>
 
+    <script>
         // 创建一个 Date 对象，参数是从 1970-01-01 00:00:00 UTC+0 开始所经过的毫秒（一秒的千分之一）数。
         // 0 表示 01.01.1970 UTC+0
         let Jan01_1970 = new Date(0);
         console.log(Jan01_1970);
+    </script>
 
+    <script>
         // 增加 24 小时，得到 02.01.1970 UTC+0
         let Jan02_1970 = new Date(24 * 3600 * 1000);
         console.log(Jan02_1970);
+        // 这是一种日期的轻量级表示方法。我们通常使用时间戳来创建一个日期，比如 new Date(timestamp)，
+        // 以及使用 date.getTime() 来将现有的 Date 对象转化为时间戳
         // 传入的参数是自 1970-01-01 00:00:00 开始计算的毫秒数，被称为时间戳。
+    </script>
+
+    <script>
+        // 如果只有一个参数，并且是字符串，那么该参数会通过 Date.parse 算法解析
+        let date = new Date("2019-09-16");
+        console.log(date); // Mon Sep 16 2019 08:00:00 GMT+0800
+    </script>
+
+    <script>
+        // new Date(year, month, date, hours, minutes, seconds, ms)
+        // 创建一个 Date 对象， 参数是当地时区的日期组合信息。 只有前两个参数是必须的。
+        // 注意：
+        // year 必须是四位数： 2013 是合法的， 98 是不合法的。
+        // month 计数从 0（ 一月） 开始， 到 11（ 12 月）。
+        // date 是当月的具体某一天， 如果缺失， 默认是 1。
+        // 如果 hours / minutes / seconds / ms 缺失的话， 它们默认值是 0。
+        // 例子
+        // new Date(2011, 0, 1, 0, 0, 0, 0); // // 1 Jan 2011, 00:00:00
+        // new Date(2011, 0, 1); // 同样，时分秒等默认为 0
+
+        // 时间度量最小精确到 1 毫秒（千分之一秒）
+        let date1 = new Date(2011, 0, 1, 2, 3, 4, 567);
+        console.log(date1); // 1.01.2011, 02:03:04.567
+        // Sat Jan 01 2011 02:03:04 GMT+0800 (中国标准时间)
+    </script>
+
+    <script>
+        // 创建一个 Date 对象，日期是：Feb 20, 2012, 3:12am。时区是当地时区。
+        let d = new Date(2012, 1, 20, 3, 12);
+        console.log(d); //Mon Feb 20 2012 03:12:00 GMT+0800 (中国标准时间)
     </script>
 </body>
 

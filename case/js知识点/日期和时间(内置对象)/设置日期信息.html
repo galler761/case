@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置日期信息</title>
+</head>
+
+<body>
+    <script>
+        // 设置日期信息
+        // 以下方法可以设置日期 / 时间信息：
+        // setFullYear(year[, month, date])
+        // setMonth(month[, date])
+        // setDate(date)
+        // setHours(hour[, min, sec, ms])
+        // setMinutes(min[, sec, ms])
+        // setSeconds(sec[, ms])
+        // setMilliseconds(ms)
+        // setTime(milliseconds)（ 使用自 1970 - 01 - 01 00: 00: 00 UTC + 0 开始的毫秒数来设置整个日期对象）
+        // 以上方法除了 setTime() 都有 UTC 版本， 比如 setUTCHours()。
+        // 我们可以看到， 有些方法可以一次性设置多个信息， 比如 setHours。 另外， 在这些方法中没有提到的信息将不会被修改。
+        // 例子:
+        let today = new Date();
+        today.setHours(0);
+        console.log(today); // 日期依然是今天，只不过小时数改为 0
+        today.setHours(0, 0, 0, 0);
+        console.log(today); // 日期依然是今天，时间为 00:00:00。
+    </script>
+
+    <script>
+        // 自动校准
+        // 自动校准是 Date 对象一个非常方便的特性。我们可以设置超范围的数值，它会自动校准
+        let date = new Date(2013, 0, 32); // 32 Jan 2013 ?!?
+        console.log(date); // ...是 1st Feb 2013!
+    </script>
+
+    <script>
+        // 超出范围的日期信息会被自动分配
+        let date1 = new Date(2016, 1, 28);
+        date1.setDate(date1.getDate() + 2);
+        console.log((date1)); // 2016 年 3 月 1 日
+    </script>
+
+    <script>
+        // 当前日期 70 秒之后的日期
+        let date2 = new Date();
+        date2.setSeconds(date2.getSeconds() + 70);
+        console.log(date2); // 显示正确的日期信息
+    </script>
+
+    <script>
+        // 可以设置 0 甚至 负值
+        let date3 = new Date(2016, 0, 2); // 2016 年 1 月 2 日
+        date3.setDate(1); // 设置为当月的第一天
+        console.log(date3);
+        date3.setDate(0); // 天数最小可以设置为 1，所以这里设置为上一月的最后一天
+        console.log(date3); // 2015 年 12 月 31 日
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>距离明天还有多少秒？</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 getSecondsToTomorrow()， 返回距离明天的秒数。
+        // 举个例子， 现在是 23: 00， 那么：
+        // getSecondsToTomorrow() == 3600
+        // 另： 该函数应该能在任意一天运行
+        // 为获取距离明天的毫秒数，我们可以用「第二天 00:00:00」这个对象减去当前的日期。 首先我们生成「第二天」，然后对它做操作：
+        function getSecondsToTomorrow() {
+            let now = new Date();
+            // tomorrow date
+            let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            let diff = tomorrow - now; // difference in ms
+            return Math.round(diff / 1000); // convert to seconds
+        }
+        console.log(getSecondsToTomorrow());
+    </script>
+
+    <script>
+        // 另一种解法
+        function getSecondsToTomorrow1() {
+            let now = new Date();
+            let hour = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let totalSecondsToday = (hour * 60 + minutes) * 60 + seconds;
+            let totalSecondsInADay = 86400;
+            return totalSecondsInADay - totalSecondsToday;
+        }
+        console.log(getSecondsToTomorrow1());
+        // 注意，很多国家有夏令时（DST），因此他们可能一天有 23 小时或者 25 小时。我们对这些天数要区别对待。
+    </script>
+</body>
+
+</html>

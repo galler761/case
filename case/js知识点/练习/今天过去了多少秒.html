@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>今天过去了多少秒？</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 getSecondsToday()， 返回今天已经过去了多少秒？
+        // 举个例子： 如果现在是10: 00 am， 并且没有夏令时转移， 
+        // 那么：getSecondsToday() == 36000   // (3600 * 10)
+        // 该函数应该在任意一天都能正确运行。那意味着，不应该有一个「今天」这个参数不能有意外值。
+        // 为获取秒数，我们可以创建一个日期，使用今天的日期和 00:00:00 这个时间，然后当前时间减去该时间。
+        // 不同之处在于，这样得到的今天之初的日期是毫秒计算，我们应该除以 1000，得到秒数
+        function getSecondsToday() {
+            let now = new Date();
+            // 创建一个对象，使用当前的 day/month/year
+            let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            let diff = now - today; // ms difference
+            return Math.round(diff / 1000); // make seconds
+        }
+        console.log(getSecondsToday());
+    </script>
+
+    <script>
+        // 另一种解决方法是得到 hours / minutes / seconds， 然后把它们转化为秒数
+        function getSecondsToday1() {
+            let d = new Date();
+            return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+        };
+        console.log(getSecondsToday1());
+    </script>
+</body>
+
+</html>

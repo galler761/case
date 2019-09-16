@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对一个字符串使用 Date.parse</title>
+</head>
+
+<body>
+    <script>
+        // Date.parse(str) 方法可以从一个字符串中读取日期。
+        // 字符串的格式是： YYYY - MM - DDTHH: mm: ss.sssZ， 其中：
+        // YYYY - MM - DD—— 日期： 年 - 月 - 日。
+        // 字符串 "T"是一个分隔符。
+        // HH: mm: ss.sss—— 时间： 小时， 分钟， 秒， 毫秒。
+        // 可选字符 'Z'代表时区。 单个字符 Z 代表 UTC + 0。
+        // 简短形式也是可以的， 比如 YYYY - MM - DD 或者 YYYY - MM 又或者 YYYY。
+        // Date.parse(str) 方法会转化一个特定格式的字符串， 返回一个时间戳（ 自 1970 - 01 - 01 00: 00: 00 起的毫秒数）， 如果格式不正确， 返回 NaN。
+        let ms = Date.parse('2012-01-26T13:51:50.417-07:00');
+        console.log(ms); // 1327611110417  (时间戳)
+
+        // 可以通过时间戳来立即创建一个 new Date 对象戳
+        let date = new Date(Date.parse('2012-01-26T13:51:50.417-07:00'));
+        console.log(date);
+    </script>
+</body>
+
+</html>

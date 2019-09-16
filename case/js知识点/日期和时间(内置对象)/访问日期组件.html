@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>访问日期组件</title>
+</head>
+
+<body>
+    <script>
+        // 从 Date 对象中访问年、月等信息有很多种方式。通过分类可以很容易记忆。
+        // getFullYear()--获取年份（ 4 位数）
+        // getMonth()--获取月份从 0 到 11。
+        // getDate()--获取当月的日期， 从 1 到 31， 这个方法名称可能看起来有些令人疑惑。
+        // getHours(), getMinutes(), getSeconds(), getMilliseconds()--获取相应的时间信息。
+        // getDay()--获取一周中的第几天，从 0（星期天）到 6 （星期六）。第一天始终是星期天
+
+        // 注意：以上所有的方法返回的信息都是基于当地时区的。
+        // 注意： 不是 getYear()， 而是 getFullYear()很多 JavaScript 引擎都实现了一个非标准化的方法 getYear()， 
+        // 这个方法不建议使用。 它有可能返回 2 位的年份信息。 请不要使用它。 获取年份， 使用 getFullYear()。
+
+        // 与之对应的 UTC 版本方法
+        // 它们会返回基于 UTC + 0 时区的天数、 月份、 年份等等信息： getUTCFullYear()， getUTCMonth()， getUTCDay()。 
+        // 只需要在 "get"之后插入 "UTC"。
+        // 如果你当地时区相对于 UTC 有偏移，那么下面代码会显示不同的小时数
+        //  当前日期
+        let date = new Date();
+        console.log(date.getHours()); // 当地时区的小时数:
+        console.log(date.getUTCHours()); // 在 UTC+0 时区的小时数（非夏令时的伦敦时间）
+        // 注意：以上给出的方法中，有两个与众不同的，它们没有 UTC 版本
+        // getTime()--返回日期的时间戳—— 从 1970 - 1 - 1 00: 00: 00 UTC + 0 开始的毫秒数。
+        // getTimezoneOffset()--返回时区偏移数， 以分钟为单位：
+        // 如果你在时区 UTC-1，输出 60
+        // 如果你在时区 UTC+3，输出 -180
+        console.log(new Date().getTimezoneOffset()); //-480
+    </script>
+</body>
+
+</html>

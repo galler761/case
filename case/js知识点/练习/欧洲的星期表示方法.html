@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欧洲的星期表示方法</title>
+</head>
+
+<body>
+    <script>
+        // 欧洲国家的星期计算是从星期一（ 数字 1） 开始， 然后星期二（ 数字 2）， 直到星期日（ 数字 7）。 
+        // 写一个函数 getLocalDay(date)， 返回日期的欧洲式星期数
+        function getLocalDay(date) {
+            let day = date.getDay();
+            if (day == 0) {
+                day = 7;
+            }
+            return day;
+        }
+        let date = new Date(2012, 0, 3); // 3 Jan 2012
+        console.log(getLocalDay(date)); // 星期二，应该返回 2
+    </script>
+</body>
+
+</html>
