@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建</title>
+</head>
+
+<body>
+    <script>
+        // 创建一个新的 Date 对象，只需要调用 new Date()
+        // 不带参数—— 创建一个表示当前日期和时间的 Date 对象：
+        let now = new Date();
+        console.log(now); // 显示当前的日期/时间
+
+        // 创建一个 Date 对象，参数是从 1970-01-01 00:00:00 UTC+0 开始所经过的毫秒（一秒的千分之一）数。
+        // 0 表示 01.01.1970 UTC+0
+        let Jan01_1970 = new Date(0);
+        console.log(Jan01_1970);
+
+        // 增加 24 小时，得到 02.01.1970 UTC+0
+        let Jan02_1970 = new Date(24 * 3600 * 1000);
+        console.log(Jan02_1970);
+        // 传入的参数是自 1970-01-01 00:00:00 开始计算的毫秒数，被称为时间戳。
+    </script>
+</body>
+
+</html>

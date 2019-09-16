@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // 有以下对象：
+        let user = {
+            name: "John",
+            years: 30
+        };
+        // 写一个解构赋值语句使得：
+        // name 属性赋值给变量 name。
+        // years 属性赋值给 age。
+        // isAdmin 属性赋值给变量 isAdmin（ 如果属性缺失则赋值为 false）。
+        // 赋值语句后的值必须是:let user = { name: "John", years: 30 };
+        let {
+            name,
+            years: age,
+            isAdmin = false
+        } = user;
+        console.log(name); // John
+        console.log(age); // 30
+        console.log(isAdmin); // false
+    </script>
+</body>
+
+</html>
