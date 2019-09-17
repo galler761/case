@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>格式化：spacer</title>
+</head>
+
+<body>
+    <script>
+        // JSON.stringify(value, replacer, spaces) 的第三个参数是用于优化格式的空格数量。
+        // 以前，所有字符串化的对象都没有缩进和额外的空格。现在，如果我们想通过网络发送一个对象。spacer 参数可以更好的输出。
+        // 这里 spacer = 2 告诉 JavaScript 在多行上显示嵌套对象，并在对象中缩进2个空格：
+        let user = {
+            name: "John",
+            age: 25,
+            roles: {
+                isAdmin: false,
+                isEditor: true
+            }
+        };
+
+        console.log(JSON.stringify(user, null, 2));
+        /* two-space indents:
+        {
+          "name": "John",
+          "age": 25,
+          "roles": {
+            "isAdmin": false,
+            "isEditor": true
+          }
+        }
+        */
+
+        /* for JSON.stringify(user, null, 4) the result would be more indented:
+        {
+            "name": "John",
+            "age": 25,
+            "roles": {
+                "isAdmin": false,
+                "isEditor": true
+            }
+        }
+        */
+    </script>
+</body>
+
+</html>

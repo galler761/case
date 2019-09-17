@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON.stringify</title>
+</head>
+
+<body>
+    <script>
+        // JavaScript 提供方法：
+        // JSON.stringify 将对象转换为 JSON。
+        // JSON.parse 将 JSON 转换回对象。
+
+        // 例如，在这里我们 JSON.stringify 一名学生：
+        let student = {
+            name: 'Jhon',
+            age: 30,
+            isAdmin: false,
+            courses: ['html', 'js', 'css'],
+            wife: null
+        };
+        console.log(student); //{name: "Jhon", age: 30, isAdmin: false, courses: Array(3), wife: null}
+        let json = JSON.stringify(student); //方法 JSON.stringify(student) 接受对象并将其转换为一个字符串。
+        console.log(json); //{"name":"Jhon","age":30,"isAdmin":false,"courses":["html","js","css"],"wife":null}
+        console.log(typeof json); //string
+
+        // 注意， JSON 编码的对象与对象字面量有几个重要的区别：
+        // 字符串使用双引号。JSON 中没有单引号或反引号。所以 'John' 转成 "John"。
+        // 对象属性名称也是双引号的。这是强制性的。所以 age:30 转成 "age":30。
+    </script>
+
+    <script>
+        // JSON.stringify 也可以应用于基本类型。
+        // 原生支持的 JSON 类型是：
+        // Objects { ... }
+        // Arrays [ ... ]
+        // Primitives:
+        // strings,
+        // numbers,
+        // boolean values true/false,
+        // null.
+        console.log(JSON.stringify(1)) // 1// a number in JSON is just a number
+        console.log(JSON.stringify('test')) // "test"// a string in JSON is still a string, but double-quoted
+        console.log(JSON.stringify(true)); // true
+        console.log(JSON.stringify([1, 2, 3])); // [1,2,3]
+    </script>
+
+    <script>
+        // JSON 是跨语言的纯数据规范，因此一些特定于 JavaScript 的对象属性被 JSON.stringify 跳过。
+        // 如：
+        // 函数属性（方法）。
+        // Symbolic 属性。
+        // 存储 undefined 的属性。
+        let user = {
+            sayHi() { // ignored
+                alert("Hello");
+            },
+            [Symbol("id")]: 123, // ignored
+            something: undefined // ignored
+        };
+        console.log(JSON.stringify(user)); // {} (empty object)
+    </script>
+
+    <script>
+        // 如何定制转换。最棒的是嵌套对象可以自动支持和转换。
+        let meetup = {
+            title: "Conference",
+            room: {
+                number: 123,
+                participants: ["john", "ann"]
+            }
+        };
+        console.log(JSON.stringify(meetup));
+        /* The whole structure is stringified:
+        {
+          "title":"Conference",
+          "room":{"number":23,"participants":["john","ann"]},
+        }
+        */
+    </script>
+
+    <script>
+        // 重要的限制：不得有循环引用。
+        let room = {
+            number: 23
+        };
+
+        let meetup = {
+            title: "Conference",
+            participants: ["john", "ann"]
+        };
+
+        meetup.place = room; // meetup references room
+        room.occupiedBy = meetup; // room references meetup
+        JSON.stringify(meetup); // Error: Converting circular structure to JSON
+        // 在这里，转换失败，因为循环引用：room.occupiedBy 引用 meetup，meetup.place 引用 room：
+    </script>
+</body>
+
+</html>
