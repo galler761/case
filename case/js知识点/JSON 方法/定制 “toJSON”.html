@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定制 “toJSON”</title>
+</head>
+
+<body>
+    <script>
+        // 像 toString 进行字符串转换，对象可以提供 toJSON 方法来进行 JSON 转换。如果可用，JSON.stringify 会自动调用它
+        let room = {
+            number: 23
+        };
+        let meetup = {
+            title: "Conference",
+            date: new Date(Date.UTC(2017, 0, 1)),
+            room
+        };
+        console.log(JSON.stringify(meetup));
+        /*
+          {
+            "title":"Conference",
+            "date":"2017-01-01T00:00:00.000Z",  // (1)
+            "room": {"number":23}               // (2)
+          }
+        */
+        // 在这里我们可以看到 date (1) 变成了一个字符串。这是因为所有日期都有一个内置的 toJSON 方法来返回这种类型的字符串
+    </script>
+
+    <script>
+        // 为对象 room 添加一个自定义的 toJSON
+        let room1 = {
+            number: 23,
+            toJSON() {
+                return this.number;
+            }
+        };
+        let meetup1 = {
+            title: "Conference",
+            room1
+        };
+        console.log(JSON.stringify(room1)); // 23
+        console.log(JSON.stringify(meetup1));
+        /*
+          {
+            "title":"Conference",
+            "room": 23
+          }
+        */
+        // toJSON 既用于直接调用 JSON.stringify(room) 也可以用于嵌套对象。
+    </script>
+</body>
+
+</html>

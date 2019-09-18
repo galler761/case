@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON.parse</title>
+</head>
+
+<body>
+    <script>
+        // 要解码 JSON 字符串，我们需要另一个方法 JSON.parse。let value = JSON.parse(str[, reviver]);
+        // str:JSON 字符串解析。
+        // reviver:将为每个 (key,value) 对调用的可选函数（键，值）进行转换。
+
+        // stringified array
+        let numbers = "[0, 1, 2, 3]";
+        numbers = JSON.parse(numbers);
+        console.log(numbers[1]); // 1
+
+        // 对于嵌套对象：
+        let user = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+        user = JSON.parse(user);
+        console.log(user.friends[1]); // 1
+        // JSON 可能非常复杂，对象和数组可以包含其他对象和数组。但他们必须遵守这一格式.
+    </script>
+
+    <script>
+        // 以下是手写 JSON 中的典型错误（有时为了调试我们必须将其编写这样）：
+        let json = `{
+            name: "John",                     // mistake: property name without quotes
+            "surname": 'Smith',               // mistake: single quotes in value (must be double)
+            'isAdmin': false                  // mistake: single quotes in key (must be double)
+            "birthday": new Date(2000, 2, 3), // mistake: no "new" is allowed, only bare values
+            "friends": [0,1,2,3]              // here all fine
+            }`;
+        // 此外，JSON 不支持注释。向 JSON 添加注释无效。
+        // 还有另一种名为 JSON5的格式，它允许未加引号的键、注释等。但这是一个独立的库，不在该语言的规范中。
+        // 常规的 JSON 格式严格并不是因为它的开发者懒惰，而是为了实现简单，可靠和快速的解析算法。
+    </script>
+</body>
+
+</html>

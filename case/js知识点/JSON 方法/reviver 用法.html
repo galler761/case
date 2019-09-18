@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reviver 用法</title>
+</head>
+
+<body>
+    <script>
+        // 想象一下，我们从服务器上获得了一个 meetup 字符串对象。
+        // 它看起来像这样：
+        // title: (meetup title), date: (meetup date)
+        let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+        // …现在我们需要反序列化它，重新转换成 JavaScript 对象。
+        // 让我们通过调用 JSON.parse 来完成：
+        let str1 = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+        let meetup = JSON.parse(str1);
+        // console.log(meetup.date.getDate()); // Error!
+        // meetup.date 的值是一个字符串，而不是 Date 对象。JSON.parse 如何知道它应该将该字符串转换为 Date？
+
+        // 让我们传递返回所有值的函数给 JSON.parse，但 date 将变成了 Date，正常运行：
+        let str2 = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+        let meetup2 = JSON.parse(str2, function(key, value) {
+            if (key == 'date') return new Date(value);
+            return value;
+        });
+        console.log(meetup2.date.getDate()); // now works!
+
+        // 这也适用于嵌套对象：
+        let schedule = `{
+            "meetups": [
+                {"title":"Conference","date":"2017-11-30T12:00:00.000Z"},
+                {"title":"Birthday","date":"2017-04-18T12:00:00.000Z"}
+            ]
+        }`;
+        schedule = JSON.parse(schedule, function(key, value) {
+            if (key == 'date') return new Date(value);
+            return value;
+        });
+        console.log(schedule.meetups[1].date.getDate()); // works!
+    </script>
+
+    <script>
+        // 总结
+        // JSON 是一种数据格式，对于大多数编程语言都有自己的独立标准和库。
+        // JSON 支持 objects，arrays，strings，numbers，booleans 和 null。
+        // JavaScript 提供序列化成 JSON 的方法 JSON.stringify和解析 JSON 方法 JSON.parse。
+        // 这两种方法都支持用于智能读/写的转换函数。
+        // 如果一个对象具有 toJSON，那么它可被 JSON.stringify 调用。
+    </script>
+</body>
+
+</html>
