@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对数字求和到给定值</title>
+</head>
+
+<body>
+    <script>
+        // 编写一个函数 sumTo(n) 计算 1 + 2 + ... + n 的和。
+        // 用三种方式实现：
+        // 使用循环。
+        // 使用递归， 对 n > 1 执行 sumTo(n) = n + sumTo(n - 1)。
+        // 使用等差数列求和公式.
+
+        // P.S.哪种解决方式最快？ 哪种最慢？ 为什么？
+        // P.S. 当然是公式解法最快。对任何数字 n，只需要进行 3 次运算，数学大法好！
+        // 循环的速度次之。在循环或递归方法里，我们对相同的数字求和，但是递归涉及嵌套调用和执行堆栈管理，这会消耗资源，所以它更慢一些。
+
+        // P.P.S.我们可以使用递归来计算 sumTo(100000) 吗？
+        // P.P.S. JS 标准描述了一个「尾递归」优化：如果递归调用是函数的最后一步（比如上面的 sumTo），那么外部的函数就不再需要恢复执行，
+        // 我们也就不再需要记录它的执行上下文了。这样的话 sumTo(100000) 是可以求解的。
+        // 但是如果你的 JavaScript 引擎不支持这个优化，就会报错：超出最大栈深度，因为一般堆栈的大小是有限制的。
+    </script>
+
+    <script>
+        let start1 = Date.now();
+        // 使用循环的解法
+        function sumTo(n) {
+            let sum = 0;
+            for (var i = 0; i <= n; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(sumTo(100000));
+        let end1 = Date.now();
+        console.log(end1 - start1);
+    </script>
+
+    <script>
+        let start11 = Date.now();
+        // 使用递归的解法
+        function sumTo1(n) {
+            return n == 1 ? n : n + sumTo(n - 1);
+        }
+        console.log(sumTo1(100000))
+        let end11 = Date.now();
+        console.log(end11 - start11);
+    </script>
+
+    <script>
+        let start111 = Date.now();
+        // 使用公式 sumTo(n) = n*(n+1)/2 的解法：
+        function sumTo2(n) {
+            return n * (n + 1) / 2;
+        }
+        console.log(sumTo2(100000))
+        let end111 = Date.now();
+        console.log(end111 - start111);
+    </script>
+</body>
+
+</html>

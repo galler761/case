@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>斐波那契数</title>
+</head>
+
+<body>
+    <script>
+        // 斐波那契数序列有这样的公式： Fn = Fn-1 + Fn-2。换句话说，下一个数字是前两个数字的总和。
+        // 编写一个 fib(n) 返回第 n 个斐波那契数的函数。
+        function fib(n) {
+            return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+        }
+        console.log(fib(3)); // 2
+        console.log(fib(7)); // 13
+        // console.log(fib(77)); // 5527939700884757
+        // …但是 n 比较大时会很慢。比如 fib(77) 会挂起引擎一段时间，并且消耗所有 CPU 资源。
+        // 因为函数产生了太多的子调用。同样的值被一遍又一遍的计算。
+    </script>
+
+    <script>
+        // 新算法
+        function fib(n) {
+            let a = 1;
+            let b = 1;
+            for (let i = 3; i <= n; i++) {
+                let c = a + b;
+                a = b;
+                b = c;
+            }
+            return b;
+        }
+        console.log(fib(3)); // 2
+        console.log(fib(7)); // 13
+        console.log(fib(77)); // 5527939700884757
+        // 循环从 i = 3 开始， 因为前两个序列值被硬编码到变量 a = 1， b = 1。
+        // 这种方式称为自下而上的动态规划。
+    </script>
+</body>
+
+</html>
