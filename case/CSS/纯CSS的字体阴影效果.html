@@ -1,69 +1,69 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="Generator" content="EditPlus®">
-		<meta name="Author" content="">
-		<meta name="Keywords" content="">
-		<meta name="Description" content="">
-		<title>Document</title>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			body {
-				font: 8rem "微软雅黑";
-				padding: 200px;
-			}
-			
-			.zhi {
-				margin: .2rem;
-				color: #369;
-				position: relative;
-			}
-			
-			.zhi:before,
-			.zhi:after {
-				content: attr(data-zhi);
-				position: absolute;
-				top: 0;
-				left: 0;
-				transform-origin: left top;
-				transition: all 1s ease 0s;
-			}
-			
-			.zhi:before {
-				color: #fff;
-				z-index: 3;
-				transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
-			}
-			
-			.zhi:after {
-				color: rgba(0, 0, 0, 0.2);
-				transform: scale(1.1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-				z-index: 2;
-			}
-			
-			.zhi:hover:before {
-				color: #fafafa;
-				transform: rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg, 1deg);
-			}
-			
-			.zhi:hover:after {
-				transform: scale(1.1, 1) rotateX(0deg) rotateY(40deg) rotateZ(0deg) skew(0deg, 20deg);
-				/*skew(x,y)倾斜，scale()*/
-			}
-		</style>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font: 8rem "微软雅黑";
+            padding: 200px;
+        }
+        
+        .zhi {
+            margin: .2rem;
+            color: #369;
+            position: relative;
+        }
+        
+        .zhi:before,
+        .zhi:after {
+            content: attr(data-zhi);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transition: all 1s ease 0s;
+        }
+        
+        .zhi:before {
+            color: #fff;
+            z-index: 3;
+            transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+        }
+        
+        .zhi:after {
+            color: rgba(0, 0, 0, 0.2);
+            transform: scale(1.1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            z-index: 2;
+        }
+        
+        .zhi:hover:before {
+            color: #fafafa;
+            transform: rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg, 1deg);
+        }
+        
+        .zhi:hover:after {
+            transform: scale(1.1, 1) rotateX(0deg) rotateY(40deg) rotateZ(0deg) skew(0deg, 20deg);
+            /*skew(x,y)倾斜，scale()*/
+        }
+    </style>
+</head>
 
-	<body>
-		<span class="zhi" data-zhi="骁">骁</span>
-		<span class="zhi" data-zhi="勇">勇</span>
-		<span class="zhi" data-zhi="善">善</span>
-		<span class="zhi" data-zhi="战">战</span>
-	</body>
+<body>
+    <span class="zhi" data-zhi="骁">骁</span>
+    <span class="zhi" data-zhi="勇">勇</span>
+    <span class="zhi" data-zhi="善">善</span>
+    <span class="zhi" data-zhi="战">战</span>
+</body>
 
 </html>

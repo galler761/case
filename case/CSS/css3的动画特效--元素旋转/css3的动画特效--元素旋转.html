@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>css3的动画特效--元素旋转</title>
-		<style type="text/css">
-			/*1.使用设置了icon字体的伪元素来生成图标图案，首先引入这个font-family*/
-			@font-face {
-                font-family: 'icon-font';
-                src: url('font/iconfont.ttf'), url('font/iconfont.eot'), url('font/iconfont.woff'), url('font/iconfont.svg');
-            }
-            
-            .close {
-                font-size: 0px;
-                /*使span中的文字不显示*/
-                cursor: pointer;
-                /*使鼠标指针显示为手型*/
-                display: block;
-                width: 20px;
-                height: 30px;
-                line-height: 42px;
-                border-radius: 50%;
-                /*使背景形状显示为圆形*/
-                background: #FFF;
-                color: #8b8ab3;
-                text-align: center;
-            }
-            
-            .close::before {
-                content: "\e612";
-                font-family: 'icon-font';
-                speak: none;
-                font-size: 20px;
-                display: block;
-            }
-            /*2.为鼠标指针的滑过状态设置一些动画效果。在此，我们希望当鼠标指针滑过时，图标在1秒内匀速旋转360度。我们在此先复习一下transition动画的用法。*/
-            .close:hover::before{
-			    /*-webkit-transform:rotate(360deg);
+
+<head>
+    <meta charset="UTF-8">
+    <title>css3的动画特效--元素旋转</title>
+    <style type="text/css">
+        /*1.使用设置了icon字体的伪元素来生成图标图案，首先引入这个font-family*/
+        
+        @font-face {
+            font-family: 'icon-font';
+            src: url('font/iconfont.ttf'), url('font/iconfont.eot'), url('font/iconfont.woff'), url('font/iconfont.svg');
+        }
+        
+        .close {
+            font-size: 0px;
+            /*使span中的文字不显示*/
+            cursor: pointer;
+            /*使鼠标指针显示为手型*/
+            display: block;
+            width: 20px;
+            height: 30px;
+            line-height: 42px;
+            border-radius: 50%;
+            /*使背景形状显示为圆形*/
+            background: #FFF;
+            color: #8b8ab3;
+            text-align: center;
+        }
+        
+        .close::before {
+            content: "\e612";
+            font-family: 'icon-font';
+            speak: none;
+            font-size: 20px;
+            display: block;
+        }
+        /*2.为鼠标指针的滑过状态设置一些动画效果。在此，我们希望当鼠标指针滑过时，图标在1秒内匀速旋转360度。我们在此先复习一下transition动画的用法。*/
+        
+        .close:hover::before {
+            /*-webkit-transform:rotate(360deg);
 			    transform:rotate(360deg);
 			    -webkit-transition:-webkit-transform 1s linear;
 			    transition:transform 1s linear;*/
-			    -webkit-animation: spin 1s linear 1s infinite;
-    			animation: spin 1s linear 1s infinite;
-			}
-			/*3.而如果我们希望图标能够一直不停旋转，则需要请出animation动画。使用animation动画的前提是先制作动画的各个关键帧。*/
-			@-webkit-keyframes spin {
-                from {
-                    -webkit-transform: rotate(0deg);
-                }
-                to {
-                    -webkit-transform: rotate(360deg);
-                }
+            -webkit-animation: spin 1s linear 1s infinite;
+            animation: spin 1s linear 1s infinite;
+        }
+        /*3.而如果我们希望图标能够一直不停旋转，则需要请出animation动画。使用animation动画的前提是先制作动画的各个关键帧。*/
+        
+        @-webkit-keyframes spin {
+            from {
+                -webkit-transform: rotate(0deg);
             }
-            
-            @keyframes spin {
-                from {
-                    transform: rotate(0deg);
-                }
-                to {
-                    transform: rotate(360deg);
-                }
+            to {
+                -webkit-transform: rotate(360deg);
             }
-		</style>
-	</head>
-	<body>
-		<span class="close">close</span>
-	</body>
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span class="close">close</span>
+</body>
+
 </html>
