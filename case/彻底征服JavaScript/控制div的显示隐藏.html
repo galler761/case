@@ -36,15 +36,31 @@
             // 当前div是显示状态
             // 3.控制div的显示隐藏
             if (isShow) {
-                btn.value = '显示'; //按钮上的文字
+                this.value = '显示'; //按钮上的文字
                 div.className = 'hidden';
                 isShow = false;
             } else {
-                btn.value = '隐藏';
+                this.value = '隐藏'; //在事件处理函数中，this--事件源 触发事件的对象
                 div.className = 'show';
                 isShow = true;
             }
         }
+
+        // 函数中this --> Window对象
+        function fn() {
+            console.log(this);
+        }
+        fn();
+        // 方法中this --> 是调用该方法的对象
+        var obj = {
+            name: 'zs',
+            say: function() {
+                console.log(this);
+            }
+        }
+        obj.say();
+        // 构造函数中this --> 当前对象
+        // 事件处理函数中this -->触发事件的对象 事件源
     </script>
 </body>
 
