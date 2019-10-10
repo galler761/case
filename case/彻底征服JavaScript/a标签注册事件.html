@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js测试</title>
+</head>
+
+<body>
+    <a id="link" href="http://www.baidu.com">baidu</a>
+    <script>
+        // 获取超链接
+        var links = document.getElementById('link');
+        // 注册事件
+        links.onclick = function() {
+            alert('hello');
+            // 取消后续内容(默认行为)的执行。
+            return false;
+        }
+    </script>
+</body>
+
+</html>

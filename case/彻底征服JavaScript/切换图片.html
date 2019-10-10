@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>切换图片</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" id="link">切换图片</a>
+    <br>
+    <img id="img" src="images/a.jpg" alt="图片" width="300" height="300">
+    <br>
+
+    <a href="#" id="link1">切换图片1</a>
+    <br>
+    <img id="img1" src="images/a.jpg" alt="图片" width="300" height="300">
+    <br>
+
+    <a id="link2" href="#">隐藏</a>
+    <br>
+    <img id="img2" src="images/a.jpg" alt="图片" width="300" height="300">
+    <script>
+        // 1.获取超链接
+        var link = document.getElementById('link');
+        var flag = 1; //flag=1显示a图片,flag=2显示b图片
+        // 2.给超链接注册点击事件
+        link.onclick = function() {
+            // 3.切换图片
+            var img = document.getElementById('img');
+            if (flag === 1) {
+                flag = 2;
+                img.src = 'images/b.jpg';
+            } else {
+                flag = 1;
+                img.src = 'images/a.jpg';
+            }
+            return false;
+        }
+    </script>
+    <script>
+        // 实现多个图片切换事件
+        var link1 = document.getElementById('link1');
+        var num = 1;
+        link1.onclick = function() {
+            var img1 = document.getElementById('img1');
+            num++;
+            if (num === 1) {
+                img1.src = 'images/a.jpg';
+            } else if (num === 2) {
+                img1.src = 'images/b.jpg';
+            } else if (num === 3) {
+                img1.src = 'images/c.jpg';
+            } else {
+                img1.src = 'images/d.jpg';
+                num = 0;
+            }
+            console.log(num);
+        }
+    </script>
+    <script>
+        // 点击按钮实现图片的显示隐藏
+        // 获取元素
+        var link2 = document.getElementById('link2');
+        var img2 = document.getElementById('img2');
+        // 第一种方法
+        // var flag = 1;
+        // 给按钮注册事件
+        // link2.onclick = function() {
+        //     // 控制图片的显示隐藏
+        //     if (flag === 1) {
+        //         link2.innerHTML = '隐藏';
+        //         img2.className = 'hidden';
+        //         flag++;
+        //     } else {
+        //         link2.innerHTML = '显示';
+        //         img2.className = 'show';
+        //         flag = 1;
+        //     }
+        // }
+
+        // 第二种方法
+        // isShow记录显示隐藏 ，true显示，false隐藏
+        var isShow = true;
+        link2.onclick = function() {
+            if (isShow) {
+                link2.innerHTML = '显示';
+                img2.className = 'hidden';
+                isShow = false;
+            } else {
+                link2.innerHTML = '隐藏';
+                img2.className = 'show';
+                isShow = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
