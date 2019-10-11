@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相册</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333333;
+            background-color: #cccccc;
+            margin: 1em 10px;
+        }
+        
+        h1 {
+            color: #333333;
+            background-color: transparent;
+        }
+        
+        a {
+            color: #cc6600;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        ul {
+            padding: 0;
+        }
+        
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        /* #imagegallery {} */
+        
+        #imagegallery a {
+            margin: 0 20px 20px 0;
+            padding: 0;
+            display: inline;
+        }
+        
+        #imagegallery a img {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>画册</h2>
+    <div id="imagegallery">
+        <a href="images/a.jpg" title="图片a"><img src="images/a.jpg" width="100px" alt="大图片A"></a>
+        <a href="images/b.jpg" title="图片b"><img src="images/b.jpg" width="100px" alt="大图片B"></a>
+        <a href="images/c.jpg" title="图片c"><img src="images/c.jpg" width="100px" alt="大图片C"></a>
+        <a href="images/d.jpg" title="图片d"><img src="images/d.jpg" width="100px" alt="大图片D"></a>
+    </div>
+    <div style="clear: both;"></div>
+    <img id="image" src="images/a.jpg" alt="图片" width="450px">
+    <p id="des">图片a</p>
+
+    <script>
+        // 1.获取所有的a标签 对应的元素
+        var imagegallery = document.getElementById('imagegallery');
+        var links = imagegallery.getElementsByTagName('a');
+        // 2.给所有的a元素注册点击事件
+        var i = 0,
+            len = links.length;
+        for (; i < len; i++) {
+            // 获取当前元素
+            link = links[i];
+            link.onclick = function() {
+                // 3.切换图片和文字
+                var image = document.getElementById('image');
+                var des = document.getElementById('des');
+                image.src = this.href; //设置图片
+                des.innerText = this.title; //设置文字
+                return false; //取消默认行为的执行
+            }
+        }
+    </script>
+</body>
+
+</html>
