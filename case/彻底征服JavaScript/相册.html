@@ -76,7 +76,12 @@
                 var image = document.getElementById('image');
                 var des = document.getElementById('des');
                 image.src = this.href; //设置图片
-                des.innerText = this.title; //设置文字
+                // 衍生的知识点：
+                // innerHTML获取内容的时候，会把标签也获取到。
+                // innerText获取内容的时候，会把标签过滤掉。
+                // innerHTML设置内容的时候，如果内容中有标签，会解析标签。
+                // innerText设置内容的时候，如果内容中有标签，会对标签进行转义
+                des.innerText = this.title; //设置文字,innerText是设置开始标签和结束标签之间的内容
                 return false; //取消默认行为的执行
             }
         }
