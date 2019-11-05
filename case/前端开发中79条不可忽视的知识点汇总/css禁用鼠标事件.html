@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css禁用鼠标事件</title>
+    <style>
+        .disabled {
+            pointer-events: none;
+            /* cursor: default默认指针，通常是箭头。 */
+            cursor: default;
+            opacity: 0.6;
+        }
+        /* 
+        pointer-events:
+        auto——效果和没有定义pointer-events属性相同，鼠标不会穿透当前层。在SVG中，该值和visiblePainted的效果相同。
+        none——元素不再是鼠标事件的目标，鼠标不再监听当前层而去监听下面的层中的元素。但是如果它的子元素设置了pointer-events为其它值，
+        比如auto，鼠标还是会监听这个子元素的。
+         */
+    </style>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" class="disabled">百度</a>
+</body>
+
+</html>
