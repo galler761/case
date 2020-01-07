@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记录集合</title>
+</head>
+
+<body>
+    <script>
+        // 初始化变量
+        var collection = {
+            "2548": {
+                "album": "Slippery When Wet",
+                "artist": "Bon Jovi",
+                "tracks": [
+                    "Let It Rock",
+                    "You Give Love a Bad Name"
+                ]
+            },
+            "2468": {
+                "album": "1999",
+                "artist": "Prince",
+                "tracks": [
+                    "1999",
+                    "Little Red Corvette"
+                ]
+            },
+            "1245": {
+                "artist": "Robert Palmer",
+                "tracks": []
+            },
+            "5439": {
+                "album": "ABBA Gold"
+            }
+        };
+        // 复制 collection 以便测试
+        var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+        // 请把你的代码写在这条注释以下
+        /*
+          写一个函数，根据传入的id（如2548）、prop（属性，如"artist"或"tracks"）以及value（值，如"Addicted to Love"）来修改音乐专辑收藏的数据。
+          如果属性prop不是"tracks"且值value不为空（""），则更新或设置该专辑属性的值value。
+          你的函数必须始终返回整个音乐专辑集合对象。
+          处理不完整数据有几条规则：
+          如果属性prop是"tracks"，但是专辑没有"tracks"属性，则在添加值之前先给"tracks"创建一个空数组。
+          如果prop是"tracks"，并且值value不为空（""）， 把值value添加到tracks数组中。
+          如果值value为空（""），则删除专辑的这一属性prop
+        */
+        function updateRecords(id, prop, value) {
+            if (prop === "tracks" && value !== "") {
+                if (collection[id][prop]) {
+                    collection[id][prop].push(value);
+                } else {
+                    collection[id][prop] = [value];
+                }
+            } else if (value !== "") {
+                collection[id][prop] = value;
+            } else {
+                delete collection[id][prop];
+            }
+            return collection;
+        }
+
+        // 你可以修改这一行来测试你的代码
+        updateRecords(5439, "artist", "ABBA");
+    </script>
+</body>
+
+</html>
