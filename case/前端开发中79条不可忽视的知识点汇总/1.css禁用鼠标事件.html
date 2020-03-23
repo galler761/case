@@ -23,7 +23,15 @@
 </head>
 
 <body>
+    <span>这种纯Css的方法IE不支持</span>
     <a href="http://www.baidu.com" class="disabled">百度</a>
+
+    <script>
+        // 屏蔽点击
+        $('body').css('pointer-events', 'none');
+        //恢复默认
+        // $('body').css('pointer-events', 'auto');
+    </script>
 </body>
 
 </html>
