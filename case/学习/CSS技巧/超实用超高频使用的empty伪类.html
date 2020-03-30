@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超实用超高频使用的:empty 伪类</title>
+
+</head>
+
+<body>
+    <!-- 1.此时，div 元素就会匹配 :empty 伪类，呈现出虚线框 -->
+    <style>
+        .cs-empty:empty {
+            width: 120px;
+            padding: 20px;
+            border: 10px dashed;
+        }
+    </style>
+    <div class="cs-empty"></div>
+
+    <!-- 2.例如，某个模块里的内容是动态的，可能是列表，也可能是按钮，
+    这些模块容器常包含影响布局的CSS属性，如margin、padding属性等。当然，这些模块里面有内容的时候，布局显示效果是非常好的，
+    然儿一旦这些模块里面的内容为空，页面上就会有一块很大的明显的空白，效果就不好，这种情况下使用 :empty 伪类控制一下就再好不过了 -->
+    <!-- 无需额外的JavaScript逻辑判断，直接使用CSS就可以实现动态样式效果，
+    唯一需要注意的，当列表内容缺失的时候，一定要把空格也去掉，否则:empty 伪类不会匹配。 -->
+    <style>
+        .cs-module:empty {
+            display: none;
+        }
+    </style>
+    <div class="cs-module"></div>
+
+    <!-- 3.字段缺失智能提示 -->
+    <!-- 例如，下面的HTML -->
+    <style>
+        dd:empty::before {
+            content: '暂无';
+            color: gray;
+        }
+    </style>
+    <dl>
+        <dt>姓名：</dt>
+        <dd>张三</dd>
+        <dt>性别：</dt>
+        <dd></dd>
+        <dt>手机：</dt>
+        <dd></dd>
+        <dt>邮箱：</dt>
+        <dd></dd>
+    </dl>
+
+    <!-- 4.数据为空提示 -->
+    <!-- 实际开发中类似的场景还有很多。例如，表格中的备注信息经常都是空的，此时可以这样处理 -->
+    <style>
+        td:empty::before {
+            content: '-';
+            color: gray;
+        }
+    </style>
+    <table>
+        <tr>
+            <td>1111</td>
+            <td></td>
+            <td>1111</td>
+        </tr>
+        <tr>
+            <td>2222</td>
+            <td></td>
+            <td>2222</td>
+        </tr>
+        <tr>
+            <td>3333</td>
+            <td></td>
+            <td>3333</td>
+        </tr>
+    </table>
+    <!-- 除此之外，还有一类典型场景需要用到 :empty 伪类，那就是动态Ajax加载数据为空的情况。当一个新用户进入一个产品的时候，很多模块内容是没有的。
+    要是在过去，我们需要在Javascript代码中做 if 判断，如果没有值，我们要吐出”没有结果“或者”没有数据“的信息。
+    但是现在，有了 :empty 伪类，直接把这个工作交给CSS就可以了。例如： -->
+    <style>
+        .cs-search-module:empty::before {
+            content: '没有搜索结果';
+            display: block;
+            line-height: 300px;
+            text-align: center;
+            color: gray;
+        }
+        /* 又如： */
+        
+        .cs-article-module:empty::before {
+            content: '您还没有发布任何文章';
+            display: block;
+            line-height: 300px;
+            text-align: center;
+            color: gray;
+        }
+        /* 总之，这种方法非常好用，可以节约大量的开发时间，同时体验更好，维护更方便，因为可以使用同一个类名使整站提示信息保持一致： */
+        
+        .cs-article-module:empty::before {
+            content: '暂无数据';
+            display: block;
+            line-height: 300px;
+            text-align: center;
+            color: gray;
+        }
+    </style>
+</body>
+
+</html>

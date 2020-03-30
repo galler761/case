@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用好:only-child伪类</title>
+    <style>
+        .cs-loading {
+            height: 150px;
+            position: relative;
+            text-align: center;
+            /* 与截图无关，截图示意用 */
+            border: 1px dotted;
+        }
+        /* 图片和文字同时存在时在中间留点间距 */
+        
+        .cs-loading-img {
+            width: 32px;
+            height: 32px;
+            margin-top: 45px;
+            vertical-align: bottom;
+        }
+        
+        .cs-loading-p {
+            margin: .5em 0 0;
+            color: gray;
+        }
+        /* 只有图片的时候居中绝对定位 */
+        
+        .cs-loading-img:only-child {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        /* 只有文字的时候行号近似垂直居中 */
+        
+        .cs-loading-p:only-child {
+            margin: 0;
+            line-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- :only-child 是一个很给力的伪类，尤其在处理动态数据的时候，可以省去很多写JavaScript逻辑的成本。 -->
+    <!-- :only-child 意思是匹配没有任何兄弟元素的元素。例如，下面的 p 元素可以匹配 :only-child 伪类，因为其前后没有其他兄弟元素 -->
+    <div class="cs-confirm">
+        <!-- 可以匹配:only-child伪类 -->
+        <p class="cs-confirm-p">确定删除该内容？</p>
+    </div>
+    <!-- 1. 只有加载图片 -->
+    <div class="cs-loading">
+        <img src="./../images/loading.png" class="cs-loading-img" \>
+    </div>
+    <!-- 2. 只有加载文字 -->
+    <div class="cs-loading">
+        <p class="cs-loading-p">正在加载中...</p>
+    </div>
+    <!-- 3. 加载图片和加载文字同时存在 -->
+    <div class="cs-loading">
+        <img src="./../images/loading.png" class="cs-loading-img" \>
+        <p class="cs-loading-p">正在加载中...</p>
+    </div>
+</body>
+
+</html>
