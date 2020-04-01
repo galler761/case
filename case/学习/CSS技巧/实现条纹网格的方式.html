@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现条纹网格的方式</title>
+    <style>
+        /* // odd表示基数，此时选中基数行的样式，even表示偶数行 */
+        
+        .row:nth-child(odd) {
+            background: #eee;
+        }
+        
+        .row1:nth-of-type(odd) {
+            background: rgb(100, 31, 31);
+        }
+        /* 渐变实现linear-gradient */
+        
+        .stripe-bg {
+            padding: .5em;
+            line-height: 1.5em;
+            background: beige;
+            background-size: auto 3em;
+            background-origin: content-box;
+            background-image: linear-gradient(rgba(0, 0, 0, .2) 50%, transparent 0);
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table1">
+        <tr class="row">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr class="row">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr class="row">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+    </table>
+    <table id="table1">
+        <tr class="row1">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr class="row1">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr class="row1">
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+    </table>
+    <table id="table2" class="stripe-bg">
+        <tr>
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr>
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+        <tr>
+            <td>111111</td>
+            <td>222222</td>
+            <td>333333</td>
+        </tr>
+    </table>
+</body>
+
+</html>

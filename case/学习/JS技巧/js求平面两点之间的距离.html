@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js求平面两点之间的距离</title>
+</head>
+
+<body>
+    <script>
+        // 数据可以以数组方式存储，也可以是对象方式
+        let a = {
+                x: '6',
+                y: 10
+            },
+            b = {
+                x: 8,
+                y: 20
+            };
+
+        function distant(a, b) {
+            let dx = Number(a.x) - Number(b.x);
+            let dy = Number(a.y) - Number(b.y);
+            // pow() 方法可返回 x 的 y 次幂的值。x,y必须是数字,如果结果是虚数或负数，则该方法将返回 NaN。如果由于指数过大而引起浮点溢出，则该方法将返回 Infinity。
+            return Math.pow(dx * dx + dy * dy, 0.5);
+        }
+        console.log(distant(a, b));
+    </script>
+</body>
+
+</html>
