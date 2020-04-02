@@ -9,6 +9,104 @@
 
 <body>
     <script>
+        // indexOf实现,数字相同，但是类型不同，那么也会将这两者当做不一样的
+        var array = [2, 2, '2', 1, 1, '1', 'abc1', 'abc'];
+
+        function unique(array) {
+            var res = [];
+            for (var i = 0; len = array.length, i < len; i++) {
+                var current = array[i];
+                if (res.indexOf(current) === -1) {
+                    res.push(current);
+                }
+            }
+            return res;
+        }
+        console.log(unique(array)); //[2, "2", 1, "1", "abc1", "abc"]
+    </script>
+
+    <script>
+        // 排序后去重，
+        var array1 = [2, 2, '2', 1, 1, '1', 'abc1', 'abc'];
+
+        function unique1(array) {
+            var res = [];
+            var sortedArray = array.concat().sort();
+            var seen;
+            for (var i = 0; len = sortedArray.length, i < len; i++) {
+                // 如果是第一个元素或者相邻的元素不相同
+                if (!i || seen != sortedArray[i]) {
+                    res.push(sortedArray[i]);
+                }
+                seen = sortedArray[i];
+            }
+            return res;
+        }
+        console.log(unique1(array1)); //[1, 2, "abc", "abc1"]
+    </script>
+
+    <script>
+        //  filter实现
+        var array = [2, 2, '2', 1, 1, '1', 'abc1', 'abc'];
+
+        function unique2(array) {
+            // filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。filter() 不会对空数组进行检测。filter() 不会改变原始数组。
+            var res = array.filter(function(item, index, array) {
+                return array.indexOf(item) === index;
+            })
+            return res;
+        }
+        console.log(unique2(array)); //[2, "2", 1, "1", "abc1", "abc"]
+    </script>
+
+    <script>
+        // 排序去重
+        var array = [2, 2, '2', 1, 1, '1', 'abc1', 'abc'];
+
+        function unique3(array) {
+            return array.concat().sort().filter(function(item, index, array) {
+                return !index || item !== array[index - 1]
+            })
+        }
+        console.log(unique(array)); //[2, "2", 1, "1", "abc1", "abc"]
+    </script>
+
+    <script>
+        // Object键值对
+        var array = [{
+            value: 1
+        }, {
+            value: 1
+        }, {
+            value: '1'
+        }, {
+            value: 2
+        }];
+
+        function unique4(array) {
+            var obj = {};
+            return array.filter(function(item, index, array) {
+                console.log(typeof item + JSON.stringify(item))
+                return obj.hasOwnProperty(typeof item + JSON.stringify(item)) ? false : (obj[typeof item + JSON.stringify(item)] = true)
+            })
+        }
+        console.log(unique4(array)); // [{value: 1},{value: "1"}, {value: 2}]
+    </script>
+
+    <script>
+        // ES6 Set实现
+        let a = [2, 2, '2', 1, 1, '1', 'abc1', 'abc'];
+        var b = [...new Set(a)];
+        // var unique = (a) => [...new Set(a)]
+        console.log(b);
+    </script>
+    <script>
+        // 数组去重
+        var arr = [1, 2, 3, 3, 1, 4];
+        [...new Set(arr)]; // [1, 2, 3, 4]
+        Array.from(new Set(arr)); // [1, 2, 3, 4]
+        [...new Set('ababbc')].join(''); // "abc" 字符串去重
+        new Set('ice doughnut'); //["ice","doughnut"]
     </script>
 </body>
 
