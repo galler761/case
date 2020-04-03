@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局的实现</title>
+    <style>
+        /* 第二步：给出每个盒子的样式 */
+        /* 第四步：利用负边距布局 */
+        
+        header {
+            width: 100%;
+            height: 40px;
+            background-color: darkseagreen;
+        }
+        
+        .container {
+            height: 200px;
+            overflow: hidden;
+            /* 第六步：让中间自适应的盒子安全显示,首先:利用父级元素设置左右内边距的值，把父级的三个子盒子往中间挤。这里的200px是左右盒子的宽度。 */
+            padding: 0 200px;
+        }
+        
+        .middle {
+            width: 100%;
+            height: 200px;
+            background-color: deeppink;
+            float: left;
+        }
+        
+        .left {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            float: left;
+            /* 让左边的盒子上去,需要设置其左边距为负的中间盒子的宽度 */
+            margin-left: -100%;
+            /* 其次:给左右两个盒子加一个定位，加了定位之后左右两个盒子就可以设置left和right值。 */
+            position: relative;
+            left: -200px;
+        }
+        
+        .right {
+            width: 200px;
+            height: 200px;
+            background-color: darkorchid;
+            float: left;
+            /* 让右边的盒子上去,需要设置其左边距为负的自己的宽度 */
+            margin-left: -200px;
+            position: relative;
+            right: -200px;
+        }
+        
+        footer {
+            width: 100%;
+            height: 30px;
+            background-color: darkslategray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一步：给出HTML结构： -->
+    <header>
+        <h4>Header内容区</h4>
+    </header>
+    <div class="container">
+        <!-- 写结构的时候要注意，父元素的的三栏务必先写中间盒子。因为中间盒子是要被优先渲染嘛~并且设置其自适应，也就是width:100%。 -->
+        <div class="middle">
+            <h4>中间弹性区</h4>
+        </div>
+        <div class="left">
+            <h4>左边栏</h4>
+        </div>
+        <div class="right">
+            <h4>右边栏</h4>
+        </div>
+    </div>
+    <footer>
+        <h4>Footer内容区</h4>
+    </footer>
+</body>
+
+</html>

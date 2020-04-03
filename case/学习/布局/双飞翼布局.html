@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双飞翼布局</title>
+    <!-- 左翅sub有200px,右翅extra..220px.. 身体main自适应未知
+
+    1.html代码中，main要放最前边，sub  extra
+
+    2.将main  sub  extra 都float:left
+
+    3.将main占满 width:100%
+
+    4.此时main占满了，所以要把sub拉到最左边，使用margin-left:-100%  同理 extra使用margin-left:-220px
+
+    （这时可以直接继续上边圣杯布局的步骤，也可以有所改动）
+
+    5.main内容被覆盖了吧，除了使用外围的padding，还可以考虑使用margin。
+
+    给main增加一个内层div-- main-inner, 然后margin:0 220px 0 200px
+
+    6.main正确展示 -->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            min-width: 700px;
+        }
+        
+        .header,
+        .footer {
+            border: 1px solid #333;
+            background: #aaa;
+            text-align: center;
+        }
+        
+        .sub,
+        .main,
+        .extra {
+            float: left;
+            min-height: 130px;
+        }
+        
+        .sub {
+            margin-left: -100%;
+            width: 200px;
+            background: red;
+        }
+        
+        .extra {
+            margin-left: -220px;
+            width: 220px;
+            background: blue;
+        }
+        
+        .main {
+            width: 100%;
+        }
+        
+        .main-inner {
+            margin-left: 200px;
+            margin-right: 220px;
+            min-height: 130px;
+            background: green;
+            word-break: break-all;
+        }
+        
+        .footer {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h4>header</h4>
+    </div>
+    <div class="main">
+        <div class="main-inner">
+            <h4>main</h4>
+            <p>HHHHHHHHHHHHHHHHHHHHHH hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh HHHHHHHHHHHHHHHHHHHHHH hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+            </p>
+        </div>
+    </div>
+    <div class="sub">
+        <h4>sub</h4>
+        <p>oooooooooooooo 00000000000000000 ooooooooooooooo ooooooooooooooo 000000000000000
+        </p>
+    </div>
+
+    <div class="extra">
+        <h4>extra</h4>
+        <p>BBBBBBBBBBBBBB BBBBBBBBBBBBBBBBBB 88888888888888888888
+        </p>
+    </div>
+    <div class="footer">
+        <h4>footer</h4>
+    </div>
+</body>
+
+</html>
