@@ -16,6 +16,7 @@
             var res = [];
             for (var i = 0; len = array.length, i < len; i++) {
                 var current = array[i];
+                // 如果要检索的字符串值没有出现，则该方法返回 -1。
                 if (res.indexOf(current) === -1) {
                     res.push(current);
                 }
