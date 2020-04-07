@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数节流</title>
+    <style>
+        #throttle {
+            height: 1000px;
+            background: blue;
+            width: 800px;
+            overflow: auto;
+        }
+        
+        #throttle div {
+            height: 1100px;
+            background: red;
+            width: 600px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 子元素的高度要大于父元素的高度才行 -->
+    <div id="throttle">
+        <div>
+            函数节流
+        </div>
+    </div>
+    <script>
+        // 函数节流
+        // 函数节流是指一定时间内js方法只跑一次。比如人的眨眼睛，就是一定时间内眨一次。这是函数节流最形象的解释
+        // 函数节流应用的实际场景，多数在监听页面元素滚动事件的时候会用到。因为滚动事件，是一个高频触发的事件。以下是监听页面元素滚动的示例代码：
+        // 函数节流的要点是，声明一个变量当标志位，记录当前代码是否在执行。
+        // 如果空闲，则可以正常触发方法执行。
+        // 如果代码正在执行，则取消这次方法执行，直接return。
+        var canRun = true;
+        // 这个方法的作用是监听ID为throttle元素的滚动事件。
+        document.getElementById("throttle").onscroll = function() {
+            // 1. 当canRun为true，则代表现在的滚动处理事件是空闲的，可以使用。
+            if (!canRun) {
+                // 判断是否已空闲，如果在执行中，则直接return
+                return;
+            }
+            // 2. 通过关卡if(!canRun)，等于就拿到了通行证。然后下一步的操作就是立马将关卡关上canRun=false。这样，其他请求执行滚动事件的方法，就被挡回去了。
+            canRun = false;
+            // 3. 接着用setTimeout规定最小的时间间隔300，接着再执行setTimeout方法体里面的内容。
+            setTimeout(function() {
+                console.log("函数节流");
+                // 4. 最后，等setTimeout里面的方法都执行完毕，才释放关卡canRun=true，允许下一个访问者进来。
+                canRun = true;
+            }, 2300);
+        };
+    </script>
+
+</body>
+
+</html>

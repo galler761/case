@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数防抖</title>
+    <style>
+        #debounce {
+            height: 1000px;
+            background: blue;
+            width: 800px;
+            overflow: auto;
+        }
+        
+        #debounce div {
+            height: 1100px;
+            background: red;
+            width: 600px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="debounce">
+        <div>
+            函数防抖
+        </div>
+    </div>
+    <script>
+        // 函数防抖
+        // 函数防抖的应用场景，最常见的就是用户注册时候的手机号码验证和邮箱验证了。
+        // 只有等用户输入完毕后，前端才需要检查格式是否正确，如果不正确，再弹出提示语。
+        // 以下还是以页面元素滚动监听的例子，来进行解析
+        // 函数防抖的要点，也是需要一个setTimeout来辅助实现。延迟执行需要跑的代码。
+        // 如果方法多次触发，则把上次记录的延迟执行代码用clearTimeout清掉，重新开始。
+        // 如果计时完毕，没有方法进来访问触发，则执行代码
+        var timer = false;
+        // 这个方法的作用是监听ID为debounce元素的滚动事件
+        document.getElementById("debounce").onscroll = function() {
+            // 进入滚动事件方法体的时候，做的第一件事就是清除上次未执行的setTimeout。而setTimeout的引用id由变量timer记录。
+            //  clearTimeout方法，允许传入无效的值。所以这里直接执行clearTimeout即可。
+            clearTimeout(timer); // 清除未执行的代码，重置回初始化状态
+            // 然后，将需要执行的代码放入setTimeout中，再返回setTimeout引用给timer缓存。
+            timer = setTimeout(function() {
+                // 如果倒计时300ms以后， 还没有新的方法触发滚动事件， 则执行setTimeout中的代码。
+                console.log("函数防抖");
+            }, 2300);
+        };
+        // 函数防抖的实现重点，就是巧用setTimeout做缓存池，而且可以轻易地清除待执行的代码。
+        //  其实，用队列的方式也可以做到这种效果。这里就不深入了。
+    </script>
+</body>
+
+</html>
