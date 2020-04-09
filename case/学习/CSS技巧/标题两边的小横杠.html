@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题两边的小横杠</title>
+    <style>
+      .title {
+        color: #e1767c;
+        font-size: 0.3rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .title:before,
+        .title:after {
+          content: "";
+          position: absolute;
+          display: block;
+          left: 50%;
+          /* top: 50%; */
+          top: 53%;
+          -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+          border-top: 0.02rem solid #e1767c;
+          width: 0.4rem;
+        }
+        .title:before {
+          margin-left: -1.2rem;
+        }
+        .title:after {
+          margin-left: 1.2rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="title">标题</div>
+  </body>
+</html>

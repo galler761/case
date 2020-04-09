@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex 布局</title>
+    <style>
+      /* 我们可以给父级元素设置为display: flex，利用 flex 中的align-items和justify-content设置垂直方向和水平方向的居中。这种方式也不限制中间元素的宽度和高度。 */
+      /* 同时，flex 布局也能替换line-height方案在某些 Android 机型中文字不居中的问题。 */
+      .container {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #333333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content {
+        background-color: #ccc;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        我们可以给父级元素设置为display: flex，利用 flex
+        中的align-items和justify-content设置垂直方向和水平方向的居中。这种方式也不限制中间元素的宽度和高度。
+      </div>
+    </div>
+  </body>
+</html>

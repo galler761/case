@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小三角</title>
+    <style>
+      .triangle {
+        /* 基础样式 */
+        border: solid 10px transparent;
+      }
+      /*下*/
+      .triangle.bottom {
+        border-top-color: green;
+      }
+      /*上*/
+      .triangle.top {
+        border-bottom-color: green;
+      }
+      /*右*/
+      .triangle.right {
+        border-right-color: green;
+      }
+      /*左*/
+      .triangle.left {
+        border-left-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 可以看出画一个小三角非常简单，只要两行样式就可以搞定，对于方向只要想着画哪个方向则设置反方向的样式属性就可以 -->
+    <div class="triangle top"></div>
+    <div class="triangle right"></div>
+    <div class="triangle bottom"></div>
+    <div class="triangle left"></div>
+  </body>
+</html>

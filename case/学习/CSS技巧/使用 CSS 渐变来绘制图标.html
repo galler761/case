@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 CSS 渐变来绘制图标</title>
+    <style>
+      .gradient {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: silver;
+        background-image: linear-gradient(335deg, #b00 23px, transparent 23px),
+          linear-gradient(155deg, #d00 23px, transparent 23px),
+          linear-gradient(335deg, #b00 23px, transparent 23px),
+          linear-gradient(155deg, #d00 23px, transparent 23px);
+        background-size: 58px 58px;
+        background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+      }
+    </style>
+    <style>
+      /* 杯子 */
+      .cup {
+        display: inline-block;
+        width: 0.9em;
+        height: 0.4em;
+        border: 0.25em solid;
+        border-bottom: 1.1em solid;
+        border-radius: 0 0 0.25em 0.25em;
+      }
+      .cup:before {
+        position: absolute;
+        /* right: -0.6em;
+        top: 0; */
+        left: 1.9em;
+        width: 0.3em;
+        height: 0.8em;
+        border: 0.25em solid;
+        border-left: none;
+        border-radius: 0 0.25em 0.25em 0;
+        content: "";
+      }
+    </style>
+    <style>
+      /* 心形 */
+      .heart {
+        display: inline-block;
+        margin-top: 1.5em;
+        width: 50px;
+        height: 50px;
+        background: green;
+        left: 50%;
+        position: relative;
+      }
+      .heart:before,
+      .heart:after {
+        position: absolute;
+        width: 1em;
+        height: 1.6em;
+        background: #000;
+        border-radius: 50% 50% 0 0;
+        content: "";
+        /* bottom: 0; */
+      }
+      .heart:before {
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+        -webkit-transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        right: 50%;
+        background: red;
+        opacity: 0.5;
+        z-index: 5;
+      }
+      .heart:after {
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        -webkit-transform: rotate(-45deg);
+        -webkit-transform-origin: 0 100%;
+        left: 50%;
+        opacity: 0.8;
+      }
+    </style>
+    <style>
+      /* 相机 */
+      .camera {
+        display: inline-block;
+        border-style: solid;
+        border-width: 0.65em 0.9em;
+        border-radius: 0.1em;
+      }
+      .camera:before {
+        position: absolute;
+        /* top: -0.3em;
+        left: -0.3em; */
+        top: 29.9em;
+        left: 1.1em;
+        width: 0.4em;
+        height: 0.4em;
+        border-radius: 50%;
+        border: 0.1em solid #fff;
+        box-shadow: 0 0 0 0.08em, 0 0 0 0.16em #fff;
+        content: "";
+      }
+      .camera:after {
+        position: absolute;
+        /* top: -0.5em;
+        left: 0.5em; */
+        left: 1.3em;
+        width: 0.2em;
+        border-top: 0.125em solid #fff;
+        content: "";
+      }
+    </style>
+    <style>
+      /* 月亮 */
+      .moon {
+        display: inline-block;
+        height: 1.5em;
+        width: 1.5em;
+        box-shadow: inset -0.4em 0 0;
+        border-radius: 2em;
+        transform: rotate(20deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CSS3 的渐变属性十分强大，理论上通过渐变可以绘制出任何的图形，渐变的特性和使用足足可以写一篇长文，以下为一个例子 -->
+    <div class="gradient"></div>
+    <hr />
+    <div class="cup"></div>
+    <hr />
+    <div class="heart"></div>
+    <hr />
+    <div class="camera"></div>
+    <hr />
+    <div class="moon"></div>
+    <hr />
+  </body>
+</html>

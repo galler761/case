@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>取消超链接元素的默认文字装饰</title>
+    <!-- 另外 del、ins 标签的中划线、下划线还是挺好的，就不去掉 -->
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      ol,
+      ul {
+        /*开发中 UI 设计的列表都是和原生的样式差太多，所以直接给取消 ol，ul 默认列表样式*/
+        list-style: none;
+      }
+
+      button,
+      input[type="submit"],
+      input[type="button"] {
+        /*鼠标经过是「小手」形状表示可点击*/
+        cursor: pointer;
+      }
+
+      input::-moz-focus-inner {
+        /*取消火狐浏览器部分版本 input 聚焦时默认的「padding、border」*/
+        padding: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义文本选中样式</title>
+    <style>
+      /* 注意只能修改这两个属性 字体颜色 选中背景颜色 */
+      p::selection {
+        color: green;
+        background-color: pink;
+      }
+      p::-moz-selection {
+        color: green;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <p>自定义文本选中样式自定义文本选中样式</p>
+    <div>
+      自定义文本选中样式自定义文本选中样式自定义文本选中样式
+    </div>
+  </body>
+</html>

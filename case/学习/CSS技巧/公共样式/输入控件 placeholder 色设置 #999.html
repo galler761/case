@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>输入控件 placeholder 色设置 #999</title>
+    <style>
+      input::-webkit-input-placeholder,
+      textarea::-webkit-input-placeholder {
+        color: #999;
+      }
+
+      input:-moz-placeholder,
+      textarea:-moz-placeholder {
+        color: #999;
+      }
+
+      input::-moz-placeholder,
+      textarea::-moz-placeholder {
+        color: #999;
+      }
+
+      input:-ms-input-placeholder,
+      textarea:-ms-input-placeholder {
+        color: #999;
+      }
+
+      template {
+        /*由于部分浏览 template 会显示出来，所以要隐*/
+        display: none;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用 box-shadow 绘制元素</title>
+    <style>
+      .plus {
+        width: 30px;
+        height: 30px;
+        margin-left: 50px; /*由于box-shadow不占空间，常常需要添加margin来校正位置*/
+        background: #000;
+        box-shadow: 0 -30px 0 red, 0 30px 0 red, -30px 0 0 red, 30px 0 0 red;
+      }
+      .target {
+        width: 30px;
+        height: 30px;
+        background: red;
+        border-radius: 50%;
+        margin-left: 50px;
+        box-shadow: 0 0 0 10px #fff, 0 0 0 20px red, 0 0 0 30px #fff,
+          0 0 0 40px red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 对于box-shadow，其完整的声明为box-shadow: h-shadow v-shadow blur spread color inset,
+    各个值表示的意义分别为：s 水平方向的偏移，垂直方向的便宜，模糊的距离（羽化值），阴影的大小（不设置或为0 时阴影与主体的大小一致），阴影的颜色和是否使用内阴影。
+    实际应用时可以接收3-6 个值，对应分别如下：
+    3 个值： h-shadow v-shadow color
+    4 个值： h-shadow v-shadow blur color
+    5 个值： h-shadow v-shadow blur spread color
+    6 个值：h-shadow v-shadow blur spread color inset
+    同时，border-shadow接受由多个以上各种值组成的以逗号分隔的值，通过这一特性，我们可以实现如多重边框的等效果。
+    以下我们用该属性来实现一个单标签且不借助伪元素的添加图标和代表目标的的图标。 -->
+    <div class="plus"></div>
+    <div class="target"></div>
+  </body>
+</html>

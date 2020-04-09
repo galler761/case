@@ -16,6 +16,18 @@
         font-size: 50px;
       }
     </style>
+    <style>
+      /* line-height其实是行高，我们可以用行高来调整布局！ */
+      /* 不过这个方案有一个比较大的缺点是：文案必须是单行的，多行的话，设置的行高就会有问题。 */
+      .container {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #333333;
+      }
+      .content {
+        line-height: 200px;
+      }
+    </style>
   </head>
 
   <body>
@@ -24,5 +36,10 @@
       <span>Ba</span>
       <span>Ba</span>
     </p>
+    <div class="container">
+      <span class="content"
+        >不过这个方案有一个比较大的缺点是：文案必须是单行的，多行的话，设置的行高就会有问题</span
+      >
+    </div>
   </body>
 </html>

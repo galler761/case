@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>统一 input、select、textarea 宽度</title>
+    <!-- 不同浏览器的 input、select、textarea 的盒子模型宽度计算方式不同，统一为最常见的 content-box -->
+    <style>
+      input,
+      select,
+      textarea {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+      }
+
+      table {
+        /*table 相邻单元格的边框间的距离设置为 0*/
+        border-spacing: 0;
+        /*默认情况下给 tr 设置 border 没有效果，如果 table 设置了边框为合并模式：「border-collapse: collapse;」就可以了*/
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

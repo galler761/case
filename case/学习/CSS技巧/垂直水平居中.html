@@ -10,10 +10,10 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -3em;
-        margin-left: -7em;
-        width: 14em;
-        height: 6em;
+        margin-top: -10em;
+        margin-left: -15em;
+        width: 30em;
+        height: 20em;
         background-color: blue;
         border: 1px solid red;
       }
@@ -41,16 +41,30 @@
       }
       #div4 {
         background-color: orange;
-        width: 50px;
-        height: 50px;
+        width: 150px;
+        height: 150px;
+      }
+
+      /* 利用绝对定位宽高拉升原理，中心居中元素 */
+      .middle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 300px;
+        height: 200px;
+        background-color: purple;
       }
     </style>
   </head>
   <body>
-    <div id="div1">第一种方法</div>
-    <div id="div2">第二种方法</div>
+    <div id="div1">第一种方法,绝对定位方式且已知宽高</div>
+    <div id="div2">第二种方法，绝对定位 ＋ 未知宽高 ＋ translate</div>
     <div id="div3">
-      <div id="div4">第三种方法</div>
+      <div id="div4">第三种方法,flex 轻松搞定水平垂直居中(未知宽高)</div>
     </div>
+    <div class="middle">利用绝对定位宽高拉升原理，中心居中元素</div>
   </body>
 </html>

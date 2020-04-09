@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画实现简洁 loading 效果</title>
+    <style>
+      .loading:after {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+        content: "loading...";
+        animation: ellipsis 2s infinite;
+        -webkit-animation: ellipsis 2s infinite;
+      }
+      .loading{
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+
+      /* 动画部分 */
+      @keyframes ellipsis {
+        from {
+          width: 58px;
+        }
+        to {
+          width: 72px;
+        }
+      }
+      @-webkit-keyframes ellipsis {
+        from {
+          width: 58px;
+        }
+        to {
+          width: 72px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+
+    </div>
+  </body>
+</html>

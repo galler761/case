@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绝对定位与margin与transform</title>
+    <style>
+      /* 当我们提前知道要居中元素的长度和宽度时，可以使用这种方式： */
+      .container {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #333333;
+      }
+      .content {
+        background-color: #ccc;
+        width: 160px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -80px; /* 宽度的一半 */
+        margin-top: -50px; /* 高度的一半 */
+      }
+    </style>
+    <style>
+      /* 当要居中的元素不定宽和定高时，我们可以使用 transform 来让元素进行偏移。 */
+      .container1 {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #333333;
+      }
+      .content1 {
+        background-color: #ccc;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">当我们提前知道要居中元素的长度和宽度时，可以使用这种方式</div>
+    </div>
+    <div class="container1">
+      <div class="content1">当要居中的元素不定宽和定高时，我们可以使用 transform 来让元素进行偏移</div>
+    </div>
+  </body>
+</html>

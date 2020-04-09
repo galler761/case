@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用 border-radius 绘制元素</title>
+    <style>
+      .circle,
+      .ellipse {
+        width: 100px;
+        height: 100px;
+        background: #249ff1;
+        border-radius: 50%;
+      }
+      .ellipse {
+        width: 150px;
+        background: #ff9e01;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- border-radius主要用于绘制圆点、圆形、椭圆、圆角矩形等形状，以下为简单绘制的两个图形。 -->
+    <!-- 但border-radius属性实际上可以设置最多 8 个值，通过改变 8 个值可以得到许多意想不到的图像 -->
+    <div class="circle"></div>
+    <div class="ellipse"><div></div></div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标手型</title>
+    <style>
+      a[href],
+      input[type="submit"],
+      input[type="image"],
+      input[type="button"],
+      label[for],
+      select,
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="">a标签</a>
+    <input type="submit" value="submit">
+    <input type="image" src="" alt="image">
+    <input type="button" value="button">
+
+    <!-- 注：<label>包裹<input>标签，点击<label>，<label>响应两次，即<label>本身出发和<input>触发后冒泡到<label>。 -->
+    <!-- 解决方法：1把label的事件放到input上；2给input加阻止事件冒泡； -->
+    <label for="radio1">radio
+      <input type="radio" name="" id="radio1">
+    </label>
+    <label for="radio2">radio
+      <input type="radio" name="" id="radio2">
+    </label>
+    
+    <select>
+      <option>1</option>
+      <option>2</option>
+    </select>
+    <button>button</button>
+  </body>
+</html>

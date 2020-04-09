@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移除浏览器部分元素的默认边框</title>
+    <!-- acronym、fieldset … 等其他标签不是很常用，就不会一一列举；如果项目中用到，可以自己单独写 -->
+    <style>
+      img,
+      input,
+      button,
+      textarea {
+        border: none;
+        -webkit-appearance: none;
+      }
+
+      input {
+        /*由于 input 默认不继承父元素的居中样式，所以设置：「text-align: inherit」*/
+        text-align: inherit;
+      }
+
+      textarea {
+        /*textarea 默认不可以放缩*/
+        resize: none;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

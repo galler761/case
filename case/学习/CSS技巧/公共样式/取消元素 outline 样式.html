@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>取消元素 outline 样式</title>
+    <!-- 由于以下元素的部分属性没有继承父节点样式，所以声明这些元素的这些属性为父元素的属性 -->
+    <style>
+      a,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      input,
+      select,
+      button,
+      option,
+      textarea,
+      optgroup {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        font-style: inherit;
+        line-height: inherit;
+        color: inherit;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

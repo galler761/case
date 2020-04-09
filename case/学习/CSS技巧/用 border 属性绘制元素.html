@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用 border 属性绘制元素</title>
+    <style>
+      .triangle1 {
+        /*锐角三角形*/
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-bottom: 100px solid #249ff1;
+        border-left: 30px solid transparent;
+        border-right: 100px solid transparent;
+      }
+      .triangle2 {
+        /*直角三角形*/
+        width: 0;
+        height: 0;
+        border-top: 80px solid transparent;
+        border-bottom: 80px solid #ff5b01;
+        border-left: 50px solid #ff5b01;
+        border-right: 50px solid transparent;
+      }
+      .trapezoid {
+        /*梯形*/
+        width: 0;
+        height: 0;
+        border-top: none;
+        border-right: 80px solid transparent;
+        border-bottom: 60px solid #13dbed;
+        border-left: 80px solid #13dbed;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- border 除了作为简单的绘制边框以外，还可以绘制三角形，梯形，星形等任意的多边形，以下为绘制的两个三角形和梯形 -->
+    <div class="triangle1">锐角三角形</div>
+    <div class="triangle2">直角三角形</div>
+    <div class="trapezoid">梯形</div>
+  </body>
+</html>

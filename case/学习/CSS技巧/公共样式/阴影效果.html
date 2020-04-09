@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阴影效果</title>
+    <style>
+      .shadow-text-xs {
+        text-shadow: 4px 3px 0 #1d9d74, 9px 8px 0 rgba(0, 0, 0, 0.15);
+      } /*智能兼容ie10以上 暂不考虑*/
+
+      .shadow-xs {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=100, Color='#cccccc')"; /* For IE 8 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=100, Color='#cccccc'); /* For IE 5.5 - 7 */
+        -moz-box-shadow: 1px 1px 2px #cccccc; /* for firefox */
+        -webkit-box-shadow: 1px 1px 2px #cccccc; /* for safari or chrome */
+        box-shadow: 1px 1px 2px #cccccc; /* for opera or ie9 */
+      }
+      .shadow-sm {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#cccccc')"; /* For IE 8 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=120, Color='#cccccc'); /* For IE 5.5 - 7 */
+        -moz-box-shadow: 2px 2px 3px #cccccc; /* for firefox */
+        -webkit-box-shadow: 2px 2px 3px #cccccc; /* for safari or chrome */
+        box-shadow: 2px 2px 3px #cccccc; /* for opera or ie9 */
+      }
+      .shadow-md {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#cccccc')"; /* For IE 8 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#cccccc'); /* For IE 5.5 - 7 */
+        -moz-box-shadow: 3px 3px 5px #cccccc; /* for firefox */
+        -webkit-box-shadow: 3px 3px 5px #cccccc; /* for safari or chrome */
+        box-shadow: 3px 3px 5px #cccccc; /* for opera or ie9 */
+      }
+      .shadow-lg {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=150, Color='#cccccc')"; /* For IE 8 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=150, Color='#cccccc'); /* For IE 5.5 - 7 */
+        -moz-box-shadow: 5px 5px 8px #cccccc; /* for firefox */
+        -webkit-box-shadow: 5px 5px 8px #cccccc; /* for safari or chrome */
+        box-shadow: 5px 5px 8px #cccccc; /* for opera or ie9 */
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
