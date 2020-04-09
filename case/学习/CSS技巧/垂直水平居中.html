@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>垂直水平居中</title>
+    <style>
+      /* 绝对定位方式且已知宽高 */
+      #div1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -3em;
+        margin-left: -7em;
+        width: 14em;
+        height: 6em;
+        background-color: blue;
+        border: 1px solid red;
+      }
+
+      /* 绝对定位 ＋ 未知宽高 ＋ translate */
+      #div2 {
+        width: 500px;
+        height: 50px;
+        border: 1px solid blue;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: red;
+        /* 需要补充浏览器前缀 */
+      }
+
+      /* flex 轻松搞定水平垂直居中(未知宽高) */
+      #div3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        border: 1px solid black;
+      }
+      #div4 {
+        background-color: orange;
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">第一种方法</div>
+    <div id="div2">第二种方法</div>
+    <div id="div3">
+      <div id="div4">第三种方法</div>
+    </div>
+  </body>
+</html>
