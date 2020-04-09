@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>多行文本溢出显示省略号</title>
+    <style type="text/css">
+      p {
+        display: -webkit-box;
+        /*必须结合的属性，将对象作为弹性伸缩盒子模型显示*/
+        -webkit-box-orient: vertical;
+        /*必须结合的属性，设置或检索伸缩盒对象的子元素的排列方式*/
+        -webkit-line-clamp: 3;
+        /*用来限制在一个块元素显示的文本的行数，为了实现效果，它需要组合其他的webkit属性*/
+        overflow: hidden;
+        position: relative;
+        line-height: 20px;
+        max-height: 40px;
+      }
+
+      p::after {
+        content: "...";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-left: 40px;
+        background: -webkit-linear-gradient(left, transparent, #fff 55%);
+        background: -o-linear-gradient(right, transparent, #fff 55%);
+        background: -moz-linear-gradient(right, transparent, #fff 55%);
+        background: linear-gradient(to right, transparent, #fff 55%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>因使用了webkit的css扩展属性，该方法适用于webkit浏览器及移动端</h3>
+    <p>
+      多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号
+      多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号
+      多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号多行文本溢出显示省略号
+    </p>
+  </body>
+</html>
