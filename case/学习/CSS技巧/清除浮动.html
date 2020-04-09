@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>清除浮动</title>
+    <style>
+      /* 第一种方法，最方便也是兼容性最好的一种是，在同级目录下再创建一个<div style="clear:both;"></div>；不过这样会增加很多无用的代码 */
+      /* 清除浮动是为了解决子元素浮动而导致父元素高度塌陷的问题 */
+      /* 对父元素添加伪元素 */
+      .parent::after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+      }
+      /* 触发父元素BFC */
+      .parent {
+        overflow: hidden;
+        /* float: left; */
+        /* position: absolute; */
+        /* display: inline-block */
+        /* 以上属性均可触发BFC */
+      }
+    </style>
+
+    <style>
+      /* 第二种方法 */
+      /* 不过上面这种方法会增加很多无用的代码。此时我们用:after这个伪元素来解决浮动的问题，如果当前层级有浮动元素，那么在其父级添加上 clearfix 类即可。 */
+      /* 清除浮动 */
+      .clearfix:after {
+        content: "\00A0";
+        display: block;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        clear: both;
+        font-size: 0;
+        line-height: 0;
+        overflow: hidden;
+      }
+      .clearfix {
+        zoom: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child"></div>
+      <!-- 添加一个空元素，利用css提供的clear:both清除浮动 -->
+      <div style="clear: both;"></div>
+    </div>
+  </body>
+</html>
