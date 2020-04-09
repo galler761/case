@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>内联格式化上下文</title>
+    <style type="text/css">
+      p {
+        font-family: Catamaran;
+        font-size: 100px;
+        line-height: 200px;
+        background-color: red;
+      }
+      /*line-box的高度是从它的子元素最高点和最低点计算。line-height设置不带任何单位的值，*/
+
+      span:last-child {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--两个<span>元素继承了<p>元素的font-family，font-size和固定的line-height。基线将会匹配以入line-box的高度等于他们的line-height。-->
+    <p>
+      <span>Ba</span>
+      <span>Ba</span>
+    </p>
+  </body>
+</html>

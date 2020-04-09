@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文本末尾添加省略号</title>
+    <style>
+      /* 宽度固定，适合单行显示... */
+      p {
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      /* 宽度不固定，适合多行以及移动端显示 */
+      div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      宽度固定，适合单行显示省略号。。。,宽度固定，适合单行显示省略号，宽度固定，适合单行显示省略号，宽度固定，适合单行显示省略号，宽度固定，适合单行显示省略号
+    </p>
+    <div>
+      宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号
+      宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号
+      宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号
+      宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号
+      宽度不固定，适合多行以及移动端显示省略号宽度不固定，适合多行以及移动端显示省略号
+    </div>
+  </body>
+</html>
