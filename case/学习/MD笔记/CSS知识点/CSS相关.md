@@ -8,7 +8,6 @@
   \<!-- 添加一个空元素，利用css提供的clear:both清除浮动 -->
   \<div style="clear: both"></div>
 \</div>  
-
 2. 使用伪元素
 <pre>
 /* 对父元素添加伪元素 */
@@ -29,8 +28,27 @@
   /* display: inline-block */
   /* 以上属性均可触发BFC */
 }
-
 </pre>
+##### 上面这种方法会增加很多无用的代码
++ 此时我们用:after这个伪元素来解决浮动的问题，如果当前层级有浮动元素，那么在其父级添加上 clearfix 类即可。
+<pre>
+// 清除浮动
+.clearfix:after {
+  content: "\00A0";
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+</pre>
+
 ### (2)什么是BFC
 + BFC全称 Block Formatting Context 即块级格式上下文，简单的说，BFC是页面上的一个隔离的独立容器，不受外界干扰或干扰外界
 ### (3)如何触发BFC
