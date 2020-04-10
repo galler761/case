@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math.random引发的骗术</title>
+  </head>
+  <body>
+    <script>
+      // 需求：
+      // 我觉得今天我运气特好，今天我们来赌一赌，我们来搞个随机数，Math.floor(Math.random() * 10)，
+      // 如果这个数等于0到7，这个月的饭，我全请了，如果是8或9，你就请一个礼拜成不？
+      // 于是你想了想，万一我真运气这么好，那不是完了。。
+      // 于是我追加说，我们来玩5盘，5盘中有一盘0到7，就我请，如果全是8或9，你就请。想想你还是相信概率这东西的
+      window.onclick = function (e) {
+        // 点击窗户左半边
+        var r = Math.random();
+        if (e.clientX < document.body.offsetWidth / 2) {
+          Math.random1 = function () {
+            return r > 0.8 ? 0 : r;
+          };
+        } else {
+          // 点击窗户右半边
+          Math.random1 = function () {
+            return (r * 2 + 8) / 10;
+          };
+        }
+        console.log(Math.floor(Math.random1() * 10));
+      };
+    </script>
+  </body>
+</html>
