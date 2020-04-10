@@ -104,7 +104,31 @@ document.addEventListener("WeixinJSBridgeReady", function () {
     music.play();
 }, false);
 </pre>
-### (15)
+
+### (15)javascript中的严格模式以及严格模式的限制
++ 'use strict;'指令是ECMAscript添加的第二种运行模式，严格模式(strict mode)即在严格的条件下运行，"use strict" 指令只允许出现在脚本或函数的开头。
+##### 设立“严格模式”的目的：
+1. 消除javascript语法中的一些不合理、不严谨之处，减少一些怪异行为；
+2. 消除代码运行的一些不安全之处，保证代码运行的安全；
+3. 提高编译器效率，增加运行速度；
+4. 为未来新版本的javascript做好铺垫。
++ “严格模式”体现了javascript更合理、更安全、更严谨的发展方向。
+##### 严格模式对比非严格模式主要做了哪些限制：
+1. 不允许使用未声明的变量；
+2. 不允许使用delete x;这种方式删除变量或对象；
+3. 不允许delete fun;这种方式删除函数；
+4. 不允许函数参数重名；
+5. 不允许使用八进制；
+6. 不允许使用转义符；
+7. 不能对只读属性赋值；
+8. 不允许对一个使用getter方法读取的属性进行赋值；
+9. 不允许删除一个不允许删除的属性；
+10. 变量名不能使用“eval”字符串；
+11. 变量名不能使用“arguments”字符串；
+12. 不允许使用with；
+13. eval不会在它的外层作用域引入变量；
+14. 禁止this关键字指向全局对象；
+15. 保留关键字；implements, interface, let, package, private, protected, public, static, yield
 ### (16)
 ### (17)
 ### (18)
