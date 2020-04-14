@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>隔离应用逻辑</title>
+    <style>
+      #button {
+        width: 500px;
+        height: 500px;
+      }
+      .reveal {
+        color: red;
+        font-size: 30px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">button</button>
+    <div id="popup">popup</div>
+    <script>
+      function addEvent(target, type, handler) {
+        if (target.addEventListener) {
+          target.addEventListener(type, handler, false);
+        } else if (target.attachEvent) {
+          target[type + handler] = function () {
+            handler.call(target);
+          };
+          target.attachEvent("on" + type, handler); // IE8.0及其以下版本
+        } else {
+          target["on" + type] = handler; // 早期浏览器
+        }
+      }
+    </script>
+    <script>
+      // 事件处理程序抽离应用逻辑
+      var MyApplication = {
+        handleClick: function (event) {
+          // this.showPopup(event);//这种方法不是最优的，存在一个问题，即event对象被无节制分发
+          this.showPopup(event.clientX, event.clientY); //让事件处理程序使用event对象来处理事件，然后拿到所需要的数据传给应用逻辑
+        },
+        // 应用逻辑，显示弹出框
+        showPopup: function (x,y) {
+          var popup = document.getElementById("popup");
+          popup.style.left = x.clientX + "px";
+          popup.style.top = y.clientY + "px";
+          popup.className = "reveal";
+        },
+      };
+      var btn = document.getElementById("button");
+      addEvent(btn, "click", function (event) {
+        MyApplication.handleClick(event);
+      });
+    </script>
+  </body>
+</html>
