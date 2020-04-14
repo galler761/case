@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>将HTML从JS中抽离</title>
+  </head>
+  <body>
+    <div id="mu-div"></div>
+    <script>
+      // 不好的写法
+      var div = document.getElementById("mu-div");
+      div.innerHTML = "<h3>Hello World</h3>";
+      // 改进方法：
+      // a.对于大量的标签，可以采用 - 从服务器加载
+      // b.对于少量的标签，可以采用 - 简单的客户端模板
+      // c.复杂的客户端模板，可以考虑如Handlebars(http://handlebarsjs.com/)所提供的解决方案，Handlebars是专为浏览器端JS设计的完整的客户端模板系统。
+    </script>
+  </body>
+</html>

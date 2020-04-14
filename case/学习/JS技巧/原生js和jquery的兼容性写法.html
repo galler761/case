@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventListener和attachEvent介绍, 原生js和jquery的兼容性写法</title>
+  </head>
+  <body>
+    <button id="btn1">
+      addEventListener和attachEvent介绍, 原生js和jquery的兼容性写法1
+    </button>
+    <button id="btn2">
+      addEventListener和attachEvent介绍, 原生js和jquery的兼容性写法2
+    </button>
+    <script>
+      // 原生javascript的写法
+      var EventUtil = {
+        // 添加事件监听
+        add: function (event, type, callback) {
+          // 适用范围：　现代浏览器（IE9、10、11 | ff, chorme, safari, opera）， element.addEventListener(event,function(e),useCapture)
+          // 参数介绍：
+          // event: 必须。字符串，指定事件名。(注： 不要是 on+'someEvent', just 'someEvent' is ok).
+          // function: 必须。指定要事件触发时执行的函数。
+          // (注：function(e) e:事件对象会作为第一个参数传入函数, 事件对象的类型取决于特定的事件,例如， "click" 事件属于 MouseEvent(鼠标事件) 对象。)
+          // useCapture: 可选。布尔值，指定事件是否在捕获或冒泡阶段执行。
+          // (注：true:function(e) 在捕获阶段执行， false:function(e)在冒泡阶段执行，（默认为 false ).
+          if (event.addEventListener) {
+            event.addEventListener(type, callback, false);
+          } else if (event.attachEvent) {
+            // 适用范围：IE 6、7、8，element.attachEvent(eType,function(e))
+            // 参数介绍：
+            // eType: 必须。字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等。
+            // function：必须。定要事件触发时执行的函数。
+            event.attachEvent("on" + type, callback);
+          } else {
+            event["on" + type] = callback;
+          }
+        },
+        // 移除事件监听
+        remove: function (event, type, callback) {
+          if (event.removeEventListener) {
+            event.removeEventListener(type, callback, false);
+          } else if (event.detachEvent) {
+            event.detachEvent("on" + type, callback);
+          } else {
+            event["on" + type] = null;
+          }
+        },
+        // 跨浏览器获取 event 对象
+        getEvent: function (event) {
+          return event ? event : window.event;
+        },
+
+        // 跨浏览器获取 target 属性
+        getTarget: function (event) {
+          return event.target || event.srcElement;
+        },
+
+        // 阻止事件的默认行为
+        preventDefault: function (event) {
+          if (event.preventDefault) {
+            event.preventDefault();
+          } else {
+            event.returnValue = false;
+          }
+        },
+
+        // 阻止事件流或使用 cancelBubble
+        stopPropagation: function () {
+          if (event.stopPropagation) {
+            event.stopPropagation();
+          } else {
+            event.cancelBubble = true;
+          }
+        },
+      };
+      // 使用方式
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      EventUtil.add(btn1, "click", function () {
+        console.log("被点击了添加事件监听");
+      });
+      EventUtil.remove(btn2, "click", function () {
+        console.log("被点击了移除事件监听");
+      });
+    </script>
+  </body>
+</html>

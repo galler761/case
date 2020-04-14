@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>将JS从HTML中抽离</title>
+  </head>
+  <body>
+    <!-- 不好的写法 -->
+    <!-- 第一个问题：在于严谨上来看，当按钮上发生点击事件时，doSomething()函数必须存在。可能出现用户点击按钮时该函数还不存在，这时就会报JS错误； -->
+    <!-- 第二个问题：在于可维护性来看，如果你修改了doSomething()函数名，在这个例子中，你需要同时修改HTML和JS两部分的函数代码，这是典型的紧耦合的代码 -->
+    <button onclick="doSomething1()">Click Me,不好的写法</button>
+    <!-- 改进方法 -->
+    <button id="action-btn">Click Me,不好的写法,改进方法</button>
+    <button id="action-btn1">
+      Click Me,不好的写法,改进方法,兼容性处理,可以在所有情形下都正常工作
+    </button>
+    <script>
+      function doSomething1() {
+        alert("Click Me");
+      }
+      var btn = document.getElementById("action-btn");
+      btn.addEventListener("click", doSomething1, false);
+    </script>
+
+    <!-- 兼容性处理 IE8以及更早的版本不支持addEventListener()函数， 因此你需要一个标准的函数将这些差异性做封装。 -->
+    <script>
+      // 这个函数可以在所有情形下都正常工作，我们常常像下面这样来使用这个方法
+      function addEvent(target, type, handler) {
+        //target为要绑定事件的元素，type为要绑定的事件，handler为绑定事件的函数
+        // FF和Chrome只支持addEventListener，addEventListener(click,fn,false);(true是捕获/false事件冒泡)，移除:removeEventListener
+        if (target.addEventListener) {
+          target.addEventListener(type, handler, false);
+        } else if (target.attachEvent) {
+          // ie只支持attachEvent，attachEvent(onclick,fn);/移除:detachEvent
+          // 问题:attachEvent的this指向是window(用call),IE后绑定的事件先调用,顺序有问题
+          target[type + handler] = function () {
+            handler.call(target);
+          };
+          target.attachEvent("on" + type, handler); // IE8.0及其以下版本
+        } else {
+          target["on" + type] = handler; // 早期浏览器
+        }
+      }
+      function doSomething() {
+        alert("兼容性处理,可以在所有情形下都正常工作");
+      }
+      var btn = document.getElementById("action-btn1");
+      addEvent(btn, "click", doSomething);
+    </script>
+
+    <script>
+      //另外还有人这么写也是可以的
+      function addEventListeners(ele, type, callback) {
+        try {
+          // Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+          ele.addEventListener(type, callback, false);
+        } catch (e) {
+          try {
+            // IE8.0及其以下版本
+            ele.attachEvent("on" + type, callback);
+          } catch (e) {
+            // 早期浏览器
+            ele["on" + type] = callback;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
