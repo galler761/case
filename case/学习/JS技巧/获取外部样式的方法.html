@@ -40,7 +40,9 @@
         //   return window.getComputedStyle(ele, null)[attr];
         // }
         // return ele.currentStyle[attr];
-        return ele.currentStyle ? ele.currentStyle[attr] : getComputedStyle(ele, null)[attr]; 
+        return ele.currentStyle
+          ? ele.currentStyle[attr]
+          : getComputedStyle(ele, null)[attr];
       }
     </script>
   </body>

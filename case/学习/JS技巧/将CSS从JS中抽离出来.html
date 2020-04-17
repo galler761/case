@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>将CSS从JS中抽离出来</title>
-  <style>
-    .reveal{
-      color: red;
-      font-size: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div id="div">
-    将CSS从JS中抽离出来
-  </div>
-  <script>
-    // 当需要通过js来修改元素样式的时候，通过操作CSS的className,最后在js中添加对应的类名即可。
-    // 推荐做法：js不应当直接操作样式，以便保持和CSS的松耦合。除了修改定位属性的默认值，比如style.top,style.left通过js中修改默认值。
-    var div = document.getElementById('div');
-    // 好的写法 - 原生写法
-    div.className += 'reveal'
-    // 好的写法 - HTML5
-    div.classList.add('reveal');
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>将CSS从JS中抽离出来</title>
+    <style>
+      .reveal {
+        color: red;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div">
+      将CSS从JS中抽离出来
+    </div>
+    <script>
+      // 当需要通过js来修改元素样式的时候，通过操作CSS的className,最后在js中添加对应的类名即可。
+      // 推荐做法：js不应当直接操作样式，以便保持和CSS的松耦合。除了修改定位属性的默认值，比如style.top,style.left通过js中修改默认值。
+      var div = document.getElementById("div");
+      // 好的写法 - 原生写法
+      div.className += "reveal";
+      // 好的写法 - HTML5
+      div.classList.add("reveal");
+    </script>
+  </body>
 </html>
